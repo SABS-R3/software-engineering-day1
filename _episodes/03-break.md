@@ -1,7 +1,7 @@
 ---
-title: "Background and Introduction"
-teaching: 40
-exercises: 0
+title: "Break"
+teaching: 0
+exercises: 20
 questions:
 - "Key question (FIXME)"
 objectives:

@@ -1,6 +1,6 @@
 ---
-title: "Background and Introduction"
-teaching: 40
+title: "Python Integrated Development Environments"
+teaching: 80
 exercises: 0
 questions:
 - "Key question (FIXME)"
@@ -9,7 +9,9 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
+##
+
 
 {% include links.md %}
 

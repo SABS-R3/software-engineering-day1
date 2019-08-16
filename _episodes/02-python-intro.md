@@ -1,5 +1,5 @@
 ---
-title: "Background and Introduction"
+title: "Introduction to using Python"
 teaching: 40
 exercises: 0
 questions:
@@ -9,7 +9,18 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
+## Introduction to Python
+
+## Running the Python Interpreter
+
+## Variables
+
+## Python Data Types
+
+## Containers
+
+## Dictionaries
 
 {% include links.md %}
 

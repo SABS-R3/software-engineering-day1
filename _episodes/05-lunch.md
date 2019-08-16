@@ -1,7 +1,7 @@
 ---
-title: "Background and Introduction"
-teaching: 40
-exercises: 0
+title: "Lunch"
+teaching: 0
+exercises: 60
 questions:
 - "Key question (FIXME)"
 objectives:
