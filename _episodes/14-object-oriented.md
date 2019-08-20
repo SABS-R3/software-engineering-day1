@@ -1,7 +1,7 @@
 ---
 title: "Object Oriented Programming"
 teaching: 40
-exercises: 3330
+exercises: 30
 questions:
 - "What is encapsulation?"
 - "What is a class?"
@@ -15,7 +15,26 @@ keypoints:
 
 ## Creating Classes
 
+~~~
+class Academic:
+    def __init__(self, name):
+        self.name = name
+~~~
+{: .source}
+
 ### Special Methods
+
+Dunder methods
+
+~~~
+class Academic:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name
+~~~
+{: .source}
 
 ## Composition
 

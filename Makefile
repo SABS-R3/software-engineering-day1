@@ -7,6 +7,10 @@ JEKYLL=jekyll
 JEKYLL_VERSION=3.8.5
 PARSER=bin/markdown_ast.rb
 DST=_site
+SLIDES_DIR=slides
+SLIDES_MD=$(wildcard $(SLIDES_DIR)/[0-9][0-9]-*.md)
+SLIDES_HTML=$(patsubst %.md, %.html, $(SLIDES_MD))
+SLIDES_THEME=white
 
 # Controls
 .PHONY : commands clean files
@@ -22,11 +26,11 @@ docker-serve :
 	docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:${JEKYLL_VERSION} make serve
 
 ## serve            : run a local server.
-serve : lesson-md
+serve : lesson-md slides
 	${JEKYLL} serve
 
 ## site             : build files but do not run a server.
-site : lesson-md
+site : lesson-md slides
 	${JEKYLL} build
 
 # repo-check        : check repository settings.
@@ -38,6 +42,8 @@ clean :
 	@rm -rf ${DST}
 	@rm -rf .sass-cache
 	@rm -rf bin/__pycache__
+	@rm -f ${SLIDES_HTML}
+	@rm -f ${SLIDES_DIR}/index.html
 	@find . -name .DS_Store -exec rm {} \;
 	@find . -name '*~' -exec rm {} \;
 	@find . -name '*.pyc' -exec rm {} \;
@@ -119,3 +125,23 @@ lesson-fixme :
 #-------------------------------------------------------------------------------
 
 -include commands.mk
+
+.PHONY: slides
+slides: $(SLIDES_HTML) $(SLIDES_DIR)/index.html
+
+$(SLIDES_DIR)/index.html: $(SLIDES_DIR)/index.md
+	@cd $(SLIDES_DIR)
+	pandoc $< -o $@ -s
+	@cd ..
+
+$(SLIDES_DIR)/%.html: $(SLIDES_DIR)/%.md
+	@cd $(SLIDES_DIR)
+	pandoc -t revealjs -s -o $@ $< -V theme=$(SLIDES_THEME)
+	@cd ..
+
+.PHONY: variables
+variables:
+	@echo SLDIES_MD: $(SLIDES_MD)
+	@echo SLIDES_HTML: $(SLIDES_HTML)
+	@echo THEME: $(THEME)
+

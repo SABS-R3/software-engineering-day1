@@ -14,4 +14,7 @@ FIXME: home page introduction
 > FIXME
 {: .prereq}
 
+# Slides
+Slides are accessible [here](/slides/index.html).
+
 {% include links.md %}
