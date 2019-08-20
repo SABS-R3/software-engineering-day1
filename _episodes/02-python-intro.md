@@ -194,6 +194,8 @@ print(full)
 ~~~
 {: .language-python}
 
+Here we use the `+` operator to concatenate strings together.
+
 ~~~
 "Joe Frederick 'Bloggs'"
 ~~~
@@ -202,12 +204,21 @@ print(full)
 
 ### Booleans
 
-~~~
+We can use boolean variables to capture `True` or `False`, useful in conditionals and loops, e.g.:
 
+~~~
+is_joe = (given == 'Joe')
+flag = False
+print(is_joe, flag)
 ~~~
 {: .language-python}
 
-### No value?
+~~~
+True
+~~~
+{: .output}
+
+### No Value?
 
 We can also assign variable with no value:
 
@@ -222,6 +233,8 @@ None
 ~~~
 {: .output}
 
+`None` is the special Python value for a no-value variable.
+
 If that's the output, what's the type of `nothing`?
 
 ~~~
@@ -234,9 +247,23 @@ type(nothing)
 ~~~
 {: .output}
 
-`None` is the special Python value for a no-value variable.
-
 Python also supports complex (imaginary) numbers, if you're interested.
+
+### Converting Between Types
+
+With floats, ints and strings, we can use in-built functions to convert between types:
+
+~~~
+age, house_number = 30, '76'
+print(str(age), float(age), int(house_number))
+~~~
+{: .language-python}
+
+~~~
+30 30.0 76
+~~~
+{: .output}
+
 
 
 ## Containers
