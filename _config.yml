@@ -96,6 +96,7 @@ exclude:
   - Makefile
   - bin/
   - .Rproj.user/
+  - venv/
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
