@@ -5,10 +5,6 @@
 
 * Combination of lectures, 'live coding' practical sessions
 
-## Timetable
-
-## Acknowledgements
-
 ## Why Python?
 
 - Free, well-documented, runs almost everywhere
@@ -44,24 +40,20 @@ numerical processing, education, HPC, at Google, ...
     + 'Short version: Python 2.x is legacy, Python 3.x is the present and future of the language'
 - For new projects, use Python 3!
 
-## Learning objectives
-
-- how to assign values to variables, simple operations
-- how to repeat actions with loops
-- how to make choices using conditionals
-- how to write procedural Python code
-- how to write object oriented Python code
-
 ## Many different kinds of Python
 
 - Python interpreter - via the command line
 - Jupyter Notebook - mix code, commentary, and results
-- Python scripts - essentially a 'program' in a file to run
+- Python scripts - a 'program' in a file to run
 - PyCharm - edit, run, and debug Python scripts
 
-## Outline
+## Learning objectives
 
-- An overview of Python
+- how to assign values to variables, Python types, simple operations
+- how to repeat actions with loops
+- how to make choices using conditionals
+- how to write procedural Python code
+- how to write object oriented Python code
 
 ## Books
 
