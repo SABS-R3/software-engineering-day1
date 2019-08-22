@@ -1,6 +1,6 @@
 ---
 title: "Background and Introduction"
-teaching: 40
+teaching: 30
 exercises: 0
 questions:
 - "Key question (FIXME)"
@@ -9,7 +9,8 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-FIXME
+
+See topic [slides](/slides/01-introduction.html).
 
 {% include links.md %}
 

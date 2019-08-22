@@ -1,8 +1,10 @@
 *.pyc
 *~
 .DS_Store
+.ipynb
 .ipynb_checkpoints
 .sass-cache
+.jekyll-cache/
 __pycache__
 _site
 .Rproj.user
@@ -10,3 +12,4 @@ _site
 .RData
 .idea/
 _site/
+venv/

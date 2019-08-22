@@ -1,6 +1,6 @@
 ---
-title: "Python Integrated Development Environments"
-teaching: 80
+title: "PyCharm as an Integrated Development Environment"
+teaching: 40
 exercises: 0
 questions:
 - "Key question (FIXME)"
@@ -9,9 +9,4 @@ objectives:
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
-
-##
-
-
-{% include links.md %}
 
