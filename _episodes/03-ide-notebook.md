@@ -12,6 +12,8 @@ keypoints:
 
 ## Introduction to Jupyter Notebooks
 
+See topic [slides](../slides/03-ide-notebook.html).
+
 ## An Example Notebook
 
 ## Object State within Notebooks
