@@ -21,9 +21,43 @@ In this paradigm, we shift our focus from the process of computation, to the dat
 The overarching idea here, is that data should be structured such that all data related to the same **object** should be stored together.
 This is easiest to understand when thinking about the data representing a real-world, physical object, but is also applicable to more abstract concepts.
 
-Since all of the data representing a single **object**
+Since all of the data representing a single **object** is now stored together, it makes sense to store the code representing the **behaviour** of that object in the same place.re
+So, a class is a template describing the structure of some collection of data, along with the code necessary to describe the behaviour of that data.
 
 You may wish to think of the Object Oriented Paradigm as focussing on the **nouns** of a computation.
+
+## Using Classes
+
+Just like functions, we've already been using some of the classes built into Python.
+
+~~~
+my_list = [1, 2, 3]
+my_dict = {1: '1', 2: '2', 3: '3'}
+my_set = {1, 2, 3}
+
+print(type(my_list))
+print(type(my_dict))
+print(type(my_set))
+~~~
+{: .language-python}
+
+~~~
+<class 'list'>
+<class 'dict'>
+<class 'set'>
+~~~
+{: .output}
+
+Lists, dictionaries and sets are a slightly special type of class, but they behave in much the same way as a class we might define ourselves.
+They each contain data, as we have seen before.
+They also provide a set of functions, or **methods** which describe the **behaviours** of the data.
+
+The behaviours we have seen previously include:
+- Lists can be appended to
+- Lists can be indexed (we'll get to this later)
+- Lists can be sliced (we won't get to this)
+- The union of two sets can be found
+- The intersection of two sets can be found
 
 ## Creating Classes
 
