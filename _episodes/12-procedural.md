@@ -29,7 +29,7 @@ You may wish to think of the Procedural Paradigm as focussing on the **verbs** o
 Python has many pre-defined functions built in.
 We've already met some of them.
 
-To use, or "call", a function we use the name of the function, followed by brackets containing any **arguments** we wish to provide to the function.
+To use, or "call", a function we use the name of the function, followed by brackets containing any **parameters** that the function will accept.
 All functions in Python **return** a single value as their result.
 
 > ## Return Values
@@ -45,6 +45,23 @@ print(len('Python'))
 
 ~~~
 6
+~~~
+{: .output}
+
+Some functions are a little different in that they belong to an object, so must be accessed through the object using the dot operator.
+These are called **methods** or **member functions**.
+We've already seen some of these as well, but we'll see more when we get to the Object Oriented Paradigm later.
+
+~~~
+nums = [1, 2, 3]
+nums.append(4)
+
+print(nums)
+~~~
+{: .language-python}
+
+~~~
+[1, 2, 3, 4]
 ~~~
 {: .output}
 
@@ -64,15 +81,39 @@ print(add_one(1))
 {: .output}
 
 ~~~
-def say_hello(name='World'):
+def say_hello(name):
     return 'Hello, ' + name + '!'
 
-print(say_hello('Python'))
+print(say_hello('World'))
 ~~~
 {: .language-python}
 
 ~~~
+Hello, World!
+~~~
+{: .output}
+
+Functions may have default values for parameters.
+When we call a function, parameters with default values can be used in one of three ways:
+
+1. We can use the default value, by not providing our own value
+2. We can provide our own value in the way we have previously
+3. We can provide a value in the form of a **named argument** - arguments which are not named are called **positional arguments**
+
+~~~
+def say_hello(name='World'):
+    return 'Hello, ' + name + '!'
+
+print(say_hello())
+print(say_hello('Python'))
+print(say_hello(name='Named Argument'))
+~~~
+{: .language-python}
+
+~~~
+Hello, World!
 Hello, Python!
+Hello, Named Argument!
 ~~~
 {: .output}
 
@@ -99,6 +140,42 @@ Hello, Python!
 > >     return wrapper + original + wrapper
 > > ~~~
 > > {: .language-python}
+> {: .solution}
+{: .challenge}
+
+> ## Custom Greetings
+>
+> Create a new version of the `say_hello` function which has two parameters, `greeting` and `name`, both with default values.
+> How many different ways can you call this function?
+>
+> > ## Solution
+> >
+> > ~~~
+> > def say_hello(greeting='Hello', name='World'):
+> >     return greeting + ', ' + name + '!'
+> >
+> > # No arguments - both default values
+> > print(say_hello())
+> > 
+> > # One positional argument, one default value
+> > print(say_hello('Hello'))
+> > 
+> > # One named argument
+> > print(say_hello(greeting='Hello'))
+> > print(say_hello(name='World'))
+> >
+> > # Both positional arguments
+> > print(say_hello('Hello', 'World'))
+> >
+> > # One positional argument, then one named argument
+> > print(say_hello('Hello', name='World'))
+> >
+> > # Both named arguments
+> > print(say_hello(greeting='Hello', name='World'))
+> > ~~~
+> > {: .language-python}
+> >
+> > You should have found that Python will not let you have positional arguments after named ones.
 > {: .solution}
 {: .challenge}
 
@@ -137,6 +214,50 @@ Hello, Python!
 > > This is known as variable scoping.
 > {: .solution}
 {: .challenge}
+
+## Function Composition
+
+One of the main reasons for defining a function is to encapsulate our code, so that we can use it without having to worry about how the computation is performed.
+This means we're free to use any way we want, including deferring some part of the task to another function that already exists.
+
+~~~
+def fahr_to_cels(fahr):
+    # Convert temperature in Fahrenheit to Celsius
+    cels = (fahr + 32) * (5 / 9)
+    return cels
+
+def fahr_to_kelv(fahr):
+    # Convert temperature in Fahrenheit to Kelvin
+    cels = (fahr + 32) * (5 / 9)
+    kelv = cels + 273.15
+    return kelv
+~~~
+{: .language-python}
+
+~~~
+def fahr_to_cels(fahr):
+    # Convert temperature in Fahrenheit to Celsius
+    cels = (fahr + 32) * (5 / 9)
+    return cels
+
+def fahr_to_kelv(fahr):
+    # Convert temperature in Fahrenheit to Kelvin
+    cels = fahr_to_cels(fahr)
+    kelv = cels + 273.15
+    return kelv
+~~~
+{: .language-python}
+
+~~~
+def fahr_to_cels(fahr):
+    # Convert temperature in Fahrenheit to Celsius
+    return (fahr + 32) * (5 / 9)
+
+def fahr_to_kelv(fahr):
+    # Convert temperature in Fahrenheit to Kelvin
+    return fahr_to_cels(fahr) + 273.15
+~~~
+{: .language-python}
 
 ## Managing Academics
 
@@ -182,7 +303,6 @@ print(total)
 ~~~
 {: .output}
 
-## Composing Functions
 ~~~
 def list_papers(academics):
     papers = []

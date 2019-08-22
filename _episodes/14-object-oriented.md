@@ -51,7 +51,7 @@ class Academic:
 ## Composition
 
 ## Inheritance
-{% comment %}Briefly mention multiple inheritance, the "deadly diamond of death" and how Python copes with it{% endcomment %}
+{% comment %}Briefly mention multiple inheritance, the "deadly diamond of death" and how Python copes with it (C3 Linearisation){% endcomment %}
 
 ## Comparison of Composition and Inheritance
 ~~~
