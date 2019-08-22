@@ -1,19 +1,20 @@
 ---
-title: "Python Integrated Development Environments"
-teaching: 80
+title: "Jupyter Notebooks as an Integrated Development Environment"
+teaching: 20
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "FIXME"
 objectives:
-- "First learning objective. (FIXME)"
+- "FIXME"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "FIXME"
 ---
 
-## Jupyter Notebooks
+## Introduction to Jupyter Notebooks
 
+## An Example Notebook
 
-### Object State within Notebooks
+## Object State within Notebooks
 
 When I type code in the notebook, the objects live in memory between cells.
 
@@ -48,10 +49,6 @@ If I now go back to Input 33, `reading number = number + 1`, and run it again, w
 So it's important to remember that if you move your cursor around in the notebook, it doesn't always run top to bottom.
 
 FIXME: add in warning about hidden state in notebooks
-
-
-## PyCharm
-
 
 {% include links.md %}
 
