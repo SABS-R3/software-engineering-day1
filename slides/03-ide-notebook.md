@@ -17,7 +17,7 @@ FIXME: add screenshot of notebook with annotations
 - Support for many languages, e.g. Python, Java, R, Julia, Fortran
 - Many helpful features, e.g. autocompletion
 - Can save notebooks as a reproducible process to generate output
-- Exploratory data analyses
+- Exploratory data analyses and visualisation
 - Export formats, e.g. Python, PDF, LaTeX
 - Excellent for research, demonstration, teaching
 - A good compromise between interpreter and full IDE like PyCharm

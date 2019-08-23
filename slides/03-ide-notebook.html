@@ -9,7 +9,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -27,7 +32,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section>
+<section id="title-slide">
   <h1 class="title">Integrated Development Environment: Jupyter Notebook</h1>
   <p class="author">SSI</p>
 </section>
@@ -38,7 +43,7 @@
 <li>An <em>Integrated Development Environment</em>, or IDE</li>
 <li>Like the interpreter, but previous commands are interactive</li>
 <li>Can edit previous commands, output is recalculated</li>
-<li>Can mix code with discussion, commentary, and results (e.g. text output, graphs)</li>
+<li>Can mix code with discussion, commentary, and results (e.g. text output, graphs)</li>
 </ul>
 </section>
 <section id="an-example-notebook" class="slide level2">
@@ -48,11 +53,11 @@
 <section id="why-use-notebooks" class="slide level2">
 <h2>Why use Notebooks?</h2>
 <ul>
-<li>Support for many languages, e.g. Python, Java, R, Julia, Fortran</li>
-<li>Many helpful features, e.g. autocompletion</li>
+<li>Support for many languages, e.g. Python, Java, R, Julia, Fortran</li>
+<li>Many helpful features, e.g. autocompletion</li>
 <li>Can save notebooks as a reproducible process to generate output</li>
-<li>Exploratory data analyses</li>
-<li>Export formats, e.g. Python, PDF, LaTeX</li>
+<li>Exploratory data analyses and visualisation</li>
+<li>Export formats, e.g. Python, PDF, LaTeX</li>
 <li>Excellent for research, demonstration, teaching</li>
 <li>A good compromise between interpreter and full IDE like PyCharm</li>
 </ul>
@@ -62,7 +67,7 @@
 <p>For creating and editing notebooks:</p>
 <ul>
 <li>Interactive notebooks are hosted by a server and provided via a web browser</li>
-<li>Temporary notebooks hosted via JupyterHub, e.g. jupyter.org</li>
+<li>Temporary notebooks hosted via JupyterHub, e.g. jupyter.org</li>
 <li>Install and use Jupyter locally</li>
 </ul>
 <p>For viewing notebooks statically:</p>
@@ -82,12 +87,14 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
 
         // Optional reveal.js plugins
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

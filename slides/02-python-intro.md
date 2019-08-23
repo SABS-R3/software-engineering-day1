@@ -3,7 +3,7 @@
 
 ## Administration
 
-* Combination of lectures, 'live coding' practical sessions
+* Combination of lectures, 'live coding' practical sessions, and exercises
 
 ## Why Python?
 
@@ -40,7 +40,22 @@ numerical processing, education, HPC, at Google, ...
     + 'Short version: Python 2.x is legacy, Python 3.x is the present and future of the language'
 - For new projects, use Python 3!
 
+## Distributions of Python
+
+A basic Python installation:
+
+- Python interpreter
+- Tools to install additional and manage Python packages
+
+Anaconda Python Distribution:
+
+- Targeted at data science
+- Integrated set of over 720 Python packages
+- Easier package installation and compatibility
+
 ## Many different kinds of Python
+
+On top of a Python installation:
 
 - Python interpreter - via the command line
 - Jupyter Notebook - mix code, commentary, and results
