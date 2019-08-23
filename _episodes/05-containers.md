@@ -132,6 +132,8 @@ TypeError: 'str' object does not support item assignment
 ~~~
 {: .output}
 
+FIXME: add in join(), split() for lists/strings
+
 ### Adding and Deleting Elements
 
 We can also add and delete elements from a Python list at any time:
