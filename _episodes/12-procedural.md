@@ -270,19 +270,91 @@ academics = [
     {
         'name': 'Alice',
         'papers': [
-            'My science paper',
-            'My other science paper'
+            {
+                'title': 'My science paper',
+                'day': 0
+            },
+            {
+                'title': 'My other science paper',
+                'day': 5
+            }
         ]
     },
     {
         'name': 'Bob',
         'papers': [
-            'Bob writes about science'
+            {
+                'title': 'Bob writes about science',
+                'day': 3
         ]
     }
 ]
 ~~~
 {: .language-python}
+
+We want a convenient way to add new papers to the data structure.
+
+~~~
+def write_paper(academics, name, title, day):
+    paper = {
+        'title': title,
+        'day': day
+    }
+
+    for academic in academics:
+        if academic['name'] == name:
+            academic['name']['papers'].append(paper)
+            break
+~~~
+{: .language-python}
+
+What happens if we call this function for an academic who doesn't exist?
+
+> ## Exceptions
+> In many programming languages, we use **exceptions** to indicate that exceptional behaviour has occured and the flow of execution should be diverted.
+> 
+> Exceptions are often **raised** (**thrown** in some other programming languages) as the result of an error condition.
+> The flow of execution is then returned (the exception is **caught** or **handled**) to a point where the error may be corrected or logged.
+>
+> In Python, exceptions may also be used to alter the flow of execution even when an error has not occured.
+> For example, when iterating over a collection, a `StopIteration` exception is used to tell the loop construct to terminate.
+>
+> ~~~
+> def write_paper(academics, name, title, day):
+>     if name not in academics:
+>         raise KeyError('Named academic does not exist')
+>
+>     paper = {
+>         'title': title,
+>         'day': day
+>     }
+> 
+>     for academic in academics:
+>         if academic['name'] == name:
+>             academic['name']['papers'].append(paper)
+>             break
+> ~~~
+> {: .language-python}
+>
+> Or
+>
+> ~~~
+> def write_paper(academics, name, title, day):
+>     paper = {
+>         'title': title,
+>         'day': day
+>     }
+> 
+>     for academic in academics:
+>         if academic['name'] == name:
+>             academic['name']['papers'].append(paper)
+>             break
+>     else:
+>         raise KeyError('Named academic does not exist')
+> ~~~
+> {: .language-python}
+>
+{: .callout}
 
 ~~~
 def count_papers(academics):

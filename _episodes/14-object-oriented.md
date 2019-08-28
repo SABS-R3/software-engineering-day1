@@ -65,29 +65,159 @@ The behaviours we have seen previously include:
 class Academic:
     def __init__(self, name):
         self.name = name
+        self.papers = []
+
+alice = Academic('Alice')
 ~~~
 {: .language-python}
 
-### Special Methods
-
-Dunder methods
+### Methods
 
 ~~~
 class Academic:
     def __init__(self, name):
         self.name = name
+        self.papers = []
 
-    def __str__(self):
-        return self.name
+    def write_paper(title, day):
+        new_paper = {
+            'title': title,
+            'day': day
+        }
+
+        self.papers.append(new_paper)
+        return new_paper
+
+alice = Academic('Alice')
+paper = alice.write_paper('A new paper', 3)
+
+print(paper)
 ~~~
 {: .language-python}
 
-## Composition
+~~~
+{'title': 'A new paper', 'day': 3}
+~~~
+{: .output}
 
-## Inheritance
+### Dunder Methods
+
+~~~
+class Academic:
+    def __init__(self, name):
+        self.name = name
+        self.papers = []
+
+    def __str__(self):
+        return self.name
+
+alice = Academic('Alice')
+print(alice)
+~~~
+{: .language-python}
+
+~~~
+Alice
+~~~
+{: .output}
+
+## Relationships
+
+We now have a language construct for grouping data and behaviour related to a single conceptual object.
+The next step is talking about the relationships between objects.
+
+There are two types of relationships between objects which are useful to be able to describe:
+1. Ownership - x **has a** y - **composition**
+2. Identity - x **is a** y - **inheritance**
+
+### Composition
+
+Composition is about ownership of an object or resource - x **has a** y.
+
+In the case of our academics example, we can say that academics have papers.
+
+~~~
+class Paper:
+    def __init__(self, title, day):
+        self.title = title
+        self.day = day
+
+    def __str__(self):
+        return self.title
+
+class Academic:
+    def __init__(self, name):
+        self.name = name
+        self.papers = []
+
+    def write_paper(title, day):
+        new_paper = Paper(title, day)
+
+        self.papers.append(new_paper)
+        return new_paper
+
+alice = Academic('Alice')
+paper = alice.write_paper('A new paper', 3)
+
+print(paper)
+~~~
+{: .language-python}
+
+~~~
+A new paper
+~~~
+{: .output}
+
+### Inheritance
+
+Inheritance is about behaviour shared by classes, because they have some shared identity.
+
+For instance
+
+~~~
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name
+
+class Academic(Person):
+    def __init__(self, name):
+        super().__init__(name)
+        self.papers = []
+
+    def write_paper(title, day):
+        new_paper = Paper(title, day)
+
+        self.papers.append(new_paper)
+        return new_paper
+
+alice = Acadmic('Alice')
+print(alice)
+
+bob = Person('Bob')
+print(bob)
+
+paper = alice.write_paper('A paper', 0)
+print(paper)
+
+paper = bob.write_paper('A different paper', 0)
+print(paper)
+~~~
+{: .language-python}
+
+~~~
+Alice
+Bob
+A paper
+AttributeError
+~~~
+{: .output}
+
 {% comment %}Briefly mention multiple inheritance, the "deadly diamond of death" and how Python copes with it (C3 Linearisation){% endcomment %}
 
-## Comparison of Composition and Inheritance
+### Composition vs Inheritance
 ~~~
 class Machine:
     pass
