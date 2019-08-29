@@ -54,7 +54,7 @@ from matplotlib import pyplot
 ~~~
 {: .language-python}
 
-The first line is known as a notebook *magic*, and tells matplotlib that we want its output to be displayed inline, in our case within a notebook. This means our visualisations, as we generate them, will be displayed immediately.
+The first line is known as a notebook *magic*, and tells matplotlib that we want its output to be displayed inline, in our case within a notebook, instead of in a separate window. This means our visualisations, as we generate them, will be displayed immediately.
 
 The next two lines tell Python that we want to load each library. The first one tells Python that we want to import (and make use of) the NumPy library, and we'll refer to this library in our code by using `numpy`. The second one indicates we want to import a specific module within the matplotlib library called `pyplot`, and we will refer to this module as `pyplot`.
 
@@ -102,7 +102,7 @@ By default, only a few rows and columns are shown (with `...` to omit elements w
 
 The data in this case has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading for that day. So this shows the results of measuring the inflammation of 60 patients over a 40 day period.
 
-## Visualising our Example Dataset
+### Visualising our Example Dataset
 
 Now we have our inflammation dataset loaded, let's visualise some of it. Let's look at the first patient's data. In the next cell:
 
@@ -112,13 +112,15 @@ inf_plot = pyplot.plot(data[0])
 ~~~
 {: .language-python}
 
+Note that as with lists, NumPy arrays also start at zero. So here, we are looking at just the first row of data, i.e. the first patient.
+
 FIXME: insert graph image of first patient's data
 
 Here we can see a graph of the first patient's inflammation over the 40 day period, clearly indicating a trend towards a peak in the middle of the trial, and a trend towards zero inflammation after that.
 
 What's interesting is that we've used a notebook to very quickly visualise part of our data.
 
-## A Warning about Object State
+### A Warning about Object State
 
 When I type code in the notebook, the objects live in memory between cells. So far, we've entered Python into each cell in order, and each cell has been evaluated in order. But we can also change cell contents and re-evaluate them.
 
@@ -169,11 +171,22 @@ To ensure we have a our notebook in a consistent state, we can re-evaluate all c
 > However, if we constantly re-evaluate the second cell, the number will continue to increment. So it's important to remember that if you move your cursor around in the notebook and change things, it doesn't always run top to bottom.
 {: .callout}
 
+> ## Mystery Functions in Notebooks
+>
+> Is there any easy way to find out what functions NumPy has and how to use them?
+> If you are working in a Jupyter Notebook, you can.
+> If you type the name of something followed by a dot, then you can use tab completion
+> (e.g. type `numpy.` and then press tab)
+> to see a list of all functions and attributes that you can use. After selecting one, you
+> can also add a question mark (e.g. `numpy.cumprod?`), and IPython will return an
+> explanation of the method! This is the same as doing `help(numpy.cumprod)`.
+{: .callout}
+
 ## Saving and Reloading a Notebook
 
 We can also save the state of a notebook and reload it later. First, let's give our notebook a name. select the `.ipynb` title at the top of the notebook and enter a filename ending in `.ipynb`, e.g. `Inflammation.ipynb`.
 
-If you select `File` > `Save as...`, leave the directory option blank, then select `Save`, the notebook will be saved
+If you select `File` > `Save as...`, leave the directory option blank, then select `Save`, the notebook will be saved in the directory where you started the Jupyter notebook.
 
 
 ## Exporting a Notebook to Another Format
