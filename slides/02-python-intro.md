@@ -37,8 +37,7 @@ numerical processing, education, HPC, at Google, ...
     + Many consistency improvements - removing redundancy
     + In places, simply more sensible e.g. integer division
     + Python 2 support will end in 2020
-    + 'Short version: Python 2.x is legacy, Python 3.x is the present and future of the language'
-- For new projects, use Python 3!
+- 'Short version: Python 2.x is legacy, Python 3.x is the present and future of the language'
 
 ## Distributions of Python
 
