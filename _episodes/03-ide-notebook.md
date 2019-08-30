@@ -1,13 +1,26 @@
 ---
 title: "Jupyter Notebooks as an Integrated Development Environment"
-teaching: 20
+teaching: 30
 exercises: 0
 questions:
-- "FIXME"
+- "What is a Jupyter Notebook and what are the advantages of using one?"
+- "How can I analyse example numerical data in Python?"
 objectives:
-- "FIXME"
+- "Explain the differences between using the Python interpreter and a Jupyter Notebook."
+- "Create a Jupyter Notebook and use it to run Python commands."
+- "Import Python numerical and visualisation libraries."
+- "Read tabular data from a file into a program and visualise that data."
+- "Explain how object state persists within a Notebook."
+- "Save, reload, and export a Notebook."
 keypoints:
-- "FIXME"
+- "A Juptyer Notebook is a type of Integrated Development Environment, or IDE."
+- "Launch the Jupyter application using `jupyter notebook` from the command line."
+- "The Python interpreter always runs commands sequentially, whilst a Notebook runs each 'cell' of commands in the order in which the user processes them."
+- "Import a library into a Python script using `import libraryname`."
+- "Use `numpy.loadtxt()` to load in numerical tabular data into Python."
+- "Use the `pyplot` library from `matplotlib` to create a simple visualization of data."
+- "Use the Jupyter Notebook menu to save and export Notebooks to local storage."
+- "Use the Jupyter application menu to reload Notebooks from local storage."
 ---
 
 ## Introduction to Jupyter Notebooks
@@ -102,6 +115,17 @@ By default, only a few rows and columns are shown (with `...` to omit elements w
 
 The data in this case has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading for that day. So this shows the results of measuring the inflammation of 60 patients over a 40 day period.
 
+> ## Mystery Functions in Notebooks
+>
+> Is there any easy way to find out what functions NumPy has and how to use them?
+> If you are working in a Jupyter Notebook, you can.
+> If you type the name of something followed by a dot, then you can use tab completion
+> (e.g. type `numpy.` and then press tab)
+> to see a list of all functions and attributes that you can use. After selecting one, you
+> can also add a question mark (e.g. `numpy.cumprod?`), and IPython will return an
+> explanation of the method! This is the same as doing `help(numpy.cumprod)`.
+{: .callout}
+
 ### Visualising our Example Dataset
 
 Now we have our inflammation dataset loaded, let's visualise some of it. Let's look at the first patient's data. In the next cell:
@@ -169,17 +193,6 @@ To ensure we have a our notebook in a consistent state, we can re-evaluate all c
 > {: .output}
 >
 > However, if we constantly re-evaluate the second cell, the number will continue to increment. So it's important to remember that if you move your cursor around in the notebook and change things, it doesn't always run top to bottom.
-{: .callout}
-
-> ## Mystery Functions in Notebooks
->
-> Is there any easy way to find out what functions NumPy has and how to use them?
-> If you are working in a Jupyter Notebook, you can.
-> If you type the name of something followed by a dot, then you can use tab completion
-> (e.g. type `numpy.` and then press tab)
-> to see a list of all functions and attributes that you can use. After selecting one, you
-> can also add a question mark (e.g. `numpy.cumprod?`), and IPython will return an
-> explanation of the method! This is the same as doing `help(numpy.cumprod)`.
 {: .callout}
 
 ## Saving and Reloading a Notebook

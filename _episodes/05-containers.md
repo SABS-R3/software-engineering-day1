@@ -1,13 +1,26 @@
 ---
 title: "Containers"
-teaching: 20
+teaching: 30
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "How can I store many values together?"
 objectives:
-- "Select individual values and subsections from data."
+- "Explain what lists, tuples, sets, and dictionaries are, and their key differences."
+- "Create, populate, and retrieve values from lists and other containers."
+- "Reorder and slice list elements."
+- "Change the values of individual container elements where supported."
+- "Select individual values and subsections from containers."
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Python containers can contain values of any type."
+- "Lists, sets, and dictionaries are mutable types whose values can be changed after creation."
+- "Lists store elements as an ordered sequence of potentially non-unique values."
+- "Dictionaries store elements as unordered key-value pairs."
+- "Dictionary keys are required to be of an immutable type."
+- "Sets are an unordered collection of unique elements."
+- "Containers can contain other containers as elements."
+- "Use `x[a:b]` to extract a subset of data from `x`, with `a` and `b` representing element *boundaries*, not indexes."
+- "Tuples are an immutable type whose values cannot be changed after creation and must be re-created."
+- "Doing `x = y`, where `y` is a container, doesn't copy its elements, it just creates a new reference to it."
 ---
 
 *Container* types are those that can hold other objects.
@@ -97,6 +110,44 @@ Which will show us the whole list.
 [1, 3, 5, 7, 9, 11, 13]
 ~~~
 {: .output}
+
+> ## Slicing From the End
+>
+> Use slicing to access only the last four characters of a string or entries of a list.
+>
+> ~~~
+> string_for_slicing = "Observation date: 02-Feb-2013"
+> list_for_slicing = [["fluorine", "F"],
+>                     ["chlorine", "Cl"],
+>                     ["bromine", "Br"],
+>                     ["iodine", "I"],
+>                     ["astatine", "At"]]
+> ~~~
+> {: .language-python}
+>
+> ~~~
+> "2013"
+> [["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> ~~~
+> {: .output}
+>
+> Would your solution work regardless of whether you knew beforehand
+> the length of the string or list
+> (e.g. if you wanted to apply the solution to a set of lists of different lengths)?
+> If not, try to change your approach to make it more robust.
+>
+> Hint: Remember that indices can be negative as well as positive
+>
+> > ## Solution
+> > Use negative indices to count elements from the end of a container (such as list or string):
+> >
+> > ~~~
+> > string_for_slicing[-4:]
+> > list_for_slicing[-4:]
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
 
 ### Strings as Containers
 
@@ -226,6 +277,21 @@ Since x and y are equal sets, we get:
 
 ~~~
 True
+~~~
+{: .output}
+
+We can also add and remove set elements:
+
+~~~
+x.remove(2)
+x.add(3)
+print(x)
+~~~
+
+Note that the `remove` and `add` methods change `x` directly:
+
+~~~
+{1, 3}
 ~~~
 {: .output}
 
@@ -434,7 +500,8 @@ TypeError: unhashable type: 'list'
 
 Remember -- square brackets denote lists, round brackets denote tuples.
 
-No guarantee of order
+### No Guarantee of Order
+
 Another consequence of the way dictionaries work is that there's no guaranteed order among the elements:
 
 ~~~
@@ -450,5 +517,50 @@ dict_values([2, 1, 0, 3, 4])
 ~~~
 {: .output}
 
-{% include links.md %}
+## Beware 'Copying' of Containers!
 
+Here, note that `y` is not equal to the contents of 'x', it is a second label on the *same object*. So when we change `y`, we are also changing `x`. This is generally true for mutable types in Python.
+
+~~~
+x = [1, 2, 3]
+y = x[:]
+y[1] = 20
+print(x, y)
+~~~
+{: .language-python}
+
+~~~
+[1, 2, 3] [1, 20, 3]
+~~~
+{: .output}
+
+In this case, we are using `x[:]` to create a new list containing all the elements of `x` which is assigned to `y`. This happens whenever we take any sized slice from a list.
+
+This gets more complicated when we consider nested lists.
+
+~~~
+x = [['a', 'b'] , 'c']
+y = x
+z = x[:]
+
+x[0][1] = 'd'
+z[1] = 'e'
+
+print(x, y, z)
+~~~
+{: .language-python}
+
+~~~
+[['a', 'd'], 'c'] [['a', 'd'], 'c'] [['a', 'd'], 'e']
+~~~
+{: .output}
+
+Note that `x` and `y` are the same as we may not expect. But `z`, despite being a copy of `x`, now contains `'d'` in its nested list.
+
+The copies that we make through slicing are called shallow copies: we don't copy all the objects they contain, only the references to them. This is why the nested list in `x[0]` is not copied, so `z[0]` still refers to it. It is possible to actually create copies of all the contents, however deeply nested they are - this is called a *deep copy*. Python provides methods for that in its standard library in the `copy` module.
+
+## General Rule
+
+Your programs will be faster and more readable if you use the appropriate container type for your data's meaning. Always use a set for lists which can't in principle contain the same data twice, always use a dictionary for anything which feels like a mapping from keys to values.
+
+{% include links.md %}
