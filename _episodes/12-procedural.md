@@ -356,6 +356,8 @@ What happens if we call this function for an academic who doesn't exist?
 >
 {: .callout}
 
+FIXME - add JSON as a callout - content in RSD course
+
 ~~~
 def count_papers(academics):
     count = 0

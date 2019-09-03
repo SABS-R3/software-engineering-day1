@@ -71,6 +71,21 @@ alice = Academic('Alice')
 ~~~
 {: .language-python}
 
+> ## Data Classes
+> Added in Python 3.7 to automatically generate some of the class structure.
+> Intended for classes where the data is more important than the behaviour, but are otherwise completely normal classes.
+>
+> ~~~
+> @dataclass
+> class Academic:
+>     name: str
+>     papers: List[Dict] = field(default_factory=list)
+>
+> alice = Academic('Alice')
+> ~~~
+> {: .language-python}
+{: .callout}
+
 ### Methods
 
 ~~~
@@ -138,9 +153,9 @@ In the case of our academics example, we can say that academics have papers.
 
 ~~~
 class Paper:
-    def __init__(self, title, day):
+    def __init__(self, title, pub_day):
         self.title = title
-        self.day = day
+        self.pub_day = pub_day
 
     def __str__(self):
         return self.title
