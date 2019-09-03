@@ -85,6 +85,8 @@ print(six)
 ~~~
 {: .language-python}
 
+Note that in terms of naming variables, Python's variables must begin with a letter.
+
 ~~~
 6
 ~~~
