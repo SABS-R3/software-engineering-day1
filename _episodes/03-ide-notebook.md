@@ -11,7 +11,8 @@ objectives:
 - "Import Python numerical and visualisation libraries."
 - "Read tabular data from a file into a program and visualise that data."
 - "Explain how object state persists within a Notebook."
-- "Save, reload, and export a Notebook."
+- "Save and reload a Notebook."
+- "Export a notebook in PDF format."
 keypoints:
 - "A Juptyer Notebook is a type of Integrated Development Environment, or IDE."
 - "Launch the Jupyter application using `jupyter notebook` from the command line."
@@ -201,10 +202,11 @@ We can also save the state of a notebook and reload it later. First, let's give 
 
 If you select `File` > `Save as...`, leave the directory option blank, then select `Save`, the notebook will be saved in the directory where you started the Jupyter notebook.
 
-
 ## Exporting a Notebook to Another Format
 
+You also have the option to export your notebook and save it in a different format. There are many formats, but include Python scripts and PDF.
 
+To export a PDF version of your notebook, go to `File` > `Download as` > `pdf (.pdf)`. This will download the notebook with a title, date, and its content (both markdown and code cells' contents).
 
 {% include links.md %}
 
