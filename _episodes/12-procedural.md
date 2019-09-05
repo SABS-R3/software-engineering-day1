@@ -3,8 +3,8 @@ title: "Procedural Programming"
 teaching: 40
 exercises: 30
 questions:
-- "What is procedural programming?"
-- "How do I define new functions?"
+- "What is the Procedural paradigm?"
+- "How do I define functions in Python?"
 - "When should I use the Procedural paradigm?"
 objectives:
 - "Use functions to abstract details"

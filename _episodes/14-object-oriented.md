@@ -3,12 +3,15 @@ title: "Object Oriented Programming"
 teaching: 40
 exercises: 30
 questions:
-- "What is encapsulation?"
-- "What is a class?"
+- "What is the Object Oriented paradigm?"
 - "What is an object?"
+- "What is encapsulation?"
+- "How do I encapsulate data in Python?"
 - "When should I use the Object Oriented paradigm?"
 objectives:
-- "First learning objective. (FIXME)"
+- "Use classes to encapsulate data and behaviour"
+- "Describe behaviour shared by multiple classes using inheritance"
+- "Explain the difference between inheritance and composition"
 keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
