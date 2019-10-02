@@ -64,6 +64,8 @@ The behaviours we have seen previously include:
 
 ## Creating Classes
 
+So how do we create and use our own class in Python?
+
 ~~~
 class Academic:
     def __init__(self, name):
@@ -73,6 +75,11 @@ class Academic:
 alice = Academic('Alice')
 ~~~
 {: .language-python}
+
+Similar to functions, we begin by using a special keyword, in this case `class`, followed by a name, then a colon to begin a new block.
+Inside this block, we define the data and behaviour that we want the class to provide.
+
+Almost every class you define will have a `__init__` (pronounced "init" or "dunder-init") **method** which is responsible for 
 
 > ## Data Classes
 > Added in Python 3.7 to automatically generate some of the class structure.
@@ -90,6 +97,8 @@ alice = Academic('Alice')
 {: .callout}
 
 ### Methods
+
+
 
 ~~~
 class Academic:
@@ -144,7 +153,7 @@ Alice
 We now have a language construct for grouping data and behaviour related to a single conceptual object.
 The next step is talking about the relationships between objects.
 
-There are two types of relationships between objects which are useful to be able to describe:
+There are two fundamental types of relationship between objects which we need to be able to describe:
 1. Ownership - x **has a** y - **composition**
 2. Identity - x **is a** y - **inheritance**
 
