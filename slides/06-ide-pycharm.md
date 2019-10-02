@@ -6,14 +6,15 @@
 - An *Integrated Development Environment*, or IDE - more than just a code editor
 - Code editor, executer, tester, and debugger
 - The *de facto* IDE for Python
+- Two flavours: Community Edition, Professional Edition
 
 ## Why use PyCharm?
 
-- Context-sensitive assistance: code completion, error highlighting, code styling hints
+- Context-sensitive assistance: code completion, syntax highlighting, code styling hints
 - Scientific tools: Anaconda support, NumPy, matplotlib, ...
-- Cross-technology: support for JavaScript, SQL, HTML/CSS, Node.js, Markdown, ...
-- Tools: integrated debugger, profiler, terminal
-- Remote development: run, debug, test on remote servers
+- Tools: integrated debugger, profiler, refactoring, terminal
+- Version Control integration
+- Cross-technology: support for JavaScript, SQL, HTML/CSS, ...
 - Web development integration: Django, Flask, Google App Engine, ...
 
 ## The Interface

@@ -1,6 +1,6 @@
 ---
 title: "Jupyter Notebooks as an Integrated Development Environment"
-teaching: 30
+teaching: 45
 exercises: 0
 questions:
 - "What is a Jupyter Notebook and what are the advantages of using one?"

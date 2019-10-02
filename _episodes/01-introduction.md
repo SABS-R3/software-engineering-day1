@@ -1,6 +1,6 @@
 ---
 title: "Background and Introduction"
-teaching: 30
+teaching: 15
 exercises: 0
 questions:
 - "Key question (FIXME)"
