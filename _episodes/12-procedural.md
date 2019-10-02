@@ -231,6 +231,9 @@ def fahr_to_kelv(fahr):
     cels = (fahr + 32) * (5 / 9)
     kelv = cels + 273.15
     return kelv
+
+print(fahr_to_kelv(32))
+print(fahr_to_kelv(212))
 ~~~
 {: .language-python}
 
@@ -245,6 +248,9 @@ def fahr_to_kelv(fahr):
     cels = fahr_to_cels(fahr)
     kelv = cels + 273.15
     return kelv
+
+print(fahr_to_kelv(32))
+print(fahr_to_kelv(212))
 ~~~
 {: .language-python}
 
@@ -256,6 +262,9 @@ def fahr_to_cels(fahr):
 def fahr_to_kelv(fahr):
     # Convert temperature in Fahrenheit to Kelvin
     return fahr_to_cels(fahr) + 273.15
+
+print(fahr_to_kelv(32))
+print(fahr_to_kelv(212))
 ~~~
 {: .language-python}
 
