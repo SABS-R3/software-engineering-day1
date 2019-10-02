@@ -8,10 +8,6 @@
 - Can edit previous commands, output is recalculated
 - Can mix code with discussion, commentary, and results (e.g. text output, graphs)
 
-## An Example Notebook
-
-FIXME: add screenshot of notebook with annotations
-
 ## Why use Notebooks?
 
 - Support for many languages, e.g. Python, Java, R, Julia, Fortran
@@ -34,3 +30,7 @@ For viewing notebooks statically:
 
 - Using nbviewer at nbviewer.jupyter.org
 - GitHub renders notebooks stored in its repositories
+
+## An Example Notebook
+
+FIXME: add screenshot of Jupyter and notebook interfaces with annotations
