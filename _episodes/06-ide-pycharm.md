@@ -14,7 +14,7 @@ objectives:
 - "Store and retrieve Python scripts in PyCharm."
 keypoints:
 - "PyCharm needs to be configured to know which Python interpreter to use for a given project."
-- "Use for variable in sequence to process the elements of a sequence one at a time."
+- "Use for variable in sequence to process the elements of a collection one at a time."
 - "The body of a for loop must be indented."
 - "Use `if` condition to start a conditional statement, `elif` condition to provide additional tests, and `else` to provide a default."
 - "The bodies of the branches of conditional statements must be indented."
@@ -23,6 +23,7 @@ keypoints:
 - "`X or Y` is true if either `X` or `Y`, or both, are true."
 - "Zero, the empty string, and the empty list are considered false; all other numbers, strings, and lists are considered true."
 - "`True` and `False` represent truth values."
+- "Python's design is such that there should only be one (ideally obvious) way to do something."
 ---
 
 ## Introduction to PyCharm
@@ -36,7 +37,7 @@ If you haven't run PyCharm yet, do this now. You can skip the initial configurat
 
 Select `Open` and find the downloaded materials repository you unzipped earlier, and select the `module01_se_day-gh-pages/code` directory. This directory is now the current working directory for PyCharm, so when we run scripts from PyCharm, this is the directory they'll run from.
 
-You'll first be shown a 'Tip of the Day' window which you can safely ignore by selecting 'Close'. You'll notice the IDE shows you a navigator window on the left hand side, to traverse and select the files (and any subdirectories) within the working directory, and an editor window on the right which is currently blank.
+You'll first be shown a 'Tip of the Day' window which you can safely ignore by selecting `Close`. You'll notice the IDE shows you a navigator window on the left hand side, to traverse and select the files (and any subdirectories) within the working directory, and an editor window on the right which is currently blank.
 
 ## Our First Python Standalone Script
 
@@ -85,7 +86,7 @@ Once done, you're ready to run your script!
 
 ### Running the Script from within PyCharm
 
-You may notice that some new buttons have become active in the top right of the PyCharm IDE. In particular, the `>` play button is now active and can be selected. When you select it, the program will run in a terminal window at the bottom of the IDE window and display something like:
+Right-click the `hello_world.py` file in the PyCharm navigator on the left, and select `Run hello_world`. The program will run in a terminal window at the bottom of the IDE window and display something like:
 
 ~~~
 /Users/user/.conda/envs/code/bin/python /Users/user/module01_se_day1-gh-pages/code/hello_world.py
