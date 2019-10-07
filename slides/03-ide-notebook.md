@@ -31,6 +31,10 @@ For viewing notebooks statically:
 - Using nbviewer at nbviewer.jupyter.org
 - GitHub renders notebooks stored in its repositories
 
+## The Jupyter Notebook Server
+
+![](../fig/03-example-nb-server.png)
+
 ## An Example Notebook
 
-FIXME: add screenshot of Jupyter and notebook interfaces with annotations
+![](../fig/03-example-notebook.png)
