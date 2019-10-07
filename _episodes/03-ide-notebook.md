@@ -28,11 +28,9 @@ keypoints:
 
 See topic [slides](../slides/03-ide-notebook.html).
 
-## An Example Notebook
-
 ## Launching the Jupyter Notebook Application
 
-Fortunately, Jupyter notebooks are supported by default by the Anaconda distribution. On the command line, we can tell Jupyter to launch its notebook interface:
+Fortunately, Jupyter notebooks are supported by default by the Anaconda distribution. On the command line, we can tell Jupyter to launch its notebook server, which we use to :
 
 ~~~
 jupyter notebook
@@ -139,11 +137,11 @@ inf_plot = pyplot.plot(data[0])
 
 Note that as with lists, NumPy arrays also start at zero. So here, we are looking at just the first row of data, i.e. the first patient.
 
-FIXME: insert graph image of first patient's data
+![first-patient-graph](../fig/03-first-patient-graph.png)
 
-Here we can see a graph of the first patient's inflammation over the 40 day period, clearly indicating a trend towards a peak in the middle of the trial, and a trend towards zero inflammation after that.
+Here we can see a graph of the first patient's inflammation over the 40 day period, clearly indicating a trend towards a peak in the middle of the trial, and a trend towards zero inflammation after that. But note we haven't added any axes, which of course we should! We'll address this when we look at NumPy in more detail.
 
-What's interesting is that we've used a notebook to very quickly visualise part of our data.
+But what's interesting is that we've used a notebook to very quickly visualise part of our data.
 
 ### A Warning about Object State
 
