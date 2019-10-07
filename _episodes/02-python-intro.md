@@ -36,7 +36,22 @@ gives you results back, but instead you use the Python language.
 It's a really quick and convenient way to get started with Python, particularly when learning about things like how to use variables, and it's good for playing around with what you can do and quickly testing small things.
 But as you progress to more interesting and complex things you need to move over to writing proper Python scripts, which we'll see later.
 
-You start the Python interpreter from the shell by:
+We first need to download the training materials from the GitHub code repository online. Go to `https://github.com/sabs-r3/module01_se_day1` and select the green `Clone or download` button, and then select `Download ZIP`. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Start a terminal, and assuming the file has downloaded to e.g. `/home/user/Downloads`, do the following within the shell:
+
+~~~
+cd /home/user/Downloads
+unzip module01_se_day1-gh-pages.zip
+~~~
+{:.language-bash}
+
+This will unpack the archive in the `Downloads` directory within a directory called `module01_se_day1-gh-pages`. Change to the `code` directory within that new directory:
+
+~~~
+cd module01_se_day1-gh-pages/code
+~~~
+{:.language-bash}
+
+Then start the Python interpreter from the shell by:
 
 ~~~
 $ python

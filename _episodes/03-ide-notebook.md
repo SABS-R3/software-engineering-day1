@@ -30,14 +30,14 @@ See topic [slides](../slides/03-ide-notebook.html).
 
 ## Launching the Jupyter Notebook Application
 
-Fortunately, Jupyter notebooks are supported by default by the Anaconda distribution. On the command line, we can tell Jupyter to launch its notebook server, which we use to :
+Fortunately, Jupyter notebooks are supported by default by the Anaconda distribution. On the command line, we can tell Jupyter to launch its notebook server, which we use to host and manage our notebooks. From within the `module01_se_day1-gh-pages/code` directory:
 
 ~~~
 jupyter notebook
 ~~~
 {: .language-bash}
 
-A local web application is hosted and a browser is launched to give you access to the application. From this interface, we can create and manage our notebooks.
+A local notebook server is launched and a browser is launched to give you access to the application. From this interface, we can create and manage our notebooks.
 
 ## Our first Notebook
 
@@ -74,13 +74,13 @@ When you've entered that, press `Shift`+`Enter`. This will *run* this cell in th
 
 ### Load our Example Dataset
 
-We going to use an example dataset based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. The data sets are stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
+We going to use an example dataset based on a clinical trial of inflammation in patients who have been given a new treatment for arthritis. There are a number of these data sets in the `data` directory, and are each stored in comma-separated values (CSV) format: each row holds information for a single patient, and the columns represent successive days.
 
-We can now use NumPy to load our dataset into a Python variable. In the next cell, enter:
+We can now use NumPy to load the first dataset into a Python variable. In the next cell, enter:
 
 ~~~
 In [2]:
-data = numpy.loadtxt(fname='inflammation-01.csv', delimiter=',')
+data = numpy.loadtxt(fname='../data/inflammation-01.csv', delimiter=',')
 ~~~
 {: .language-python}
 
@@ -88,7 +88,7 @@ Again, press `Shift`+`Enter` to run the cell.
 
 The expression `numpy.loadtxt(...)` is a function call that asks Python to run the function `loadtxt` that belongs to the `numpy` library. We give `loadtxt()` two arguments: one telling it the CSV file to load, and another telling it that the data on each row is separated by a comma.
 
-Once loaded into `data`, we can then take a look at the contents of that variable:
+Once loaded into the `data` variable, we can then take a look at the contents of that variable:
 
 ~~~
 In [3]:
@@ -147,10 +147,10 @@ But what's interesting is that we've used a notebook to very quickly visualise p
 
 When I type code in the notebook, the objects live in memory between cells. So far, we've entered Python into each cell in order, and each cell has been evaluated in order. But we can also change cell contents and re-evaluate them.
 
-If we go back and edit cell `[2]` to the following to change the data points on day 11 for our first patient:
+If we go back and edit cell `[3]` to the following to change the data points on day 11 for our first patient:
 
 ~~~
-In [2]:
+In [3]:
 data[0][10] = 8.0
 ~~~
 {: .language-python}
