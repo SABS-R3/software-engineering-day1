@@ -48,7 +48,11 @@ various_things = [1, 2, 'banana', 3.4, [1, 2] ]
 ~~~
 {: .language-python}
 
-We can select individual elements from lists by indexing them:
+We can select individual elements from lists by indexing them. Looking at our `odds` list:
+
+![index-list](../fig/05-index-list-odd.png)
+
+For example:
 
 ~~~
 print(odds[0], odds[-1])
@@ -62,8 +66,6 @@ This will print the first and last elements of a list:
 ~~~
 {: .output}
 
-FIXME: add indexing a list image
-
 We can replace elements within a specific part of the list (note that in Python, indexes start at 0):
 
 ~~~
@@ -71,14 +73,20 @@ odds[6] = 13
 ~~~
 {: .language-python}
 
-We can also *slice* lists to either extract or set an arbitrary subset of the list:
+We can also *slice* lists to either extract or set an arbitrary subset of the list.
+
+![slice-list](../fig/05-slice-list-odd.png)
+
+Note that here, we are selecting the *boundaries* between elements, and not the indexes.
+
+For example, to show us elements 3 to 5 (inclusive) in our list:
 
 ~~~
 odds[2:5]
 ~~~
 {: .language-python}
 
-FIXME: add slicing a list image
+We select the boundaries `2` and `5`, which produce:
 
 ~~~
 [5, 7, 9]
@@ -183,7 +191,32 @@ TypeError: 'str' object does not support item assignment
 ~~~
 {: .output}
 
-FIXME: add in join(), split() for lists/strings
+Sometimes it's useful to be able to split a string by a delimiter into a list:
+
+~~~
+str = 'This is a string'
+a_list = str.split()
+print(a_list)
+~~~
+{: .language-python}
+
+~~~
+['This', 'is', 'a', 'string']
+~~~
+{: .output}
+
+We can also join together a list of strings into a single string:
+
+~~~
+new_str = ' '.join(a_list)
+print(new_str)
+~~~
+{: .language-python}
+
+~~~
+This is a string
+~~~
+{: .output}
 
 ### Adding and Deleting Elements
 
