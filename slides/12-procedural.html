@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="SSI">
+  <title>Programming Paradigms</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Programming Paradigms</h1>
+  <p class="author">SSI</p>
+</section>
+
+<section id="programming-paradigms" class="slide level2">
+<h2>Programming Paradigms</h2>
+<ul>
+<li>What is a paradigm?</li>
+<li>What paradigms exist?</li>
+<li>How do I know which one to use?</li>
+</ul>
+</section>
+<section id="paradigms" class="slide level2">
+<h2>Paradigms</h2>
+<blockquote>
+<p>In science and philosophy, a <strong>paradigm</strong> (/ˈpærədaɪm/) is a distinct set of <strong>concepts or thought patterns</strong>, including theories, research methods, postulates, and standards for what constitutes legitimate contributions to a field.</p>
+<p>– Wikipedia - Paradigm</p>
+</blockquote>
+</section>
+<section id="a-brief-history" class="slide level2">
+<h2>A Brief History</h2>
+</section>
+<section id="imperative-programming" class="slide level2">
+<h2>Imperative Programming</h2>
+<blockquote>
+<p>Code describes <strong>how</strong> data is processed</p>
+</blockquote>
+<ul>
+<li>A family of paradigms</li>
+</ul>
+</section>
+<section id="structured-programming" class="slide level2">
+<h2>Structured Programming</h2>
+<blockquote>
+<p>Code should be grouped into logical blocks</p>
+</blockquote>
+<ul>
+<li>Imperative family</li>
+<li>Early example: Algol (1958)</li>
+</ul>
+</section>
+<section id="procedural-programming" class="slide level2">
+<h2>Procedural Programming</h2>
+<blockquote>
+<p>Code should be grouped into procedures performing a single task</p>
+</blockquote>
+<ul>
+<li>Derived from Structured Programming</li>
+<li>Early examples: FORTRAN II (1958), COBOL (1959)</li>
+</ul>
+</section>
+<section id="object-oriented-programming" class="slide level2">
+<h2>Object Oriented Programming</h2>
+<blockquote>
+<p>Data should be structured. Code belongs with data</p>
+</blockquote>
+<ul>
+<li>Derived from Procedural Programming</li>
+<li>Early examples: Simula (1967), Smalltalk (1972)</li>
+</ul>
+</section>
+<section id="declarative-programming" class="slide level2">
+<h2>Declarative Programming</h2>
+<blockquote>
+<p>Code describes <strong>what</strong> processing should occur</p>
+</blockquote>
+<ul>
+<li>A family of paradigms</li>
+</ul>
+</section>
+<section id="functional-programming" class="slide level2">
+<h2>Functional Programming</h2>
+<blockquote>
+<p>Functions are mathematical operations. Code is data</p>
+</blockquote>
+<ul>
+<li>Declarative family</li>
+<li>Early examples: Lisp (1958)</li>
+</ul>
+</section>
+<section id="fizzbuzz" class="slide level2">
+<h2>FizzBuzz</h2>
+</section>
+<section id="fizzbuzz-1" class="slide level2">
+<h2>FizzBuzz</h2>
+<p>1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, …</p>
+</section>
+<section id="fizzbuzz-in-c" class="slide level2">
+<h2>FizzBuzz in C</h2>
+<p><img src="img/fizzbuzz-c.png" alt="FizzBuzz in C" /></p>
+</section>
+<section id="fizzbuzz-in-java" class="slide level2">
+<h2>FizzBuzz in Java</h2>
+<p><img src="img/fizzbuzz-java.png" alt="FizzBuzz in Java" /></p>
+</section>
+<section id="fizzbuzz-in-haskell" class="slide level2">
+<h2>FizzBuzz in Haskell</h2>
+<p><img src="img/fizzbuzz-haskell.png" alt="FizzBuzz in Haskell" /></p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
