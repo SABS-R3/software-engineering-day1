@@ -10,7 +10,7 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
-See topic [slides](/slides/01-introduction.html).
+See topic [slides](../slides/01-introduction.html).
 
 {% include links.md %}
 
