@@ -14,7 +14,7 @@ keypoints:
 
 ## Programming Paradigms
 
-See topic [slides](/slides/12-procedural.html) for general introduction to paradigms.
+See topic [slides](../slides/12-procedural.html) for general introduction to paradigms.
 
 ## The Procedural Paradigm
 
