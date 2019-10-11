@@ -12,24 +12,29 @@ keypoints:
 - "First key point. Brief Answer to questions. (FIXME)"
 ---
 
+## Programming Paradigms
+
+See topic [slides](/slides/12-procedural.html) for general introduction to paradigms.
+
 ## The Procedural Paradigm
 
 So far we've been writing our code as one continuous piece.
-If we want to reuse some of our code, we can use loops to repeat some task, but sometimes we need to reuse code in a different location.
+If we want to reuse some of our code, we can use loops to repeat some task, but sometimes we need more flexibility than this.
 
 It would also be useful to be able to hide some of the complexity of our code once it's grown to the point where it no longer fits on a single screen.
 
-Procedural Programming is based around the idea that code should be structured into a set of procedures.
+Procedural Programming is based around the idea that code should be structured into a set of **procedures**.
 Each procedure (optionally) takes some input, performs some computation and (optionally) returns some output.
 A program can then use these procedures to perform computation, without having to be concerned with exactly how the computation is performed.
 
 You may wish to think of the Procedural Paradigm as focussing on the **verbs** of a computation.
 
 ## Using Functions
+In most modern programming languages these procedures are called **functions**.
 Python has many pre-defined functions built in.
 We've already met some of them.
 
-To use, or "call", a function we use the name of the function, followed by brackets containing any **parameters** that the function will accept.
+To use, or **call**, a function we use the name of the function, followed by brackets containing any **parameters** that the function will accept.
 All functions in Python **return** a single value as their result.
 
 > ## Return Values
@@ -365,6 +370,32 @@ What happens if we call this function for an academic who doesn't exist?
 >
 {: .callout}
 
+
+> ## Mutable Arguments
+>
+> It’s important to note that even though variables defined inside a function may use the same name as variables defined outside, they don’t refer to the same thing.
+> This is because of variable **scoping**.
+>
+> Within a function, any variables that are created (such as parameters or other variables), only exist within the **scope** of the function.
+>
+> For example, what would be the output from the following:
+>
+> ~~~
+> ~~~
+> {: .language-python}
+>
+> 1. 20
+> 2. 80
+> 3. 0
+>
+> > ## Solution
+> > 3 - the f and k variables defined and used within the function do not interfere with those defined outside of the function.
+> >
+> > This is really useful, since it means we don’t have to worry about conflicts with variable names that are defined outside of our function that may cause it to behave incorrectly.
+> > This is known as variable scoping.
+> {: .solution}
+{: .challenge}
+
 FIXME - add JSON as a callout - content in RSD course
 
 ~~~
@@ -396,6 +427,8 @@ def list_papers(academics):
     return papers
 ~~~
 {: .language-python}
+
+<!-- Use inflammation data as exercises, functions to average data -->
 
 {% include links.md %}
 

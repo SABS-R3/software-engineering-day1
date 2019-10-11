@@ -9,16 +9,14 @@
 
 ## Paradigms
 
-> In science and philosophy, a **paradigm** (/ˈpærədaɪm/) is a distinct set of **concepts or thought patterns**, including theories, research methods, postulates, and standards for what constitutes legitimate contributions to a field.
+> In science and philosophy, a **paradigm** ... is a distinct set of **concepts or thought patterns** ...
 >
 > -- Wikipedia - Paradigm
 
 ## A Brief History
 
-## Imperative Programming
-> Code describes **how** data is processed
-
-- A family of paradigms
+## Imperative Family
+> Code describes **how** data processing should happen
 
 ## Structured Programming
 > Code should be grouped into logical blocks
@@ -38,10 +36,8 @@
 - Derived from Procedural Programming
 - Early examples: Simula (1967), Smalltalk (1972)
 
-## Declarative Programming
-> Code describes **what** processing should occur
-
-- A family of paradigms
+## Declarative Family
+> Code describes **what** data processing should happen
 
 ## Functional Programming
 > Functions are mathematical operations. Code is data
@@ -51,9 +47,11 @@
 
 ## FizzBuzz
 
+1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, ...
+
 ## FizzBuzz
 
-1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz, ...
+Implementations of FizzBuzz in C-family languages taken from Rosetta Code under GPL Free Documentation License 1.2
 
 ## FizzBuzz in C
 
@@ -63,6 +61,6 @@
 
 <img src="img/fizzbuzz-java.png" alt="FizzBuzz in Java" />
 
-## FizzBuzz in Haskell
+## FizzBuzz in JavaScript (ES6)
 
-<img src="img/fizzbuzz-haskell.png" alt="FizzBuzz in Haskell" />
+<img src="img/fizzbuzz-javascript.png" alt="FizzBuzz in JavaScript" />
