@@ -36,27 +36,42 @@ gives you results back, but instead you use the Python language.
 It's a really quick and convenient way to get started with Python, particularly when learning about things like how to use variables, and it's good for playing around with what you can do and quickly testing small things.
 But as you progress to more interesting and complex things you need to move over to writing proper Python scripts, which we'll see later.
 
-We first need to download the training materials from the GitHub code repository online. Go to `https://github.com/sabs-r3/module01_se_day1` and select the green `Clone or download` button, and then select `Download ZIP`. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Start a terminal, and assuming the file has downloaded to e.g. `/home/user/Downloads`, do the following within the shell:
+First, we need to make sure Anaconda's version of Python will be loaded. Start a terminal and use an editor to look at the `/home/ubuntu/.bashrc` file (replacing `ubuntu` with your home directory, and add the following lines:
+
+~~~
+export PATH=/usr/local/anaconda3/bin:/usr/local/pycharm-community-2019.2.3:$PATH
+~~~
+{: .language-bash}
+
+Every new terminal shell you open should now be able to run the correct version of Python. For the shell you currently have open, type the following to load these changes:
+
+~~~
+source /home/ubuntu/.bashrc
+python
+~~~
+{: .language-bash}
+
+We next need to download the training materials from the GitHub code repository online. Go to `https://github.com/sabs-r3/module01_se_day1` and select the green `Clone or download` button, and then select `Download ZIP`. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Start a terminal, and assuming the file has downloaded to e.g. `/home/user/Downloads`, do the following within the shell:
 
 ~~~
 cd /home/user/Downloads
 unzip module01_se_day1-gh-pages.zip
 ~~~
-{:.language-bash}
+{: .language-bash}
 
 This will unpack the archive in the `Downloads` directory within a directory called `module01_se_day1-gh-pages`. Change to the `code` directory within that new directory:
 
 ~~~
 cd module01_se_day1-gh-pages/code
 ~~~
-{:.language-bash}
+{: .language-bash}
 
-Then start the Python interpreter from the shell by:
+Then start the Python interpreter from the shell with:
 
 ~~~
-$ python
+python
 ~~~
-{:.language-bash}
+{: .language-bash}
 
 And then you are presented with something like:
 

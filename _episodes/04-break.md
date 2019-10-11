@@ -1,7 +1,7 @@
 ---
 title: "Break"
 teaching: 0
-exercises: 20
+exercises: 15
 questions:
 - ""
 objectives:
