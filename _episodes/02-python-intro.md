@@ -36,33 +36,47 @@ gives you results back, but instead you use the Python language.
 It's a really quick and convenient way to get started with Python, particularly when learning about things like how to use variables, and it's good for playing around with what you can do and quickly testing small things.
 But as you progress to more interesting and complex things you need to move over to writing proper Python scripts, which we'll see later.
 
-We first need to download the training materials from the GitHub code repository online. Go to `https://github.com/sabs-r3/module01_se_day1` and select the green `Clone or download` button, and then select `Download ZIP`. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Start a terminal, and assuming the file has downloaded to e.g. `/home/user/Downloads`, do the following within the shell:
+First, we need to make sure Anaconda's version of Python will be loaded. Start a terminal and use an editor to look at the `/home/ubuntu/.bashrc` file (replacing `ubuntu` with your home directory, and add the following lines:
 
 ~~~
-cd /home/user/Downloads
-unzip module01_se_day1-gh-pages.zip
+export PATH=/usr/local/anaconda3/bin:/usr/local/pycharm-community-2019.2.3:$PATH
 ~~~
-{:.language-bash}
+{: .language-bash}
 
-This will unpack the archive in the `Downloads` directory within a directory called `module01_se_day1-gh-pages`. Change to the `code` directory within that new directory:
+Every new terminal shell you open should now be able to run the correct version of Python. For the shell you currently have open, type the following to load these changes:
+
+~~~
+source /home/ubuntu/.bashrc
+~~~
+{: .language-bash}
+
+We next need to download the training materials from the GitHub code repository online. Go to `https://github.com/sabs-r3/module01_se_day1` in a browser and select the green `Clone or download` button, and then select `Download ZIP`. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Find where the file has been downloaded to, then start a terminal, and assuming the file has downloaded to e.g. `/home/user/Downloads`, do the following within the shell:
+
+~~~
+cd ~
+unzip /home/user/module01_se_day1-gh-pages.zip
+~~~
+{: .language-bash}
+
+This will unpack the archive in your home directory, within a subdirectory called `module01_se_day1-gh-pages`. Change to the `code` directory within that new directory:
 
 ~~~
 cd module01_se_day1-gh-pages/code
 ~~~
-{:.language-bash}
+{: .language-bash}
 
-Then start the Python interpreter from the shell by:
+Then start the Python interpreter from the shell with:
 
 ~~~
-$ python
+python
 ~~~
-{:.language-bash}
+{: .language-bash}
 
 And then you are presented with something like:
 
 ~~~
-Python 3.4.3 |Anaconda 2.3.0 (x86_64)| (default, Mar  6 2015, 12:07:41) 
-[GCC 4.2.1 (Apple Inc. build 5577)] on darwin
+Python 3.7.1 (default, Dec 14 2018, 13:28:58) 
+[Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ~~~
@@ -149,11 +163,11 @@ one, two = 1, 2
 
 Although we commonly refer to `variables` even in Python (because it is the common terminology), we really mean `names` or `identifiers`. In Python, `variables` are name tags for values, not labelled boxes that contain a value.
 
-So we can now develop a better understanding of our labels and boxes: each box is a piece of space (an address) in computer memory. Each label (variable) is a reference to such a place.
+So to better understand our labels and boxes: each box is a piece of space (an address) in computer memory. Each label (variable) is a reference to such a place.
 
 When the number of labels on a box ("variables referencing an address") gets down to zero, then the data in the box cannot be found any more.
 
-After a while, the language's "Garbage collector" will wander by, notice a box with no labels, and throw the data away, making that box available for more data.
+After a while, the language's "garbage collector" will wander by, notice a box with no labels, and throw the data away, making that box available for more data.
 
 Older languages like C and Fortran don't have Garbage collectors. So a memory address with no references to it still takes up memory, and the computer can more easily run out.
 
@@ -167,8 +181,10 @@ number = 2
 
 The following things happen:
 
-1. A new integer object '2' is created, and an address in memory is found for it.
-1. The variable "number" is moved to refer to that address.
+1. A new integer object '1' is created, and an address in memory is found for it.
+1. The variable "number" is will refer to that address.
+1. A new integer object '2' is created, and a different address in memory is found for it.
+1. The variable "number" is moved to refer to that different address.
 1. The old address, containing '1', now has no labels.
 1. The garbage collector frees the memory at the old address.
 
@@ -191,7 +207,7 @@ Note we don't need to use `print` - the Python interpreter will just output the 
 
 Depending on its type, an object can have different properties: data fields *inside* the object.
 
-Consider a Python complex number for example:
+Consider a Python complex number for example, which Python supports natively:
 
 ~~~
 z = 3+1j
@@ -307,6 +323,8 @@ print('Weight in kg', weight_lb)
 ~~~
 {: .language-python}
 
+Note we can add as many things that we want to `print` by separating them with a comma.
+
 For a float, a number after a point is optional. But the *dot* makes it a float.
 
 ~~~
@@ -371,7 +389,9 @@ Which returns the upper case version of the string.
 ~~~
 {: .output}
 
-Note it isn't changing the object
+Note it isn't changing `given`'s string itself, it's returning a new string in uppercase.
+
+There are other methods we can use on strings, such as:
 
 ~~~
 '    Hello'.strip()
@@ -430,7 +450,6 @@ type(nothing)
 ~~~
 {: .output}
 
-Python also supports complex (imaginary) numbers, if you're interested.
 
 ### Converting Between Types
 

@@ -48,6 +48,10 @@ We're going to make use of a couple of Python modules that allow us to analyse a
 - **NumPy:** very popular package for scientific computing. Supports N-dimensional array objects, sophisticated matrix manipulation functions, tools for integrating C/C++ and Fortran code, support for linear algebra, Fourier transforms, and much more.
 - **matplotlib:** 2D plotting library for producing publication quality figures in many formats.
 
+Let's create a new notebook now. From the notebook server, select `New` > `Python 3`. A new notebook will be created (which is saved to the directory from which you ran the notebook server), with a blank initial cell.
+
+Let's change the title of the notebook to be relevant to what we're using it for. Select `Untitled` at the top of the notebook, and enter `Inflammation-analysis` in the pop-up window, and select `Rename`.
+
 ### Anatomy of a Notebook
 
 Jupyter notebooks consist of discussion cells, referred to as *markdown cells*, and *code cells*, which contain Python. In markdown cells, we can insert plain text, such as discussions, explanations, etc., which is great for setting the context of what we are doing for the reader. These can be thought of as comments in code, but they're much more than that - we can apply formatting to these to change appearance, particularly useful for section headings, which allows us to properly structure a notebook with a narrative.
@@ -68,7 +72,7 @@ from matplotlib import pyplot
 
 The first line is known as a notebook *magic*, and tells matplotlib that we want its output to be displayed inline, in our case within a notebook, instead of in a separate window. This means our visualisations, as we generate them, will be displayed immediately.
 
-The next two lines tell Python that we want to load each library. The first one tells Python that we want to import (and make use of) the NumPy library, and we'll refer to this library in our code by using `numpy`. The second one indicates we want to import a specific module within the matplotlib library called `pyplot`, and we will refer to this module as `pyplot`.
+The next two lines tell Python that we want to load each library. The first one tells Python that we want to import (and make use of) the NumPy library, and we'll refer to this library in our code by using `numpy`. The second one indicates we want to import a specific module within the matplotlib library called `pyplot`, which we'll use to generate our visualisations, and we will refer to this module as `pyplot`.
 
 When you've entered that, press `Shift`+`Enter`. This will *run* this cell in the notebook within Python. If there's any output, this will be displayed, although in this case there won't be. You'll alo notice that the notebook has helpfully given us another cell to enter more things into the notebook.
 
