@@ -371,28 +371,38 @@ What happens if we call this function for an academic who doesn't exist?
 {: .callout}
 
 
-> ## Mutable Arguments
+> ## Passing Lists to Functions
 >
-> It’s important to note that even though variables defined inside a function may use the same name as variables defined outside, they don’t refer to the same thing.
-> This is because of variable **scoping**.
->
-> Within a function, any variables that are created (such as parameters or other variables), only exist within the **scope** of the function.
->
-> For example, what would be the output from the following:
+> We have seen previously that functions are not able to change the value of a variable which is used as their argument.
 >
 > ~~~
+> def append_to_list(l):
+>     l.append('appended')
+>     l = [1, 2, 3]
+>     l.append('again')
+>     return l
+>
+> a_list = ['this', 'is', 'a', 'list']
+>
+> print(append_to_list(a_list))
+> print(a_list)
 > ~~~
 > {: .language-python}
 >
-> 1. 20
-> 2. 80
-> 3. 0
+> Before running this code, think about what you expect the output to be.
+> Now run the code, does it behave as you expected?
+> Why does the function behave in this way?
 >
 > > ## Solution
-> > 3 - the f and k variables defined and used within the function do not interfere with those defined outside of the function.
+> > ~~~
+> > [1, 2, 3, 'again']
+> > ['this', 'is', 'a', 'list', 'appended']
+> > ~~~
+> > {: .output}
 > >
-> > This is really useful, since it means we don’t have to worry about conflicts with variable names that are defined outside of our function that may cause it to behave incorrectly.
-> > This is known as variable scoping.
+> > The reason for this behaviour is that lists are mutable so when we pass one in to a function any modifications are made to the actual list as it exist in memory.
+> > Using `=` to assign a new value creates a new list in memory and assigns it to the variable `l`.
+> > Any changes made to `l` after this are changes to the new list, so do not affect the previous list.
 > {: .solution}
 {: .challenge}
 

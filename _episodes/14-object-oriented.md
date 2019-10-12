@@ -73,13 +73,20 @@ class Academic:
         self.papers = []
 
 alice = Academic('Alice')
+print(alice.name)
 ~~~
 {: .language-python}
+
+~~~
+Alice
+~~~
+{: .output}
 
 Similar to functions, we begin by using a special keyword, in this case `class`, followed by a name, then a colon to begin a new block.
 Inside this block, we define the data and behaviour that we want the class to provide.
 
-Almost every class you define will have a `__init__` (pronounced "init" or "dunder-init") **method** which is responsible for 
+Almost every class you define will have a `__init__` (pronounced "init" or "dunder-init") **method** which is responsible for initialising any data that the class contains.
+Note that this is slightly different from the **constructor** in many other OO languages (it doesn't allocate memory for the class itself), but it's usually safe to treat it as the same.
 
 > ## Data Classes
 > Added in Python 3.7 to automatically generate some of the class structure.
@@ -92,8 +99,14 @@ Almost every class you define will have a `__init__` (pronounced "init" or "dund
 >     papers: List[Dict] = field(default_factory=list)
 >
 > alice = Academic('Alice')
+> print(alice.name)
 > ~~~
 > {: .language-python}
+>
+> ~~~
+> Alice
+> ~~~
+> {: .output}
 {: .callout}
 
 ### Methods
