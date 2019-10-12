@@ -23,16 +23,9 @@
 - Used for processing data, general scripting, mapping, web applications, frameworks,
 numerical processing, education, HPC, at Google, ...
 
-## Python is up and coming!
-
-- FIXME
-- Based on Southampton PhD students software usage survey conducted by SSI's Policy researchers:
-     ![](../img/wordle3.png)
-
 ## We'll be teaching Python 3
 
 - Python 3 is currently the standard version
-- We'll teach using version 3!
 - Python 3 has many advantages over Python 2
     + Many consistency improvements - removing redundancy
     + In places, simply more sensible e.g. integer division
@@ -60,14 +53,3 @@ On top of a Python installation:
 - Jupyter Notebook - mix code, commentary, and results
 - Python scripts - a 'program' in a file to run
 - PyCharm - edit, run, and debug Python scripts
-
-## Learning objectives
-
-- how to assign values to variables, Python types, simple operations
-- how to repeat actions with loops
-- how to make choices using conditionals
-- how to write procedural Python code
-- how to write object oriented Python code
-
-## Books
-

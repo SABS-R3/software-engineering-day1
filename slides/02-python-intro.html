@@ -9,12 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
+  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -32,7 +27,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide">
+<section>
   <h1 class="title">Introduction to Python</h1>
   <p class="author">SSI</p>
 </section>
@@ -40,7 +35,7 @@
 <section id="administration" class="slide level2">
 <h2>Administration</h2>
 <ul>
-<li>Combination of lectures, ‘live coding’ practical sessions, and exercises</li>
+<li>Combination of lectures, 'live coding' practical sessions, and exercises</li>
 </ul>
 </section>
 <section id="why-python" class="slide level2">
@@ -60,33 +55,25 @@
 <section id="what-can-you-use-it-for" class="slide level2">
 <h2>What can you use it for?</h2>
 <ul>
-<li>Almost anything - it’s general purpose!</li>
+<li>Almost anything - it's general purpose!</li>
 <li>Used in many fields
 <ul>
 <li>Bioinformatics, Biology, Data visualisation, Engineering, Software development, etc.</li>
 </ul></li>
-<li>Used for processing data, general scripting, mapping, web applications, frameworks, numerical processing, education, HPC, at Google, …</li>
-</ul>
-</section>
-<section id="python-is-up-and-coming" class="slide level2">
-<h2>Python is up and coming!</h2>
-<ul>
-<li>FIXME</li>
-<li>Based on Southampton PhD students software usage survey conducted by SSI’s Policy researchers: <img data-src="../img/wordle3.png" /></li>
+<li>Used for processing data, general scripting, mapping, web applications, frameworks, numerical processing, education, HPC, at Google, ...</li>
 </ul>
 </section>
 <section id="well-be-teaching-python-3" class="slide level2">
-<h2>We’ll be teaching Python 3</h2>
+<h2>We'll be teaching Python 3</h2>
 <ul>
 <li>Python 3 is currently the standard version</li>
-<li>We’ll teach using version 3!</li>
 <li>Python 3 has many advantages over Python 2
 <ul>
 <li>Many consistency improvements - removing redundancy</li>
-<li>In places, simply more sensible e.g. integer division</li>
+<li>In places, simply more sensible e.g. integer division</li>
 <li>Python 2 support will end in 2020</li>
 </ul></li>
-<li>‘Short version: Python 2.x is legacy, Python 3.x is the present and future of the language’</li>
+<li>'Short version: Python 2.x is legacy, Python 3.x is the present and future of the language'</li>
 </ul>
 </section>
 <section id="distributions-of-python" class="slide level2">
@@ -109,22 +96,9 @@
 <ul>
 <li>Python interpreter - via the command line</li>
 <li>Jupyter Notebook - mix code, commentary, and results</li>
-<li>Python scripts - a ‘program’ in a file to run</li>
+<li>Python scripts - a 'program' in a file to run</li>
 <li>PyCharm - edit, run, and debug Python scripts</li>
 </ul>
-</section>
-<section id="learning-objectives" class="slide level2">
-<h2>Learning objectives</h2>
-<ul>
-<li>how to assign values to variables, Python types, simple operations</li>
-<li>how to repeat actions with loops</li>
-<li>how to make choices using conditionals</li>
-<li>how to write procedural Python code</li>
-<li>how to write object oriented Python code</li>
-</ul>
-</section>
-<section id="books" class="slide level2">
-<h2>Books</h2>
 </section>
     </div>
   </div>
@@ -137,14 +111,12 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        // Push each slide change to the browser history
-        history: true,
 
         // Optional reveal.js plugins
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
