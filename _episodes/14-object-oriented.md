@@ -111,7 +111,10 @@ Note that this is slightly different from the **constructor** in many other OO l
 
 ### Methods
 
+To define the behaviour of a class we can add functions which operate on the data the class contains.
+We call these functions **member functions** or **methods**.
 
+These functions are the same as normal functions (alternatively known as **free functions**), but we have an extra first parameter `self`:
 
 ~~~
 class Academic:
@@ -119,7 +122,7 @@ class Academic:
         self.name = name
         self.papers = []
 
-    def write_paper(title, day):
+    def write_paper(self, title, day):
         new_paper = {
             'title': title,
             'day': day
@@ -129,18 +132,27 @@ class Academic:
         return new_paper
 
 alice = Academic('Alice')
-paper = alice.write_paper('A new paper', 3)
+print(alice)
 
+paper = alice.write_paper('A new paper', 3)
 print(paper)
+print(alice.papers)
 ~~~
 {: .language-python}
 
 ~~~
+<__main__.Academic object at 0x7f4826fdff10>
 {'title': 'A new paper', 'day': 3}
+[{'title': 'A new paper', 'day': 3}]
 ~~~
 {: .output}
 
 ### Dunder Methods
+
+Why is the `__init__` method not called `init`?
+There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with two underscores, hence the name **dunder method**.
+
+The most commonly seen of the dunder methods is `__init__`, but there are a few other common ones:
 
 ~~~
 class Academic:
@@ -148,18 +160,69 @@ class Academic:
         self.name = name
         self.papers = []
 
+    def write_paper(self, title, day):
+        new_paper = {
+            'title': title,
+            'day': day
+        }
+
+        self.papers.append(new_paper)
+        return new_paper
+
     def __str__(self):
         return self.name
 
+    def __getitem__(self, index):
+        return self.papers[index]
+
+    def __len__(self):
+        return len(self.papers)
+
 alice = Academic('Alice')
 print(alice)
+
+alice.write_paper('A new paper', 3)
+paper = alice[0]
+print(paper)
+
+print(len(alice))
 ~~~
 {: .language-python}
 
 ~~~
 Alice
+{'title': 'A new paper', 'day': 3}
+1
 ~~~
 {: .output}
+
+## Properties
+
+The final special type of method we'll introduce is **properties**.
+Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually:
+
+~~~
+class Academic:
+    ...
+
+    @property
+    def last_paper(self):
+        return self.papers[-1]
+
+alice = Academic('Alice')
+
+alice.write_paper('First paper', 1)
+alice.write_paper('Second paper', 2)
+
+paper = alice.last_paper
+print(paper)
+~~~
+{: .language-python}
+
+The `@` syntax means that a function called `property` is being used to modify the behavior of the method - this is called a **decorator**.
+In this case the `@property` decorator converts `last_paper` from a normal method into a property.
+
+We'll see more about decorators tomorrow.
 
 ## Relationships
 
@@ -212,7 +275,7 @@ A new paper
 
 Inheritance is about behaviour shared by classes, because they have some shared identity.
 
-For instance
+For instance:
 
 ~~~
 class Person:
@@ -251,13 +314,17 @@ print(paper)
 Alice
 Bob
 A paper
-AttributeError
+AttributeError: 'Person' object has no attribute 'write_paper'
 ~~~
 {: .output}
 
 {% comment %}Briefly mention multiple inheritance, the "deadly diamond of death" and how Python copes with it (C3 Linearisation){% endcomment %}
 
 ### Composition vs Inheritance
+
+When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
+More on this later in the week!
+
 ~~~
 class Machine:
     pass
@@ -291,6 +358,148 @@ class Copier(Machine):
         self.scanner = Scanner()
 ~~~
 {: .language-python}
+
+> ## Building a Library
+>
+> Using what we've seen so far, implement two classes: `Book` and `Library` which have the following behaviour:
+>
+> ~~~
+> library = Library()
+> 
+> library.add_book('My First Book', 'Alice')
+> library.add_book('My Second Book', 'Alice')
+> library.add_book('A Different Book', 'Bob')
+>
+> print(len(library))
+>
+> book = library[2]
+> print(book)
+>
+> books = library.by_author('Alice')
+> for book in books:
+>     print(book)
+>
+> books = library.by_author('Carol')
+> ~~~
+> {: .language-python}
+>
+> ~~~
+> 3
+> A Different Book by Bob
+> My First Book by Alice
+> My Second Book by Alice
+> KeyError: 'Author does not exist'
+> ~~~
+> {: .output}
+>
+> > ## Solution
+> > ~~~
+> > class Book:
+> >     def __init__(self, title, author):
+> >         self.title = title
+> >         self.author = author
+> >     
+> >     def __str__(self):
+> >         return self.title + ' by ' + self.author
+> > 
+> >     
+> > class Library:
+> >     def __init__(self):
+> >         self.books = []
+> >     
+> >     def add_book(self, title, author):
+> >         self.books.append(Book(title, author))
+> >     
+> >     def __len__(self):
+> >         return len(self.books)
+> >     
+> >     def __getitem__(self, key):
+> >         return self.books[key]
+> >     
+> >     def by_author(self, author):
+> >         matches = []
+> >         for book in self.books:
+> >             if book.author == author:
+> >                 matches.append(book)
+> >
+> >         if not matches:
+> >             raise KeyError('Author does not exist')
+> >         
+> >         return matches
+> > ~~~
+> > {: .output}
+> {: .solution}
+>
+> Extend the class so that we can get the list of all authors and titles.
+> If an author appears multiple times, they should only appear once in the list of authors:
+>
+> ~~~
+> print(library.titles)
+> print(library.authors)
+> ~~~
+> {: .language-python}
+>
+> ~~~
+> ['My First Book', 'My Second Book', 'A Different Book']
+> ['Alice', 'Bob']
+> ~~~
+> {: .output}
+>
+> > ## Solution
+> > ~~~
+> > class Book:
+> >     def __init__(self, title, author):
+> >         self.title = title
+> >         self.author = author
+> >     
+> >     def __str__(self):
+> >         return self.title + ' by ' + self.author
+> > 
+> >     
+> > class Library:
+> >     def __init__(self):
+> >         self.books = []
+> >     
+> >     def add_book(self, title, author):
+> >         self.books.append(Book(title, author))
+> >     
+> >     def __len__(self):
+> >         return len(self.books)
+> >     
+> >     def __getitem__(self, key):
+> >         return self.books[key]
+> >     
+> >     def by_author(self, author):
+> >         matches = []
+> >         for book in self.books:
+> >             if book.author == author:
+> >                 matches.append(book)
+> >
+> >         if not matches:
+> >             raise KeyError('Author does not exist')
+> >         
+> >         return matches
+> > 
+> >     @property
+> >     def titles(self):
+> >         titles = []
+> >         for book in self.books:
+> >             titles.append(book.title)
+> > 
+> >         return titles
+> >
+> >     @property
+> >     def authors(self):
+> >         authors = []
+> >         for book in self.books:
+> >             if book.author not in authors:
+> >                 authors.append(book.author)
+> > 
+> >         return authors
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
 
