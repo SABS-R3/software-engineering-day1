@@ -23,7 +23,7 @@ keypoints:
 - "Doing `x = y`, where `y` is a container, doesn't copy its elements, it just creates a new reference to it."
 ---
 
-*Container* types are those that can hold other objects.
+*Container* types are those that can hold other objects. Let's create a new Jupyter notebook to explore containers, as well as provide an active record of what we've done. Select `New` > `Python 3` from the Jupyter server menu, and name the notebook `Containers`.
 
 ## Lists
 
@@ -41,7 +41,7 @@ more_numbers = [ [1, 2], [3, 4, 5], [ [6, 7], [8] ] ]
 
 We can see that our multi-dimensional array can contain elements themselves of any size and depth. This could be used as way of representing matrices, but later we'll learn a better way to represent these.
 
-A list in Python is just an ordered collection of items which can be of any type. By comparison an array is an ordered collection of items of a single type - so a list is more flexible than an array.
+A list in Python is just an ordered collection of items which can be of any type. By comparison, in most languages an array is an ordered collection of items of a single type - so a list is more flexible than an array.
 
 ~~~
 various_things = [1, 2, 'banana', 3.4, [1, 2] ]
@@ -552,7 +552,7 @@ dict_values([2, 1, 0, 3, 4])
 
 ## Beware 'Copying' of Containers!
 
-Here, note that `y` is not equal to the contents of 'x', it is a second label on the *same object*. So when we change `y`, we are also changing `x`. This is generally true for mutable types in Python.
+Here, note that `y` is not equal to the contents of `x`, it is a second label on the *same object*. So when we change `y`, we are also changing `x`. This is generally true for mutable types in Python.
 
 ~~~
 x = [1, 2, 3]

@@ -9,12 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
+  <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -32,7 +27,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide">
+<section>
   <h1 class="title">Integrated Development Environment: PyCharm</h1>
   <p class="author">SSI</p>
 </section>
@@ -46,20 +41,23 @@
 <li>Two flavours: Community Edition, Professional Edition</li>
 </ul>
 </section>
-<section id="why-use-pycharm" class="slide level2">
-<h2>Why use PyCharm?</h2>
+<section id="community-edition" class="slide level2">
+<h2>Community Edition</h2>
 <ul>
 <li>Context-sensitive assistance: code completion, syntax highlighting, code styling hints</li>
-<li>Scientific tools: Anaconda support, NumPy, matplotlib, …</li>
+<li>Scientific tools: Anaconda support, NumPy, matplotlib, ...</li>
 <li>Tools: integrated debugger, profiler, refactoring, terminal</li>
 <li>Version Control integration</li>
-<li>Cross-technology: support for JavaScript, SQL, HTML/CSS, …</li>
-<li>Web development integration: Django, Flask, Google App Engine, …</li>
 </ul>
 </section>
-<section id="the-interface" class="slide level2">
-<h2>The Interface</h2>
-<p>FIXME: add annotated image for interface</p>
+<section id="professional-edition" class="slide level2">
+<h2>Professional Edition</h2>
+<ul>
+<li>Cross-technology: support for JavaScript, SQL, HTML/CSS, ...</li>
+<li>Web development integration: Django, Flask, Google App Engine, ...</li>
+<li>Remote development: remote run/debug, VM support</li>
+<li>Database and SQL support</li>
+</ul>
 </section>
     </div>
   </div>
@@ -72,14 +70,12 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        // Push each slide change to the browser history
-        history: true,
 
         // Optional reveal.js plugins
         dependencies: [
           { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
         ]
       });
     </script>

@@ -116,7 +116,7 @@ array([[0., 0., 1., ..., 3., 0., 0.],
 
 By default, only a few rows and columns are shown (with `...` to omit elements when displaying big arrays). To save space, Python displays numbers as `1.` instead of `1.0` when there’s nothing interesting after the decimal point.
 
-The data in this case has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading for that day. So this shows the results of measuring the inflammation of 60 patients over a 40 day period.
+The data in this case has 60 rows (one for each patient) and 40 columns (one for each day). Each cell in the data represents an inflammation reading on a given day for a patient. So this shows the results of measuring the inflammation of 60 patients over a 40 day period.
 
 > ## Mystery Functions in Notebooks
 >
@@ -200,15 +200,13 @@ To ensure we have a our notebook in a consistent state, we can re-evaluate all c
 
 ## Saving and Reloading a Notebook
 
-We can also save the state of a notebook and reload it later. First, let's give our notebook a name. select the `.ipynb` title at the top of the notebook and enter a filename ending in `.ipynb`, e.g. `Inflammation.ipynb`.
-
-If you select `File` > `Save as...`, leave the directory option blank, then select `Save`, the notebook will be saved in the directory where you started the Jupyter notebook.
+We can also save the state of a notebook and reload it later. If you select `File` > `Save as...`, leave the directory option blank, then select `Save`, the notebook will be saved in the directory where you started the Jupyter notebook.
 
 ## Exporting a Notebook to Another Format
 
 You also have the option to export your notebook and save it in a different format. There are many formats, but include Python scripts and PDF.
 
-To export a PDF version of your notebook, go to `File` > `Download as` > `pdf (.pdf)`. This will download the notebook with a title, date, and its content (both markdown and code cells' contents).
+To export a Python version of your notebook, go to `File` > `Download as` > `Python (.py)`. This will download the notebook as a Python script you can run as a standalone program.
 
 {% include links.md %}
 

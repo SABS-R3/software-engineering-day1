@@ -41,26 +41,25 @@ You'll first be shown a 'Tip of the Day' window which you can safely ignore by s
 
 ## Our First Python Standalone Script
 
-In the navigator window on the left, right-click on `Code` and Select `New` > `Python File`.  Enter `hello_world.py` into the dialog box, and select `OK`. This new empty file will be brought up in the editor.
+In the navigator window on the left, right-click on `Code` and Select `New` > `Python File`.  Enter `hello_world.py` into the dialog box, and press enter. This new empty file will be brought up in the editor.
 
 Let's start with a classic 'Hello world' script:
 
 ~~~
 print('Hello world!')
-
 ~~~
 {: .language-python}
 
+Then select `File` > `Save All`.
+
 ### Configure PyCharm with Anaconda
 
-Select `File` > `Save All`.
-
-owever, before we can run it, we need to configure PyCharm so that it knows where the Python interpreter is located which we want to use to run it. In our case, this is the Python interpreter that is supplied within the Anaconda Distribution. To do this:
+However, before we can run it, we need to configure PyCharm so that it knows where the Python interpreter is located which we want to use to run it. In our case, this is the Python interpreter that is supplied within the Anaconda Distribution. To do this:
 
 - Select either `PyCharm` > `Preferences` (MacOS) or `File` > `Settings` (Linux)
-- Then, in the preferences window that appears, select `Project: code` > `Project Interpreter` from the left. You'll see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is being used. This is likely the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7`, which we don't want to use.
+- Then, in the preferences window that appears, select `Project: code` > `Project Interpreter` from the left. You'll see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is being used. This is likely the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7` or `Python 3.6 /usr/bin/python3.6`, which we don't want to use.
 - Select the cog-like button in the top right, then `Add ...`. An `Add Python Interpreter` window will appear.
-- Select `Conda Environment` from the list on the left so it will use Anaconda, adn ensure that `New environment` is selected. Then select `Make available to all projects` so we can use it with other projects later.
+- Select `Conda Environment` from the list on the left so it will use Anaconda, and ensure that `New environment` is selected. Enter `/home/sabs-r3/anaconda/envs/code` in the `Location` field, then select `Make available to all projects` so we can use it with other projects later.
 - Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should see `Python 3.7 (code)` or similar in the `Project Interpreter` window.
 - Select `OK` in the `Preferences` window.
 
@@ -69,7 +68,7 @@ It may take a few minutes for PyCharm to read and familiarise itself with the An
 Now we've told PyCharm about the new interpreter, we can configure it for our project:
 
 - Select `Add Configuration...` from the top right of the IDE window.
-- Select `+` from the top left to add a configuration, selecting `Python` from the drop down list. You should see `Python 3.7 (code)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder button and find and select `Hello_word.py`. This tells PyCharm which script to run. You can even give this configuration a name if you like.
+- Select `+` from the top left to add a configuration, selecting `Python` from the drop down list. You should see `Python 3.7 (code)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder button and find and select `Hello_world.py`. This tells PyCharm which script to run. You can even give this configuration a name if you like.
 - Select `OK` to confirm these settings.
 
 > ## Virtual Environments
@@ -123,6 +122,11 @@ cd module01_se_day1-gh-pages/code
 python hello_world.py
 ~~~
 {: .language-bash}
+
+~~~
+Hello World!
+~~~
+{: .output}
 
 So here, we're doing a very similar thing to what PyCharm was doing when running our script: we give the command line the Python interpreter to run (which will use the one in the environment we created) and our script, which resides in the local directory.
 
@@ -178,7 +182,7 @@ So here, the syntax is `range(start, stop, step)`, but note that `stop` is non-i
 
 ### Conditionals
 
-Let's go back to extending our vowels script to do something involving Python's conditional `if` statement.
+Let's go back to extending our vowels script to do something involving Python's conditional `if` statement. Select the `vowels.py` tab from the code editor.
 
 ~~~
 vowels = "aeiou"
@@ -211,7 +215,7 @@ The script then uses a feature of Python that allows us to repeat the contents o
 Remember to right-click on the `vowels.py` file in the navigator and select `Run vowels` to run it.
 
 ~~~
-'OOOkaaay'
+'OOOkaaayy'
 ~~~
 {: .output}
 
