@@ -15,6 +15,7 @@ objectives:
 keypoints:
 - "Object Oriented progamming uses classes to structure data"
 - "Methods are functions which implement the behaviour of an object"
+- "Behaviour and data can be shared between classes using composition and inheritance"
 ---
 
 ## The Object Oriented Paradigm

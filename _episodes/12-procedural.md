@@ -9,7 +9,8 @@ questions:
 objectives:
 - "Use functions to abstract details"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Functions allow us to separate out blocks of code which perform a common task"
+- "Functions have their own scope and do not clash with variables defined outside"
 ---
 
 ## Programming Paradigms
