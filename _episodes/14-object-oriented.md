@@ -13,7 +13,8 @@ objectives:
 - "Describe behaviour shared by multiple classes using inheritance"
 - "Explain the difference between inheritance and composition"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "Object Oriented progamming uses classes to structure data"
+- "Methods are functions which implement the behaviour of an object"
 ---
 
 ## The Object Oriented Paradigm
@@ -30,6 +31,8 @@ So, a class is a template describing the structure of some collection of data, a
 You may wish to think of the Object Oriented Paradigm as focussing on the **nouns** of a computation.
 
 ## Using Classes
+
+Classes are one of the fundamental concepts of Object Oriented programming - acting as the template for objects which share common attributes and behaviour.
 
 Just like functions, we've already been using some of the classes built into Python.
 
@@ -114,7 +117,8 @@ Note that this is slightly different from the **constructor** in many other OO l
 To define the behaviour of a class we can add functions which operate on the data the class contains.
 We call these functions **member functions** or **methods**.
 
-These functions are the same as normal functions (alternatively known as **free functions**), but we have an extra first parameter `self`:
+These functions are the same as normal functions (alternatively known as **free functions**), but we have an extra first parameter `self`.
+The `self` parameter is a normal variable, but when we use a method of an object, the value of `self` is automatically set to the object.
 
 ~~~
 class Academic:
@@ -137,6 +141,10 @@ print(alice)
 paper = alice.write_paper('A new paper', 3)
 print(paper)
 print(alice.papers)
+
+paper = Academic.write_paper(alice, 'Another new paper', 4)
+print(paper)
+print(alice.papers)
 ~~~
 {: .language-python}
 
@@ -144,8 +152,11 @@ print(alice.papers)
 <__main__.Academic object at 0x7f4826fdff10>
 {'title': 'A new paper', 'day': 3}
 [{'title': 'A new paper', 'day': 3}]
+[{'title': 'A new paper', 'day': 3}, {'title': 'Another new paper', 'day': 4}]
 ~~~
 {: .output}
+
+The second use of `write_paper` in the example above shows that we can use 
 
 ### Dunder Methods
 
@@ -195,6 +206,49 @@ Alice
 1
 ~~~
 {: .output}
+
+In the example above we can see:
+
+- `__str__` - converts an object into its string representation, used when you do `str(object)` or `print(object)`
+- `__getitem__` - Accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
+- `__len__` - gets the length of an object - usually the number of items it contains
+
+There are many more described in the Python documentation, but it's also worth experimenting with built in Python objects to see which methods provide which behaviour.
+
+> ## A Basic Class
+>
+> Implement a class to represent a book.
+> Your class should:
+> 
+> - Have a title
+> - Have an author
+> - When printed, show text in the format "title by author"
+>
+> ~~~
+> book = Book('A Book', 'Me')
+>
+> print(book)
+> ~~~
+> {: .language-python}
+>
+> ~~~
+> A Book by Me
+> ~~~
+> {: .output}
+>
+> > ## Solution
+> > ~~~
+> > class Book:
+> >     def __init__(self, title, author):
+> >         self.title = title
+> >         self.author = author
+> >     
+> >     def __str__(self):
+> >         return self.title + ' by ' + self.author
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
 
 ## Properties
 
@@ -275,7 +329,10 @@ A new paper
 
 Inheritance is about behaviour shared by classes, because they have some shared identity.
 
-For instance:
+If we want to extend the previous example to also manage people who aren't academics we can add another class `Person`.
+But `Person` will share some behaviour with `Academic` - in this case both have a name and show that name when you print them.
+
+Since we expect all academics to be people (hopefully!), it makes sense to implement the behaviour in `Person` and then reuse it in `Academic`.
 
 ~~~
 class Person:
@@ -317,6 +374,18 @@ A paper
 AttributeError: 'Person' object has no attribute 'write_paper'
 ~~~
 {: .output}
+
+We see in the example above that to say that a class inherits from another, we but the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
+
+There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class, so we need to do this manually within the `__init__` method of the subclass.
+
+Python does however provide us with a shortcut to access the parent class.
+The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
+
+#### Multiple Inheritance
+
+Some languages allow you to have a class inherit from multiple parent classes, which is known as **multiple inheritance**.
+
 
 {% comment %}Briefly mention multiple inheritance, the "deadly diamond of death" and how Python copes with it (C3 Linearisation){% endcomment %}
 
@@ -361,7 +430,7 @@ class Copier(Machine):
 
 > ## Building a Library
 >
-> Using what we've seen so far, implement two classes: `Book` and `Library` which have the following behaviour:
+> Using what we've seen so far, implement two classes: `Book` (you can use the one from the earlier exercise) and `Library` which have the following behaviour:
 >
 > ~~~
 > library = Library()
@@ -496,6 +565,83 @@ class Copier(Machine):
 > >                 authors.append(book.author)
 > > 
 > >         return authors
+> > ~~~
+> > {: .output}
+> {: .solution}
+>
+> The built in `set` class has a `set.union` method which takes two sets (one of which is `self`) and returns a new set containing all of the members of both sets, with no duplicates.
+>
+> Extend your library model with a `union` method which behaves the same way - it should return a new `Library` containing all the books of the two provided libraries.
+>
+> To do this you might need to create a `Book.__eq__` method.
+> The `__eq__` dunder method should take two objects (one of which is `self`) and return `True` if the two objects should be considered equal - otherwise return `False`.
+>
+> > ## Solution
+> > ~~~
+> > class Book:
+> >     def __init__(self, title, author):
+> >         self.title = title
+> >         self.author = author
+> >     
+> >     def __str__(self):
+> >         return self.title + ' by ' + self.author
+> > 
+> > def __eq__(self, other):
+> >         return self.title == other.title and self.author == other.author
+> > 
+> >     
+> > class Library:
+> >     def __init__(self):
+> >         self.books = []
+> >     
+> >     def add_book(self, title, author):
+> >         self.books.append(Book(title, author))
+> >     
+> >     def __len__(self):
+> >         return len(self.books)
+> >     
+> >     def __getitem__(self, key):
+> >         return self.books[key]
+> >     
+> >     def by_author(self, author):
+> >         matches = []
+> >         for book in self.books:
+> >             if book.author == author:
+> >                 matches.append(book)
+> >
+> >         if not matches:
+> >             raise KeyError('Author does not exist')
+> >         
+> >         return matches
+> > 
+> >     @property
+> >     def titles(self):
+> >         titles = []
+> >         for book in self.books:
+> >             titles.append(book.title)
+> > 
+> >         return titles
+> >
+> >     @property
+> >     def authors(self):
+> >         authors = []
+> >         for book in self.books:
+> >             if book.author not in authors:
+> >                 authors.append(book.author)
+> > 
+> >         return authors
+> > 
+> >     def union(self, other):
+> >         books = []
+> >         for book in self.books:
+> >             if book not in books:
+> >                 books.append(book)
+> >                 
+> >         for book in other.books:
+> >             if book not in books:
+> >                 books.append(book)
+> >                 
+> >         return Library(books)
 > > ~~~
 > > {: .output}
 > {: .solution}
