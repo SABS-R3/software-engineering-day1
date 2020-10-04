@@ -167,7 +167,7 @@ print(element[1], element[0:3], element[3:6])
 ~~~
 {: .language-python}
 ~~~
-oxy gen
+x oxy gen
 ~~~
 {: .output}
 
