@@ -7,6 +7,7 @@ questions:
 - "How can my scripts do different things based on data values?"
 - "How can I do the same operations on many different values?"
 objectives:
+- "Run Python scripts from within VSCode."
 - "Set up a development environment in VSCode."
 - "Use if statements to conditionally process Python statements."
 - "Use loops to iteratively process collections of values."
