@@ -1,7 +1,7 @@
 ---
 title: "Introduction to using Python"
-teaching: 25
-exercises: 5
+teaching: 15
+exercises: 40
 questions:
 - "What is Python?"
 - "How do I use the Python interpreter?"

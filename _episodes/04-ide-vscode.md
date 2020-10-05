@@ -1,7 +1,7 @@
 ---
 title: "VSCode as an Integrated Development Environment"
-teaching: 30
-exercises: 0
+teaching: 0
+exercises: 40
 questions:
 - "What is VSCode and what are the advantages of using it?"
 - "How can my scripts do different things based on data values?"

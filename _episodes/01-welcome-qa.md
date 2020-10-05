@@ -1,7 +1,7 @@
 ---
 title: "Welcome and Q&A"
-teaching: 105
-exercises: 0
+teaching: 30
+exercises: 15
 questions:
 - "How important to modern research is software?"
 - "How is software typically written in academia?"
