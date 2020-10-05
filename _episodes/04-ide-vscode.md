@@ -30,9 +30,15 @@ Using the Python interpreter directly is good for trying things out in Python, b
 Python programs are also commonly known as *scripts*, because Python uses an *interpreter* to execute source code. Note that Python also *compiles* code into a more rapidly executed format as well, but this is an implicit process, and since Python presents itself largely as an interpreted language, it's programs can also be called scripts.
 
 
-## Running VSCode for the First Time
+## Introduction to VSCode
 
-Microsoft's VSCode is a lightweight IDE which is great when starting out developing programs. It not only supports Python, but also C++, C#, JavaScript, CSS, and Java, amongst others. It's also available for Mac OS, Linux, and Windows. Whilst lightweight, it's features can be readily extended via installation of plugins to suit your needs, and you can even develop your own plugins for VSCode.
+Microsoft's VSCode is a lightweight IDE which is great when starting out developing programs. It not only supports Python, but also C++, C#, JavaScript, CSS, and Java, amongst others. It's also available for Mac OS, Linux, and Windows. Whilst lightweight, it's features can be readily extended for a variety of languages via installation of plugins to suit your needs, and you can even develop your own plugins for VSCode. As well as features like live debugging and context-sensitive code autocompletion, other notable features include:
+
+- Revision/version control support: ability to work with Git source code repositories, uploading and synchronising changes to/from such repositories on e.g. GitHub. We'll be covering Git version control later in the course
+- Live code development sharing: without exchanging changes using version control, you can view live changes being made by another team member collaboratively within your own VSCode editor
+
+
+## Running VSCode for the First Time
 
 If you haven't run VSCode yet, do this now. Select `Show Applications` from the grid-type icon in the lower left hand corner of the desktop, and type `vscode` into the text box at the top, and select the VSCode application that appears. You'll be presented with the VSCode interface.
 
@@ -43,85 +49,100 @@ If you'd like to explore VSCode in more depth than this course offers, see the [
 
 ## Our First Python Standalone Script
 
-In the navigator window on the left, right-click on `Code` and Select `New` > `Python File`.  Enter `hello_world.py` into the dialog box, and press enter. This new empty file will be brought up in the editor.
+In main `Welcome` window, click on `New file`. You can also create a new file at any time by selecting `File` -> `New File` from the menu at any time. A new empty file will be brought up in the editor.
 
-Let's start with a classic 'Hello world' script:
+Before we enter anything into this file, we're going to save it first. Select `File` > `Save As...`. You'll find yourself in the `2020-se-day1/code` directory. Enter the filename `hello_world.py` at the top and select `Save`.
+
+Let's start with a classic 'Hello world' script. Enter this into the editor:
 
 ~~~
 print('Hello world!')
 ~~~
 {: .language-python}
 
-Then select `File` > `Save All`.
+VSCode comes with Python support built-in. You'll notice that as you type, the editor is suggesting possible statements, functions (and also variables and other Python artifacts) that match what you've typed so far. When you write a function it fully recognises and understands, it will also pop-up some context-sensitive help about the function itself, including any documentation associated with it and a breakdown of the function's arguments. This is very helpful when dealing with libraries with many modules and functions. Also, for convenience, if you've only half-typed a function, variable, statement, etc. that it recognises as the only option, you can press `Tab` and it will autocomplete the rest of the typing for you.
+ 
+ You may find you see a `Python - Get Started` window tab pop up that gives you some things to do next in Python. But for now, we'll keep editing our file in the `hello_world.py` tab, so select that. Once you've finished, select `File` -> `Save`.
 
-### Configure PyCharm with Anaconda
+Now let's try running our script from within VSCode. Select the `Run` icon on the far left navigation bar (it looks like an arrow pointing right with a bug in it). It will ask you to `Select a debug configuration`, so select `Python File`. It will now run our script, and you should see a terminal window pop-up at the bottom, with something like the following text in it:
 
-However, before we can run it, we need to configure PyCharm so that it knows where the Python interpreter is located which we want to use to run it. In our case, this is the Python interpreter that is supplied within the Anaconda Distribution. To do this:
+~~~
+sabsr3@sabsr3-2020:~/2020-se-day1/code$  /usr/bin/env /usr/bin/python3 /home/sabsr3/.vscode/extensions/ms-python.python-2020.9.112786/pythonFiles/lib/python/debugpy/launcher 39017 -- /home/sabsr3/2020-se-day1/code/hello_world.py 
+Hello world!
+~~~
+{: .language-bash}
 
-- Select either `PyCharm` > `Preferences` (MacOS) or `File` > `Settings` (Linux)
-- Then, in the preferences window that appears, select `Project: code` > `Project Interpreter` from the left. You'll see a number of Python packages displayed as a list, and importantly above that, the current Python interpreter that is being used. This is likely the default version of Python installed on your system, e.g. `Python 2.7 /usr/bin/python2.7` or `Python 3.6 /usr/bin/python3.6`, which we don't want to use.
-- Select the cog-like button in the top right, then `Add ...`. An `Add Python Interpreter` window will appear.
-- Select `Conda Environment` from the list on the left so it will use Anaconda, and ensure that `New environment` is selected. Enter `/home/sabs-r3/anaconda/envs/code` in the `Location` field, then select `Make available to all projects` so we can use it with other projects later.
-- Select `OK` in the `Add Python Interpreter` window. Back in the `Preferences` window, you should see `Python 3.7 (code)` or similar in the `Project Interpreter` window.
-- Select `OK` in the `Preferences` window.
+Here, we can see that the interpreter `/usr/bin/python3` has been used to run the VSCode debugger on our `hello_world.py` script, along with the output.
 
-It may take a few minutes for PyCharm to read and familiarise itself with the Anaconda installation you've configured (you may see `n processes running` in the bar at the bottom of the PyCharm IDE while it does this).
 
-Now we've told PyCharm about the new interpreter, we can configure it for our project:
+## Setting up a Virtual Environment
 
-- Select `Add Configuration...` from the top right of the IDE window.
-- Select `+` from the top left to add a configuration, selecting `Python` from the drop down list. You should see `Python 3.7 (code)` or similar in the `Python interpreter` field in the window. For `Script path`, select the folder button and find and select `Hello_world.py`. This tells PyCharm which script to run. You can even give this configuration a name if you like.
-- Select `OK` to confirm these settings.
+Before we start using VSCode beyond a 'Hello world' example, we should set up a new *virtual environment* for running our Python scripts. We are currently using the *global* installation of Python 3, and this is not considered good development practice.
 
-> ## Virtual Environments
->
-> So we've created a new Python configuration within which our script can run. These are commonly known as *virtual environments*. What is a virtual environment, and why use them?
+> ## Why use a Virtual Environment, and what are they?
 >
 > Consider developing a number of different Python scripts that each have their own package dependencies (and versions of those dependencies) on the same machine. It could quickly become confusing as to which packages and package versions are required by each script, making it difficult for others to run your script themselves (or yourself on another machine!). Additionally, different scripts may need to use different versions of a given package.
 >
 > A virtual environment is a self-contained directory tree that houses a specific Python interpreter and specific versions of a number of Python packages, so as package dependencies are added to a script (or set of scripts), you can add them to this specific virtual environment. So, you can avoid a great deal of confusion by having separate virtual environments for each script.
 {: .callout}
 
-Once done, you're ready to run your script!
+Go back to the terminal, and exit the Python interpreter (either by typing `exit()` or pressing `Ctrl` and `D` at the same time).
 
-
-### Running the Script from within PyCharm
-
-Right-click the `hello_world.py` file in the PyCharm navigator on the left, and select `Run hello_world`. The program will run in a terminal window at the bottom of the IDE window and display something like:
+In the Bash shell, type the following:
 
 ~~~
-/Users/user/.conda/envs/code/bin/python /Users/user/module01_se_day1-gh-pages/code/hello_world.py
-Hello World!
+python3 -m venv venv
+~~~
+{: .language-bash}
 
-Process finished with exit code 0
+This instructs Python to construct a new Python virtual environment for us. Within our `code` directory now, you should see a new `venv` directory. This will contain a localised copy of the Python3 interpreter, and any associated libraries we wish to install. But this local environment is particular to our current work; if we were to start a new project, we'd create another virtual environment for that one, and so on.
+
+We can activate this virtual environment, and see what it contains, by doing:
+
+~~~
+source venv/bin/activate.sh
+pip3 list
+~~~
+{: .language-bash}
+
+`source` runs a script that activates our virtual environment. `pip` is the de-facto Python package installer; in this case we're using the version for Python 3 specifically and asking it to list the packages that are currently resident in the virtual environment:
+
+~~~
+Package       Version
+------------- -------
+pip           20.0.2 
+pkg-resources 0.0.0  
+setuptools    44.0.0 
 ~~~
 {: .output}
 
-Here, we can see that a new shell has been created that uses the Anaconda interpreter at `/Users/user/.conda/envs/code/bin/python` to run our script located at `/Users/user/module01_se_day1-gh-pages/code/hello_world.py`.
+In addition to Python which is also installed, as we can see, we don't have any other packages installed yet, aside from `pip` itself, `pkg-resources` (used to find and manage Python package and version dependencies), and `setuptools` (which contains functionality for building and distributing Python packages).
+
+If we were to close the terminal, the activation of this environment (not the environment itself) will be forgotten. When we want to use this virtual environment we have to remember to start it using the `source venv/bin/activate` command above from within `2020-se-day1/code` directory each time we open a new terminal. Otherwise, by default, we will the using the global Python interpreter and not the specific environment we have created.
+
 
 ### Running the Script from the Command Line
 
-You'll remember that we were originally running the Python interpreter directly from the command line earlier. Let's run our new script using Python from the command line.
-
-First, we can make use of the Python Anaconda environment we created for our script. Open up a new terminal and type the following to list all the environments Anaconda is aware of:
+You'll remember that we were originally running the Python interpreter directly from the command line earlier. From within the same terminal, type:
 
 ~~~
-conda env list
+which python3
 ~~~
 {: .language-bash}
 
-We can see our environment we created (`code`) in this list, so let's use that:
+And you should see something like:
 
 ~~~
-conda activate code
+/home/sabsr3/2020-se-day1/code/venv/bin/python3
 ~~~
-{: .language-bash}
+{: .output}
 
-Now we can run our script in that environment, ensuring first we are in the directory where it resides:
+Which confirms that we are using the Python 3 interpreter from within our virtual environment at `/home/sabsr3/2020-se-day1/code/venv`.
+
+Now let's run our new script using our virtual environment from the command line:
 
 ~~~
-cd module01_se_day1-gh-pages/code
-python hello_world.py
+python3 hello_world.py
 ~~~
 {: .language-bash}
 
@@ -130,15 +151,17 @@ Hello World!
 ~~~
 {: .output}
 
-So here, we're doing a very similar thing to what PyCharm was doing when running our script: we give the command line the Python interpreter to run (which will use the one in the environment we created) and our script, which resides in the local directory.
+So here, we're doing a very similar thing to what VSCode was doing when running our script: we give the command line the Python interpreter to run (which will use the one in the environment we created in this case) and our script, which resides in the local directory.
 
 ## Python Control Flow
 
-Let's look at how we can influence control flow within a Python script using loops and conditionals. We'll use PyCharm to write a new script.
+Let's look at how we can influence control flow within a Python script using loops and conditionals. We'll use VSCode to write a new script.
 
-Create a new script, as we did before, by right-clicking the `code` directory in the PyCharm navigator on the left, and selecting `New` > `Python File`. Let's call this script `vowels.py`.
+Create a new script by selecting `File` and selecting `New File`, and save the script as`vowels.py` using `File` -> `Save As...`.
 
 ### Loops
+
+Type the following into our new `vowels.py` file:
 
 ~~~
 vowels = "aeiou"
@@ -148,11 +171,18 @@ for letter in vowels:
 ~~~
 {: .language-python}
 
-Unlike many other languages where a `for` loop is just an incremental counter over a defined range of numbers, Python's loop is based around the higher level concept of `for value in collection`. So here, `value` is our usual loop variable and `collection` can be any collection of things, like a string is a collection of letters, or a list is a collection of objects, etc. The loop will iterate over each of them.
+Unlike many other languages where a `for` loop is just an incremental counter over a defined range of numbers, such as C, Python's loop is based around the higher level concept of `for value in collection`. So here, `value` is our usual loop variable and `collection` can be any collection of things, like a string is a collection of letters, or a list is a collection of objects, etc. The loop will iterate over each of them.
 
 You'll notice the body of the loop doesn't have any traditional syntax to show its end, e.g. `}` like in C or Java. The indentation is sufficient to designate the loop body. Python's syntax has taken into account many lessons learned from decades of programming language development, and research has shown that people tend to just look at indentation to identify inner code blocks, so Python just uses that. Notice the `:` however, which indicates the start of the loop body.
 
-Now, save our file and run it within PyCharm, and within the terminal you should see:
+Now, save our file and run it from the command line:
+
+~~~
+python3 vowels.py
+~~~
+{: .language-bash}
+
+You should see:
 
 ~~~
 a
@@ -163,7 +193,7 @@ u
 ~~~
 {: .output}
 
-Going back to traditional `for` loops, Python has a built-in function called `range()` which can generate a sequence of numbers. Create a new Python file called `range.py` e.g.:
+If we want to duplicate how other traditional languages implement`for` loops, Python has a built-in function called `range()` which can generate a sequence of numbers. Create a new Python file called `range.py` e.g.:
 
 ~~~
 for x in range(1, 10, 2):
@@ -171,7 +201,12 @@ for x in range(1, 10, 2):
 ~~~
 {: .language-python}
 
-So here, the syntax is `range(start, stop, step)`, but note that `stop` is non-inclusive, so the sequence printed will not include this number. Right-click on this new Python file and select `Run range` this and you get:
+So here, the syntax is `range(start, stop, step)`, but note that `stop` is non-inclusive, so the sequence printed will not include this number. Run this on the command line just as we did for `vowels.py`:
+
+~~~
+python3 range.py
+~~~
+{: .language-bash}
 
 ~~~
 1
