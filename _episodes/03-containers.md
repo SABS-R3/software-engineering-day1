@@ -1,6 +1,6 @@
 ---
 title: "Containers"
-teaching: 20
+teaching: 10
 exercises: 0
 questions:
 - "How can I store many values together?"
@@ -23,7 +23,23 @@ keypoints:
 - "Doing `x = y`, where `y` is a container, doesn't copy its elements, it just creates a new reference to it."
 ---
 
-*Container* types are those that can hold other objects. Let's create a new Jupyter notebook to explore containers, as well as provide an active record of what we've done. Select `New` > `Python 3` from the Jupyter server menu, and name the notebook `Containers`.
+*Container* types are those that can hold other objects, and Python supports a number of different containers we can use to hold data of differing types in a multitude of ways. If you still have your Python interpreter running from the last lesson, continue below. Otherwise, change directory to the `2020-se-day1/code` directory and re-run the Python interpreter before you continue, by:
+
+~~~
+cd
+cd 2020-se-day1/code
+python3
+~~~
+{: .language-bash}
+
+~~~
+Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+~~~
+{: .output}
+
 
 ## Lists
 
@@ -167,7 +183,7 @@ print(element[1], element[0:3], element[3:6])
 ~~~
 {: .language-python}
 ~~~
-oxy gen
+x oxy gen
 ~~~
 {: .output}
 
@@ -177,7 +193,17 @@ oxy gen
 > "To describe something as 'clever' is not considered a compliment in Python culture." - Alex Martelli, Python Software Foundation Fellow.
 {: .callout}
 
-But since strings are immutable types, we cannot change elements 'in place':
+> ## Mutability
+>
+> An important thing to remember is that Python variables are simply *references* to values, and also that they fall into two distinct types:
+>
+> * Immutable types: value changes by referencing a newly created value (e.g. when adding a letter in a string). Note you cannot change individual elements of an immutable container (e.g. you can't change a single character in a string directly 'in place')
+> * Mutable types: values can be changed 'in place', e.g. changing or adding an item in a list
+>
+> This matters when you are 'copying' variables or passing them as arguments to functions.
+{: .callout}
+
+So since strings are immutable types, we cannot change elements 'in place':
 
 ~~~
 element[2] = 'y'
@@ -320,6 +346,7 @@ x.remove(2)
 x.add(3)
 print(x)
 ~~~
+{: .language-python}
 
 Note that the `remove` and `add` methods change `x` directly:
 
@@ -368,16 +395,6 @@ a.difference(b)
 
 You can also do other useful operations on sets, such as removing elements of one set from another, if one is a subset or superset of another, and so on.
 
-> ## Mutability
->
-> An important thing to remember is that Python variables are simply *references* to values, and also that they fall into two distinct types:
->
-> * Immutable types: value changes by referencing a newly created value, e.g. when changing a letter in a string
-> * Mutable types: values can be changed 'in place', e.g. changing or adding an item in a list
->
-> This matters when you are 'copying' variables or passing them as arguments to functions.
-{: .callout}
-
 
 ## Dictionaries
 
@@ -408,7 +425,7 @@ me
 {: .language-python}
 
 ~~~
-{'Jobs': ['Programmer', 'Teacher'], 'age': 39, 'name': 'Joe'}
+{'name': 'Joe', 'age': 39, 'Jobs': ['Programmer', 'Teacher']}
 ~~~
 {: .output}
 
@@ -464,7 +481,7 @@ me.values()
 {: .language-python}
 
 ~~~
-dict_values([39, ['Programmer', 'Teacher'], 'Joe'])
+dict_values(['Joe', 39, ['Programmer', 'Teacher']])
 ~~~
 {: .output}
 

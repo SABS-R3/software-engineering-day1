@@ -1,20 +1,19 @@
 ---
-title: "PyCharm as an Integrated Development Environment"
-teaching: 40
+title: "VSCode as an Integrated Development Environment"
+teaching: 30
 exercises: 0
 questions:
-- "What is PyCharm and what are the advantages of using it?"
+- "What is VSCode and what are the advantages of using it?"
 - "How can my scripts do different things based on data values?"
 - "How can I do the same operations on many different values?"
 objectives:
-- "Set up a development environment in PyCharm."
+- "Set up a development environment in VSCode."
 - "Use if statements to conditionally process Python statements."
 - "Use loops to iteratively process collections of values."
-- "Use PyCharm to write a Python script that uses conditionals and loops."
-- "Store and retrieve Python scripts in PyCharm."
+- "Use VSCode to write a Python script that uses conditionals and loops."
+- "Store and retrieve Python scripts in VSCode."
 keypoints:
-- "PyCharm needs to be configured to know which Python interpreter to use for a given project."
-- "Use for variable in sequence to process the elements of a collection one at a time."
+- "Use `for variable` in sequence to process the elements of a collection one at a time."
 - "The body of a for loop must be indented."
 - "Use `if` condition to start a conditional statement, `elif` condition to provide additional tests, and `else` to provide a default."
 - "The bodies of the branches of conditional statements must be indented."
@@ -26,18 +25,21 @@ keypoints:
 - "Python's design is such that there should only be one (ideally obvious) way to do something."
 ---
 
-## Introduction to PyCharm
+Using the Python interpreter directly is good for trying things out in Python, but when it comes to writing more complex programs we need a way to store these programs as files so we can rerun them. We could edit a Python script using a text editor like Notepad on Windows or Nano on Linux, but these have their limitations. Integrated Development Environments (IDEs) on the other hand, are program editors that have an array of powerful features to help us write code.
 
-See topic [slides](../slides/06-ide-pycharm.html).
+Python programs are also commonly known as *scripts*, because Python uses an *interpreter* to execute source code. Note that Python also *compiles* code into a more rapidly executed format as well, but this is an implicit process, and since Python presents itself largely as an interpreted language, it's programs can also be called scripts.
 
 
-## Running PyCharm for the First Time
+## Running VSCode for the First Time
 
-If you haven't run PyCharm yet, do this now. You can skip the initial configuration steps which just go through selecting a theme and other aspects. You should be presented with a dialog box that asks you what you want to do, e.g. `Create New Project`, `Open`, or `Check out from Version Control`.
+Microsoft's VSCode is a lightweight IDE which is great when starting out developing programs. It not only supports Python, but also C++, C#, JavaScript, CSS, and Java, amongst others. It's also available for Mac OS, Linux, and Windows. Whilst lightweight, it's features can be readily extended via installation of plugins to suit your needs, and you can even develop your own plugins for VSCode.
 
-Select `Open` and find the downloaded materials repository you unzipped earlier, and select the `module01_se_day-gh-pages/code` directory. This directory is now the current working directory for PyCharm, so when we run scripts from PyCharm, this is the directory they'll run from.
+If you haven't run VSCode yet, do this now. Select `Show Applications` from the grid-type icon in the lower left hand corner of the desktop, and type `vscode` into the text box at the top, and select the VSCode application that appears. You'll be presented with the VSCode interface.
 
-You'll first be shown a 'Tip of the Day' window which you can safely ignore by selecting `Close`. You'll notice the IDE shows you a navigator window on the left hand side, to traverse and select the files (and any subdirectories) within the working directory, and an editor window on the right which is currently blank.
+The first thing we need to do is open our `2020-se-day1/code` folder in VSCode. Select `Open Folder` from the bar on the left, and a dialogue window will appear. Select `Home` from the navigation bar on the left and then double click on `2020-se-day1`, then double click on `code`. Finally, select `OK` in the top right of the window. This directory is now the current working directory for VSCode, so when we run scripts from VSCode, this will be the working directory they'll run from.
+
+If you'd like to explore VSCode in more depth than this course offers, see the [VSCode documentation](https://code.visualstudio.com/docs).
+
 
 ## Our First Python Standalone Script
 

@@ -1,7 +1,7 @@
 ---
 title: "Introduction to using Python"
-teaching: 30
-exercises: 0
+teaching: 25
+exercises: 5
 questions:
 - "What is Python?"
 - "How do I use the Python interpreter?"
@@ -18,73 +18,91 @@ keypoints:
 - "Variables are created on demand whenever a value is assigned to them."
 - "Use `print(something)` to display the value of `something`."
 - "`None` as an empty variable value has its own type."
-- "Convert a variable to another types by using `new_type_name(variable)`."
+- "Convert a variable to another type by using `new_type_name(variable)`."
 ---
 
 ## Introduction to Python
 
-See topic [slides](../slides/02-python-intro.html).
+See topic [video lecture](FIXME).
 
-## Running the Python Interpreter
+## Getting Started
 
-Normally, you write Python programs in a Python script, which is basically a file of Python commands you can run,
-or within a Jupyter notebook, which is an interactive script of Python commands that gives you results of your commands as you enter them.
-We'll come on to Notebooks and scripts later. But to start with, we'll take a look at the Python interpreter.
-It's similar to the shell in how it works, in that you type in commands and it
-gives you results back, but instead you use the Python language.
+Normally, you write Python programs in a Python script, which is basically a file of Python commands you can run (or within a Jupyter notebook, which is an interactive script of Python commands that gives you results of your commands as you enter them). We'll come on to writing Python scripts later. But to start with, we'll take a look at the Python interpreter. It's similar to the shell in how it works, in that you type in commands and it gives you results back, but instead you use the Python language.
 
-It's a really quick and convenient way to get started with Python, particularly when learning about things like how to use variables, and it's good for playing around with what you can do and quickly testing small things.
-But as you progress to more interesting and complex things you need to move over to writing proper Python scripts, which we'll see later.
+It's a really quick and convenient way to get started with Python, particularly when learning about things like how to use variables, and it's good for playing around with what you can do and quickly testing small things. But as you progress to more interesting and complex things you need to move over to writing proper Python scripts, which we'll see later.
 
-First, we need to make sure Anaconda's version of Python will be loaded. Start a terminal and use an editor to look at the `/home/ubuntu/.bashrc` file (replacing `ubuntu` with your home directory, and add the following lines:
+We first need to download the training materials from the GitHub code repository online in a Zip file and unpack its contents to our home directory.
 
-~~~
-export PATH=/usr/local/anaconda3/bin:/usr/local/pycharm-community-2019.2.3:$PATH
-~~~
-{: .language-bash}
-
-Every new terminal shell you open should now be able to run the correct version of Python. For the shell you currently have open, type the following to load these changes:
-
-~~~
-source /home/ubuntu/.bashrc
-~~~
-{: .language-bash}
-
-We next need to download the training materials from the GitHub code repository online. Go to `https://github.com/sabs-r3/module01_se_day1` in a browser and select the green `Clone or download` button, and then select `Download ZIP`. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Find where the file has been downloaded to, then start a terminal, and assuming the file has downloaded to e.g. `/home/sabs-r3/Downloads`, do the following within the shell:
+Go to [https://github.com/SABS-R3/2020-software-engineering-day1/tree/gh-pages](https://github.com/SABS-R3/2020-software-engineering-day1/tree/gh-pages) in a browser (any will do, although Firefox is already installed on the provided laptops). Select the green `Code` button, and then select `Download ZIP`, and then in Firefox selecting `Save File` at the dialogue prompt. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Find where the file has been downloaded to (on the provided laptops this is `/home/sabsr3/Downloads`, then start a terminal. You can start a terminal by right-clicking on the desktop and selecting `Open in Terminal`. Assuming the file has downloaded to e.g. `/home/sabsr3/Downloads`, type the following within the Terminal shell:
 
 ~~~
 cd ~
-unzip /home/sabs-r3/Downloads/module01_se_day1-gh-pages.zip
+unzip /home/sabsr3/Downloads/2020-software-engineering-day1-gh-pages.zip
 ~~~
 {: .language-bash}
 
-This will unpack the archive in your home directory, within a subdirectory called `module01_se_day1-gh-pages`. Change to the `code` directory within that new directory:
+The first `cd ~` command *changes our working directory* to our home directory (on the provisioned laptops, this is `/home/sabsr3`).
+
+The second command uses the unzip program to unpack the archive in your home directory, within a subdirectory called `2020-software-engineering-day1-gh-pages`. If you do `ls` to list the files in your home directory, you should see this new subdirectory (amongst other directories and possibly files):
 
 ~~~
-cd module01_se_day1-gh-pages/code
+ls
 ~~~
 {: .language-bash}
 
-Then start the Python interpreter from the shell with:
+~~~
+sabsr3@sabsr3-2020:~$ ls
+2020-software-engineering-day1-gh-pages  Documents  Music     Public  Templates
+Desktop                                  Downloads  Pictures  snap    Videos
+~~~
+{: .output}
+
+Now the `2020-software-engineering-day1-gh-pages` subdirectory is a little long to easily work with, so we'll rename it to something shorter:
 
 ~~~
-python
+mv 2020-software-engineering-day1-gh-pages 2020-se-day1
+ls
+~~~
+{: .language-bash}
+
+So using Bash's `mv` command, this directory is now known as `2020-se-day1`:
+
+~~~
+2020-se-day1  Documents  Music     Public  Templates
+Desktop       Downloads  Pictures  snap    Videos
+~~~
+{: .output}
+
+Next, change to the `code` directory within that new directory:
+
+~~~
+cd 2020-se-day1/code
+~~~
+{: .language-bash}
+
+
+## Running the Python Interpreter
+
+Next, start the Python interpreter from the shell with:
+
+~~~
+python3
 ~~~
 {: .language-bash}
 
 And then you are presented with something like:
 
 ~~~
-Python 3.7.1 (default, Dec 14 2018, 13:28:58) 
-[Clang 4.0.1 (tags/RELEASE_401/final)] :: Anaconda, Inc. on darwin
+Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
+[GCC 9.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>>
+>>> 
 ~~~
 {: .output}
 
 And lo and behold! You are presented with yet another prompt.
 So, we're actually running a Python interpreter from the shell - it's only yet another program we can run from the shell after all.
-But shell commands won't work again until we exit the interpreter.
+But note that shell commands won't work again until we exit the interpreter. Whilst we're in the Python interpreter, we can only use Python commands.
 
 You can exit the interpreter and get back to the shell by typing:
 
@@ -105,6 +123,13 @@ So now you're back in the shell.
 
 
 ## Variables
+
+Let's take a look at how variables are handled within the Python interpreter. Start the Python interpreter again from the shell with:
+
+~~~
+python3
+~~~
+{: .language-bash}
 
 Compared to some other languages such as C++ or JavaScript, variables in Python do not need to be declared before assigning something to them, for example:
 
@@ -171,7 +196,7 @@ After a while, the language's "garbage collector" will wander by, notice a box w
 
 Older languages like C and Fortran don't have Garbage collectors. So a memory address with no references to it still takes up memory, and the computer can more easily run out.
 
-So when I write:
+So in Python, when I write:
 
 ~~~
 number = 1
@@ -182,7 +207,7 @@ number = 2
 The following things happen:
 
 1. A new integer object '1' is created, and an address in memory is found for it.
-1. The variable "number" is will refer to that address.
+1. The variable "number" will refer to that address.
 1. A new integer object '2' is created, and a different address in memory is found for it.
 1. The variable "number" is moved to refer to that different address.
 1. The old address, containing '1', now has no labels.
@@ -191,7 +216,7 @@ The following things happen:
 
 ## Objects and Types
 
-An object, like name, has a type. We can use `type()` to tell us the type of the variable. For our variable above:
+An object, like `number`, has a type. We can use `type()` to tell us the type of the variable. For our variable above:
 
 ~~~
 type(number)
@@ -273,7 +298,7 @@ dir(z)
 ~~~
 {: .output}
 
-You can see that there are several methods whose name starts and ends with `__` (e.g. `__init__`): these are special methods that Python uses internally, and we will discuss some of them later on in this course. The others (in this case, conjugate, `img` and `real`) are the methods and fields through which we can interact with this object.
+You can see that there are several methods whose name starts and ends with `__` (e.g. `__init__`): these are special methods that Python uses internally, and most of the time, we don't need to concern ourselves with them. We will discuss some of them later on in this course as they become useful. The others (in this case, `conjugate`, `img` and `real`) are the methods and fields through which we can interact with this object.
 
 ~~~
 type(z)
