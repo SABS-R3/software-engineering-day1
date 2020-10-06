@@ -119,7 +119,11 @@ setuptools    44.0.0
 
 In addition to Python which is also installed, as we can see, we don't have any other packages installed yet, aside from `pip` itself, `pkg-resources` (used to find and manage Python package and version dependencies), and `setuptools` (which contains functionality for building and distributing Python packages).
 
-If we were to close the terminal, the activation of this environment (not the environment itself) will be forgotten. When we want to use this virtual environment we have to remember to start it using the `source venv/bin/activate` command above from within `2020-se-day1/code` directory each time we open a new terminal. Otherwise, by default, we will the using the global Python interpreter and not the specific environment we have created.
+Note that this virtual environment is only active within our current terminal. If we start another terminal and want to use this virtual environment, we'd  have to activate it there as well. Also, if we were to close the terminal, the activation of this environment (not the environment itself) will be forgotten. When we want to use this virtual environment we have to remember to start it using the `source venv/bin/activate` command above from within `2020-se-day1/code` directory each time we open a new terminal. Otherwise, by default, we will the using the global Python interpreter and not the specific environment we have created.
+
+If we wanted to deactivate our virtual environment, and return to the globally available set of Python packages, we'd use `deactivate` on the command line (although don't do this now!).
+
+Other languages make use of virtual environments, such as Ruby, JavaScript, and Go - it's a great way to keep your environments separate and avoid confusion over dependencies.
 
 
 ### Running the Script from the Command Line
