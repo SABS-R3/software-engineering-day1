@@ -321,86 +321,11 @@ TypeError: 'tuple' object does not support item assignment
 ~~~
 {: .output}
 
-## Sets
-
-A Python set is equivalent to a set in mathematics. It may contain many values of different types, as long as they are immutable (e.g. integers, strings, floats, tuples), but is strictly unordered. Indeed, set elements are usually not stored in the order they appear within a set, which enables Python to do faster checking whether an element is in a set.
-
-~~~
-x = {1, 2}
-y = {1, 2, 1}
-print(x == y)
-~~~
-{: .language-python}
-
-Since x and y are equal sets, we get:
-
-~~~
-True
-~~~
-{: .output}
-
-We can also add and remove set elements:
-
-~~~
-x.remove(2)
-x.add(3)
-print(x)
-~~~
-{: .language-python}
-
-Note that the `remove` and `add` methods change `x` directly:
-
-~~~
-{1, 3}
-~~~
-{: .output}
-
-As you may expect, you can also perform standard set operations on sets. For union:
-
-~~~
-a = {4, 5, 6}
-b = {6, 7, 8}
-a.union(b)
-~~~
-{: .language-python}
-
-~~~
-{4, 5, 6, 7, 8}
-~~~
-{: .output}
-
-We can also do intersection:
-
-~~~
-a.intersection(b)
-~~~
-{: .language-python}
-
-~~~
-{6}
-~~~
-{: .output}
-
-And difference:
-
-~~~
-a.difference(b)
-~~~
-{: .language-python}
-
-~~~
-{4, 5}
-~~~
-{: .output}
-
-You can also do other useful operations on sets, such as removing elements of one set from another, if one is a subset or superset of another, and so on.
-
-
 ## Dictionaries
 
 Python supports a container type called a dictionary.
 
-This is also known as an "associative array", "map" or "hash" in other languages.
+This is also known as an "associative array", "map" or "hash" in other languages. Dictionaries are ordered: elements used to be unordered in older versions of Python, but since version 3.6 they are guaranteed to be ordered.
 
 In a list, we use a number to look up an element:
 
@@ -549,23 +474,6 @@ TypeError: unhashable type: 'list'
 {: .output}
 
 Remember -- square brackets denote lists, round brackets denote tuples.
-
-### No Guarantee of Order
-
-Another consequence of the way dictionaries work is that there's no guaranteed order among the elements:
-
-~~~
-my_dict = {'0': 0, '1':1, '2': 2, '3': 3, '4': 4}
-print(my_dict)
-print(my_dict.values())
-~~~
-{: .language-python}
-
-~~~
-{'2': 2, '1': 1, '0': 0, '3': 3, '4': 4}
-dict_values([2, 1, 0, 3, 4])
-~~~
-{: .output}
 
 ## Beware 'Copying' of Containers!
 
