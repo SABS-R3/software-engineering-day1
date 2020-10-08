@@ -23,7 +23,7 @@ keypoints:
 
 ## Introduction to Python
 
-See topic [video lecture](FIXME), and [PowerPoint slides](../slides/1.1-Intro-Python.pptx) used with per-slide notes.
+See topic [video lecture](https://youtu.be/rzpCZrVDSpo), and [PowerPoint slides](../slides/1.1-Intro-Python.pptx) used with per-slide notes.
 
 ## Getting Started
 
