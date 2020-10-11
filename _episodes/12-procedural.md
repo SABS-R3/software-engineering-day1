@@ -16,7 +16,7 @@ keypoints:
 
 ## Programming Paradigms
 
-See topic [video lecture]() and [PowerPoint slides](../slides/1.2-Programming-Paradigms.pptx) used with per-slide notes.
+See the [welcome video](https://youtu.be/YC4ohR5Pf5Q) and matching [slides](../slides/1.2-Programming-Paradigms.pptx) with per-slide notes.
 
 FIXME add link to video
 
