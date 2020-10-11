@@ -146,12 +146,15 @@ Which will show us the whole list.
 >                     ["bromine", "Br"],
 >                     ["iodine", "I"],
 >                     ["astatine", "At"]]
+> 
+> print(string_for_slicing)
+> print(list_for_slicing)
 > ~~~
 > {: .language-python}
 >
 > ~~~
-> "2013"
-> [["chlorine", "Cl"], ["bromine", "Br"], ["iodine", "I"], ["astatine", "At"]]
+> '2013'
+> [['fluorine', 'F'], ['chlorine', 'Cl'], ['bromine', 'Br'], ['iodine', 'I'], ['astatine', 'At']]
 > ~~~
 > {: .output}
 >
@@ -513,7 +516,7 @@ print(x, y, z)
 ~~~
 {: .output}
 
-Note that `x` and `y` are the same as we may not expect. But `z`, despite being a copy of `x`, now contains `'d'` in its nested list.
+Note that `x` and `y` are the same as we may expect. But `z`, despite being a copy of `x`'s original contents, now contains `'d'` in its nested list.
 
 The copies that we make through slicing are called shallow copies: we don't copy all the objects they contain, only the references to them. This is why the nested list in `x[0]` is not copied, so `z[0]` still refers to it. It is possible to actually create copies of all the contents, however deeply nested they are - this is called a *deep copy*. Python provides methods for that in its standard library in the `copy` module.
 
