@@ -1,7 +1,7 @@
 ---
 title: "Object Oriented Programming"
-teaching: 40
-exercises: 30
+teaching: 0
+exercises: 90
 questions:
 - "What is the Object Oriented paradigm?"
 - "What is an object?"
@@ -20,13 +20,15 @@ keypoints:
 
 ## The Object Oriented Paradigm
 
-The Object Oriented Paradigm is based upon the Procedural Paradigm and is thus more recent than most of the other major paradigms.
+The Object Oriented Paradigm builds upon the Procedural Paradigm, but builds code around data.
 
 In this paradigm, we shift our focus from the process of computation, to the data with which the computation is being performed.
 The overarching idea here, is that data should be structured such that all data related to the same **object** should be stored together.
 This is easiest to understand when thinking about the data representing a real-world, physical object, but is also applicable to more abstract concepts.
 
-Since all of the data representing a single **object** is now stored together, it makes sense to store the code representing the **behaviour** of that object in the same place.re
+Since all of the data representing a single object is now stored together, it makes sense to store the code representing the **behaviour** of that object in the same place.
+
+We need some way to describe the template for how an object's data should be structured, which we call a **class**.
 So, a class is a template describing the structure of some collection of data, along with the code necessary to describe the behaviour of that data.
 
 You may wish to think of the Object Oriented Paradigm as focussing on the **nouns** of a computation.
@@ -61,8 +63,8 @@ They also provide a set of functions, or **methods** which describe the **behavi
 
 The behaviours we have seen previously include:
 - Lists can be appended to
-- Lists can be indexed (we'll get to this later)
-- Lists can be sliced (we won't get to this)
+- Lists can be indexed (we'll make our own class with this later)
+- Lists can be sliced
 - The union of two sets can be found
 - The intersection of two sets can be found
 
@@ -89,12 +91,14 @@ Alice
 Similar to functions, we begin by using a special keyword, in this case `class`, followed by a name, then a colon to begin a new block.
 Inside this block, we define the data and behaviour that we want the class to provide.
 
-Almost every class you define will have a `__init__` (pronounced "init" or "dunder-init") **method** which is responsible for initialising any data that the class contains.
-Note that this is slightly different from the **constructor** in many other OO languages (it doesn't allocate memory for the class itself), but it's usually safe to treat it as the same.
+Almost every class you define will have a `__init__` (pronounced "init" or "dunder-init" for double-underscore) **method** which is responsible for initialising any data that the class contains.
+Note that this is slightly different from the **constructor** if you've encountered classes in other OO languages (it doesn't allocate memory for the class itself), but it's usually safe to treat it as the same.
 
 > ## Data Classes
-> Added in Python 3.7 to automatically generate some of the class structure.
-> Intended for classes where the data is more important than the behaviour, but are otherwise completely normal classes.
+> Python 3.7 added a slightly different syntax we can use to automatically generate some of the class structure.
+> These **Data Classes** are intended for cases where the data is more important than the behaviour, but are otherwise completely normal classes.
+>
+> In this example we just define the data **attributes** and their types - the `__init__` method is then generated automatically.
 >
 > ~~~
 > @dataclass
@@ -111,6 +115,8 @@ Note that this is slightly different from the **constructor** in many other OO l
 > Alice
 > ~~~
 > {: .output}
+>
+> For more information see [this page](https://docs.python.org/3/library/dataclasses.html) of the Python documentation.
 {: .callout}
 
 ### Methods
@@ -127,10 +133,10 @@ class Academic:
         self.name = name
         self.papers = []
 
-    def write_paper(self, title, day):
+    def write_paper(self, title, date):
         new_paper = {
             'title': title,
-            'day': day
+            'date': date
         }
 
         self.papers.append(new_paper)
@@ -139,11 +145,13 @@ class Academic:
 alice = Academic('Alice')
 print(alice)
 
-paper = alice.write_paper('A new paper', 3)
+# Normal use of a member function
+paper = alice.write_paper('A new paper', 2018)
 print(paper)
 print(alice.papers)
 
-paper = Academic.write_paper(alice, 'Another new paper', 4)
+# Can also use directly from the class - this is unusual
+paper = Academic.write_paper(alice, 'Another new paper', 2020)
 print(paper)
 print(alice.papers)
 ~~~
@@ -151,20 +159,22 @@ print(alice.papers)
 
 ~~~
 <__main__.Academic object at 0x7f4826fdff10>
-{'title': 'A new paper', 'day': 3}
-[{'title': 'A new paper', 'day': 3}]
-[{'title': 'A new paper', 'day': 3}, {'title': 'Another new paper', 'day': 4}]
+{'title': 'A new paper', 'date': 2018}
+[{'title': 'A new paper', 'date': 2018}]
+[{'title': 'A new paper', 'date': 2018}, {'title': 'Another new paper', 'date': 2020}]
 ~~~
 {: .output}
 
-The second use of `write_paper` in the example above shows that we can use 
+The second use of `write_paper` in the example above shows that we can use a method by accessing it through the class, rather than through the object.
+This makes it behave more like a free function, meaning that the `self` parameter isn't automatically set and we need to pass it the value ourselves.
+This isn't useful very often, but helps us to see that member functions are not substantially different from free functions.
 
 ### Dunder Methods
 
 Why is the `__init__` method not called `init`?
-There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with two underscores, hence the name **dunder method**.
 
-The most commonly seen of the dunder methods is `__init__`, but there are a few other common ones:
+There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with two underscores, hence the name **dunder method**.
+The most commonly used dunder method is `__init__`, but there are a few other common ones:
 
 ~~~
 class Academic:
@@ -172,10 +182,10 @@ class Academic:
         self.name = name
         self.papers = []
 
-    def write_paper(self, title, day):
+    def write_paper(self, title, date):
         new_paper = {
             'title': title,
-            'day': day
+            'date': date
         }
 
         self.papers.append(new_paper)
@@ -193,7 +203,7 @@ class Academic:
 alice = Academic('Alice')
 print(alice)
 
-alice.write_paper('A new paper', 3)
+alice.write_paper('A new paper', 2018)
 paper = alice[0]
 print(paper)
 
@@ -203,7 +213,7 @@ print(len(alice))
 
 ~~~
 Alice
-{'title': 'A new paper', 'day': 3}
+{'title': 'A new paper', 'date': 2018}
 1
 ~~~
 {: .output}
@@ -214,13 +224,42 @@ In the example above we can see:
 - `__getitem__` - Accesses an object by key, this is how `list[x]` and `dict[x]` are implemented
 - `__len__` - gets the length of an object - usually the number of items it contains
 
+> ## Meaningful Behaviours
+>
+> In the previous example, we defined some of the **data** and **behaviours** of an academic, but do all of these make sense?
+> What data and behaviours did we define?
+> Do these really represent the real-world object we're modelling?
+>
+> > ## Solution
+> >
+> > The data attributes we defined for an academic make sense, these were:
+> >
+> > - has a name
+> > - has papers
+> >
+> > The behaviours we defined were:
+> >
+> > - can write a paper
+> > - can be represented as text
+> > - can get contents
+> > - can get number of contents
+> >
+> > These last two don't really make sense as they suggest that an academic **contains** papers, which probably isn't what we intended to say.
+> > To get the number of papers, we probably should have used `len(alice.papers)` from the main code and not had the `__len__` method in the class.
+> > This works because the `papers` attribute is a list type, which comes with a built in `__len__` method.
+> >
+> > These were included in the example to demonstrate their use, but when designing your own classes, it's important to think about whether what you're designing is a meaningful representation of reality.
+> > When we encounter code that behaves differently from reality, it can cause us to have incorrect assumptions about the structure and behaviour of the code.
+> {: .solution}
+{: .challenge}
+
 There are many more described in the Python documentation, but it's also worth experimenting with built in Python objects to see which methods provide which behaviour.
 
 > ## A Basic Class
 >
 > Implement a class to represent a book.
 > Your class should:
-> 
+>
 > - Have a title
 > - Have an author
 > - When printed, show text in the format "title by author"
@@ -243,7 +282,7 @@ There are many more described in the Python documentation, but it's also worth e
 > >     def __init__(self, title, author):
 > >         self.title = title
 > >         self.author = author
-> >     
+> >
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
 > > ~~~
@@ -254,7 +293,8 @@ There are many more described in the Python documentation, but it's also worth e
 ## Properties
 
 The final special type of method we'll introduce is **properties**.
-Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually:
+Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
+They're often used a bit like **getters** from other Object Oriented languages (see [this page](https://www.w3schools.com/cpp/cpp_encapsulation.asp) for more information).
 
 ~~~
 class Academic:
@@ -276,8 +316,12 @@ print(paper)
 
 The `@` syntax means that a function called `property` is being used to modify the behavior of the method - this is called a **decorator**.
 In this case the `@property` decorator converts `last_paper` from a normal method into a property.
+In order to act as a function decorator, the decorator must be a function, which accepts a function as its first parameter and returns a function.
+Since functions in Python are just objects of type `function` (try asking Python for the type of a function you've defined), it's perfectly natural to pass them around as arguments to and return values of other functions.
 
-We'll see more about decorators tomorrow.
+Function decorators in Python are a modification of the [Decorator](https://en.wikipedia.org/wiki/Decorator_pattern) **Design Pattern**.
+Design Patterns are established templates that we can use to design the interactions beteen components in software using the Object Oriented paradigm.
+Many of these come from a book titled '[Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns)' by Erich Gamma *et al*, published in 1994.
 
 ## Relationships
 
@@ -293,12 +337,13 @@ There are two fundamental types of relationship between objects which we need to
 Composition is about ownership of an object or resource - x **has a** y.
 
 In the case of our academics example, we can say that academics have papers.
+Note that after the previous time we used this example, we clarified that academics should not *contain* papers.
 
 ~~~
 class Paper:
-    def __init__(self, title, pub_day):
+    def __init__(self, title, pub_date):
         self.title = title
-        self.pub_day = pub_day
+        self.pub_date = pub_date
 
     def __str__(self):
         return self.title
@@ -308,14 +353,14 @@ class Academic:
         self.name = name
         self.papers = []
 
-    def write_paper(title, day):
-        new_paper = Paper(title, day)
+    def write_paper(title, date):
+        new_paper = Paper(title, date)
 
         self.papers.append(new_paper)
         return new_paper
 
 alice = Academic('Alice')
-paper = alice.write_paper('A new paper', 3)
+paper = alice.write_paper('A new paper', 2019)
 
 print(paper)
 ~~~
@@ -348,8 +393,8 @@ class Academic(Person):
         super().__init__(name)
         self.papers = []
 
-    def write_paper(title, day):
-        new_paper = Paper(title, day)
+    def write_paper(title, date):
+        new_paper = Paper(title, date)
 
         self.papers.append(new_paper)
         return new_paper
@@ -360,10 +405,10 @@ print(alice)
 bob = Person('Bob')
 print(bob)
 
-paper = alice.write_paper('A paper', 0)
+paper = alice.write_paper('A paper', 2016)
 print(paper)
 
-paper = bob.write_paper('A different paper', 0)
+paper = bob.write_paper('A different paper', 2019)
 print(paper)
 ~~~
 {: .language-python}
@@ -376,24 +421,29 @@ AttributeError: 'Person' object has no attribute 'write_paper'
 ~~~
 {: .output}
 
-We see in the example above that to say that a class inherits from another, we but the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
+We see in the example above that to say that a class inherits from another, we put the **parent class** (or **superclass**) in brackets after the name of the **subclass**.
 
 There's something else we need to add as well - Python doesn't automatically call the `__init__` method on the parent class, so we need to do this manually within the `__init__` method of the subclass.
 
 Python does however provide us with a shortcut to access the parent class.
 The line `super().__init__(name)` gets the parent class, then calls the `__init__` method, providing the `name` variable that `Person.__init__` requires.
 
-#### Multiple Inheritance
 
-Some languages allow you to have a class inherit from multiple parent classes, which is known as **multiple inheritance**.
+> ## Multiple Inheritance
+>
+> Python, and a few other languages, allow you to have a class inherit from multiple parent classes, which is known as **multiple inheritance**.
+> In a class with multiple parent classes, it may not be obvious which parent class we should go to to look for a method (see [Deadly Diamond of Death](https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)).
+> In order to resolve this, Python uses a method known as [C3 Linearisation](https://en.wikipedia.org/wiki/C3_linearization), but this is in the realm of advanced Python and we should not expect people who use our code to know this.
+>
+> Because of this complexity, it is recommended not to use multiple inheritance, unless you are certain that this is the simplest way to describe the problem you wish to solve.
+>
+{: .callout}
 
-
-{% comment %}Briefly mention multiple inheritance, the "deadly diamond of death" and how Python copes with it (C3 Linearisation){% endcomment %}
 
 ### Composition vs Inheritance
 
 When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
-More on this later in the week!
+For example, if we need to produce a model of a photocopier:
 
 ~~~
 class Machine:
@@ -429,13 +479,21 @@ class Copier(Machine):
 ~~~
 {: .language-python}
 
+Which of these is better?
+Well, both of them seem like reasonable approximations of the thing we're trying to model.
+It seems fair to say that a photocopier *is a* printer and *is a* scanner, but it also seems fair to say that a photocopier *has a* printer and *has a* scanner.
+
+It depends on the context, but generally, we should favour **composition over inheritance** (*has a* over *is a*), as it leads to relationships between objects being slightly simpler to manage.
+It's quite common for software developers, when introduced to classes, to produce code which has long, complicated inheritance heirarchies in places where composition would work better.
+Try to avoid this temptation - the simpler you can keep your code, the better.
+
 > ## Building a Library
 >
 > Using what we've seen so far, implement two classes: `Book` (you can use the one from the earlier exercise) and `Library` which have the following behaviour:
 >
 > ~~~
 > library = Library()
-> 
+>
 > library.add_book('My First Book', 'Alice')
 > library.add_book('My Second Book', 'Alice')
 > library.add_book('A Different Book', 'Bob')
@@ -468,24 +526,24 @@ class Copier(Machine):
 > >     def __init__(self, title, author):
 > >         self.title = title
 > >         self.author = author
-> >     
+> >
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
-> > 
-> >     
+> >
+> >
 > > class Library:
 > >     def __init__(self):
 > >         self.books = []
-> >     
+> >
 > >     def add_book(self, title, author):
 > >         self.books.append(Book(title, author))
-> >     
+> >
 > >     def __len__(self):
 > >         return len(self.books)
-> >     
+> >
 > >     def __getitem__(self, key):
 > >         return self.books[key]
-> >     
+> >
 > >     def by_author(self, author):
 > >         matches = []
 > >         for book in self.books:
@@ -494,7 +552,7 @@ class Copier(Machine):
 > >
 > >         if not matches:
 > >             raise KeyError('Author does not exist')
-> >         
+> >
 > >         return matches
 > > ~~~
 > > {: .output}
@@ -521,24 +579,24 @@ class Copier(Machine):
 > >     def __init__(self, title, author):
 > >         self.title = title
 > >         self.author = author
-> >     
+> >
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
-> > 
-> >     
+> >
+> >
 > > class Library:
 > >     def __init__(self):
 > >         self.books = []
-> >     
+> >
 > >     def add_book(self, title, author):
 > >         self.books.append(Book(title, author))
-> >     
+> >
 > >     def __len__(self):
 > >         return len(self.books)
-> >     
+> >
 > >     def __getitem__(self, key):
 > >         return self.books[key]
-> >     
+> >
 > >     def by_author(self, author):
 > >         matches = []
 > >         for book in self.books:
@@ -547,15 +605,15 @@ class Copier(Machine):
 > >
 > >         if not matches:
 > >             raise KeyError('Author does not exist')
-> >         
+> >
 > >         return matches
-> > 
+> >
 > >     @property
 > >     def titles(self):
 > >         titles = []
 > >         for book in self.books:
 > >             titles.append(book.title)
-> > 
+> >
 > >         return titles
 > >
 > >     @property
@@ -564,7 +622,7 @@ class Copier(Machine):
 > >         for book in self.books:
 > >             if book.author not in authors:
 > >                 authors.append(book.author)
-> > 
+> >
 > >         return authors
 > > ~~~
 > > {: .output}
@@ -583,27 +641,27 @@ class Copier(Machine):
 > >     def __init__(self, title, author):
 > >         self.title = title
 > >         self.author = author
-> >     
+> >
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
-> > 
+> >
 > > def __eq__(self, other):
 > >         return self.title == other.title and self.author == other.author
-> > 
-> >     
+> >
+> >
 > > class Library:
 > >     def __init__(self):
 > >         self.books = []
-> >     
+> >
 > >     def add_book(self, title, author):
 > >         self.books.append(Book(title, author))
-> >     
+> >
 > >     def __len__(self):
 > >         return len(self.books)
-> >     
+> >
 > >     def __getitem__(self, key):
 > >         return self.books[key]
-> >     
+> >
 > >     def by_author(self, author):
 > >         matches = []
 > >         for book in self.books:
@@ -612,15 +670,15 @@ class Copier(Machine):
 > >
 > >         if not matches:
 > >             raise KeyError('Author does not exist')
-> >         
+> >
 > >         return matches
-> > 
+> >
 > >     @property
 > >     def titles(self):
 > >         titles = []
 > >         for book in self.books:
 > >             titles.append(book.title)
-> > 
+> >
 > >         return titles
 > >
 > >     @property
@@ -629,24 +687,31 @@ class Copier(Machine):
 > >         for book in self.books:
 > >             if book.author not in authors:
 > >                 authors.append(book.author)
-> > 
+> >
 > >         return authors
-> > 
+> >
 > >     def union(self, other):
 > >         books = []
 > >         for book in self.books:
 > >             if book not in books:
 > >                 books.append(book)
-> >                 
+> >
 > >         for book in other.books:
 > >             if book not in books:
 > >                 books.append(book)
-> >                 
+> >
 > >         return Library(books)
 > > ~~~
+> > {: .language-python}
+> >
+> > Since we're copying a lot of the behaviour of the built in `set` class, it might actually make sense to have `Library` inherit from `set`.
+> > If you've got this far, try writing this alternative implementation.
+> > Here's [the documentation](https://docs.python.org/3/library/stdtypes.html#set) for the `set` type.
+> >
+> > Which do you prefer?
+> >
 > > {: .output}
 > {: .solution}
 {: .challenge}
 
 {% include links.md %}
-
