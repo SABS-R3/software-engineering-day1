@@ -43,7 +43,7 @@ Microsoft's VSCode is a lightweight IDE which is great when starting out develop
 
 If you haven't run VSCode yet, do this now. Select `Show Applications` from the grid-type icon in the lower left hand corner of the desktop, and type `vscode` into the text box at the top, and select the VSCode application that appears. You'll be presented with the VSCode interface.
 
-The first thing we need to do is open our `2020-se-day1/code` folder in VSCode. Select `Open Folder` from the bar on the left, and a dialogue window will appear. Select `Home` from the navigation bar on the left and then double click on `2020-se-day1`, then double click on `code`. Finally, select `OK` in the top right of the window. This directory is now the current working directory for VSCode, so when we run scripts from VSCode, this will be the working directory they'll run from.
+The first thing we need to do is open our `2020-se-day1/code` folder in VSCode. Select `Open Folder` from the bar on the left (or from the `File` drop down menu at the top of VSCode), and a dialogue window will appear. Select `Home` from the navigation bar on the left and then double click on `2020-se-day1`, then double click on `code`. Finally, select `OK` in the top right of the window. This directory is now the current working directory for VSCode, so when we run scripts from VSCode, this will be the working directory they'll run from.
 
 If you'd like to explore VSCode in more depth than this course offers, see the [VSCode documentation](https://code.visualstudio.com/docs).
 
@@ -52,7 +52,7 @@ If you'd like to explore VSCode in more depth than this course offers, see the [
 
 In main `Welcome` window, click on `New file`. You can also create a new file at any time by selecting `File` -> `New File` from the menu at any time. A new empty file will be brought up in the editor.
 
-Before we enter anything into this file, we're going to save it first. Select `File` > `Save As...`. You'll find yourself in the `2020-se-day1/code` directory. Enter the filename `hello_world.py` at the top and select `Save`.
+Before we enter anything into this file, we're going to save it first. Select `File` > `Save As...`. You'll find yourself in the `2020-se-day1/code` directory. Enter the filename `hello_world.py` at the top and select `Save`. Since we've saved the file with `.py` suffix, VSCode assumes we'll be writing Python in this file.
 
 Let's start with a classic 'Hello world' script. Enter this into the editor:
 
@@ -65,7 +65,7 @@ VSCode comes with Python support built-in. You'll notice that as you type, the e
  
  You may find you see a `Python - Get Started` window tab pop up that gives you some things to do next in Python. But for now, we'll keep editing our file in the `hello_world.py` tab, so select that. Once you've finished, select `File` -> `Save`.
 
-Now let's try running our script from within VSCode. Select the `Run` icon on the far left navigation bar (it looks like an arrow pointing right with a bug in it). It will ask you to `Select a debug configuration`, so select `Python File`. It will now run our script, and you should see a terminal window pop-up at the bottom, with something like the following text in it:
+Now let's try running our script from within VSCode. Select the `Run` icon on the far left navigation bar (it looks like an arrow pointing right with a bug in it), then select `Run and Debug`. It will ask you to `Select a debug configuration`, so select `Python File`. It will now run our script, and you should see a terminal window pop-up at the bottom, with something like the following text in it:
 
 ~~~
 sabsr3@sabsr3-2020:~/2020-se-day1/code$  /usr/bin/env /usr/bin/python3 /home/sabsr3/.vscode/extensions/ms-python.python-2020.9.112786/pythonFiles/lib/python/debugpy/launcher 39017 -- /home/sabsr3/2020-se-day1/code/hello_world.py 
@@ -87,9 +87,9 @@ Before we start using VSCode beyond a 'Hello world' example, we should set up a 
 > A virtual environment is a self-contained directory tree that houses a specific Python interpreter and specific versions of a number of Python packages, so as package dependencies are added to a script (or set of scripts), you can add them to this specific virtual environment. So, you can avoid a great deal of confusion by having separate virtual environments for each script.
 {: .callout}
 
-Go back to the terminal, and exit the Python interpreter (either by typing `exit()` or pressing `Ctrl` and `D` at the same time).
+Go back to the terminal window, and exit the Python interpreter (either by typing `exit()` or pressing `Ctrl` and `D` at the same time).
 
-In the Bash shell, type the following:
+In the Bash shell, type the following (whilst in the `2020-se-day1/code` directory):
 
 ~~~
 python3 -m venv venv
@@ -270,7 +270,9 @@ for letter in ['O', 'k', 'a', 'y']:
 ~~~
 {: .language-python}
 
-Save and re-run it, and you'll notice the `for` loop and `letter.lower() in vowels` works exactly as it did before. The design of Python's syntax aims to be minimal: there should only be one (ideally obvious) way to do something. This keeps the language simple, and is in contrast to many other languages. A notable counter-example being Perl where there are many, many ways to anything in the language, which can make learning Perl and sharing it with others a challenge - the way you might do something in Perl might be very different to how someone else does it. In Python, at least from point of view of syntax, generally people's code tends to look the same which generally makes reading other people's Python code easier.
+Save and re-run it, and you'll notice the `for` loop and `letter.lower() in vowels` works exactly as it did before.
+
+This illustrates a very important aspect of Python that helps to keep scripts simple. The design of Python's syntax aims to be minimal: there should only be one (ideally obvious) way to do something. This keeps the language simple, and is in contrast to many other languages. A notable counter-example being Perl where there are many, many ways to anything in the language, which can make learning Perl and sharing it with others a challenge - the way you might do something in Perl might be very different to how someone else does it. In Python, at least from point of view of syntax, generally people's code tends to look the same which generally makes reading other people's Python code easier.
 
 Interestingly, Python doesn't have the equivalent of a `case`/`switch`, instead, you need to use `if` with multiple `elif` statements, with an optional `else` at the end. The reason for this is that there have been many proposals for one in Python (e.g. PEP 3103), but nobody has been able to suggest one that fits well with Python's syntax and established coding style.
 
