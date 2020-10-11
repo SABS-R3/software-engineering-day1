@@ -1,13 +1,14 @@
 ---
 title: "Procedural Programming"
-teaching: 40
-exercises: 30
+teaching: 10
+exercises: 60
 questions:
 - "What is the Procedural paradigm?"
 - "How do I define functions in Python?"
-- "When should I use the Procedural paradigm?"
+- "Why should we separate code into functions?"
 objectives:
-- "Use functions to abstract details"
+- "Use functions to reduce the complexity of blocks of code"
+- "Recognise the importance of breaking code into discrete blocks"
 keypoints:
 - "Functions allow us to separate out blocks of code which perform a common task"
 - "Functions have their own scope and do not clash with variables defined outside"
@@ -15,7 +16,9 @@ keypoints:
 
 ## Programming Paradigms
 
-See topic [slides](../slides/12-procedural.html) for general introduction to paradigms.
+See topic [video lecture]() and [PowerPoint slides](../slides/1.2-Programming-Paradigms.pptx) used with per-slide notes.
+
+FIXME add link to video
 
 ## The Procedural Paradigm
 
@@ -26,7 +29,7 @@ It would also be useful to be able to hide some of the complexity of our code on
 
 Procedural Programming is based around the idea that code should be structured into a set of **procedures**.
 Each procedure (optionally) takes some input, performs some computation and (optionally) returns some output.
-A program can then use these procedures to perform computation, without having to be concerned with exactly how the computation is performed.
+We can then use these procedures to perform computation, without having to be concerned with exactly how the computation is performed.
 
 You may wish to think of the Procedural Paradigm as focussing on the **verbs** of a computation.
 
@@ -35,7 +38,7 @@ In most modern programming languages these procedures are called **functions**.
 Python has many pre-defined functions built in.
 We've already met some of them.
 
-To use, or **call**, a function we use the name of the function, followed by brackets containing any **parameters** that the function will accept.
+To use, or **call**, a function we use the name of the function, followed by brackets containing any **arguments** that we wish to **pass** to the function.
 All functions in Python **return** a single value as their result.
 
 > ## Return Values
@@ -71,7 +74,32 @@ print(nums)
 ~~~
 {: .output}
 
+The append function is actually also one of these functions that return `None`.
+We can test this again by printing its output.
+
+~~~
+nums = [1, 2, 3]
+result = nums.append(4)
+
+print(result)
+print(nums)
+~~~
+{: .language-python}
+
+~~~
+None
+[1, 2, 3, 4]
+~~~
+{: .output}
+
+It's relatively common for a function to return `None` if the purpose of the function is to modify one of its input values.
+That's the case here - the purpose of the `append` function is to append a value to an existing list.
+
+
 ## Creating Functions
+
+Although Python has many built in functions, it wouldn't be much use if we couldn't also define our own.
+Most languages use a keyword to signify a **function definition**, in Python that keyword is `def`.
 
 ~~~
 def add_one(value):
@@ -99,11 +127,19 @@ Hello, World!
 ~~~
 {: .output}
 
-Functions may have default values for parameters.
+To define a function, we use `def`, followed by the name of the function and its **parameters** in brackets.
+Just like with other code blocks (like `for` and `if`), we use a colon to signify the body of the function and indent the body by four spaces.
+
+Note that we used the word **argument** when we were calling a function, but **parameter** when we were defining one.
+The parameters of a function are the names of the variables which are created inside the function to accept its input data.
+The arguments of a function are the values that we give to a function when we call it, to put into its parameters.
+
+
+Sometimes, it's useful for a parameter to have a default value.
 When we call a function, parameters with default values can be used in one of three ways:
 
 1. We can use the default value, by not providing our own value
-2. We can provide our own value in the way we have previously
+2. We can provide our own value in the normal way
 3. We can provide a value in the form of a **named argument** - arguments which are not named are called **positional arguments**
 
 ~~~
@@ -122,6 +158,20 @@ Hello, Python!
 Hello, Named Argument!
 ~~~
 {: .output}
+
+> ## Declarations and Definitions
+>
+> Some languages have a distinction between **declaration** and **definition** of a function.
+> In these languages function declaration provides a name and information about its return type and parameters, but does not provide the actual code inside the function.
+> Function definition is when the code is provided, and the function's behaviour is defined.
+>
+> This distinction can be useful as it allows us to call a function from code which appears above the function definition in the source file.
+> Python does not have this distinction - that is, a function is always declared and defined at the same time - so we much define the function before we can use it.
+>
+> One common language that does have this distinction is C++.
+> See [this page](https://docs.microsoft.com/en-us/cpp/cpp/declarations-and-definitions-cpp?view=vs-2019) for more information.
+>
+{: .callout}
 
 > ## Combining Strings
 >
@@ -162,10 +212,10 @@ Hello, Named Argument!
 > >
 > > # No arguments - both default values
 > > print(say_hello())
-> > 
+> >
 > > # One positional argument, one default value
 > > print(say_hello('Hello'))
-> > 
+> >
 > > # One named argument
 > > print(say_hello(greeting='Hello'))
 > > print(say_hello(name='World'))
@@ -181,7 +231,7 @@ Hello, Named Argument!
 > > ~~~
 > > {: .language-python}
 > >
-> > You should have found that Python will not let you have positional arguments after named ones.
+> > You should have found that Python will not let you provide positional arguments after named ones.
 > {: .solution}
 {: .challenge}
 
@@ -224,7 +274,10 @@ Hello, Named Argument!
 ## Function Composition
 
 One of the main reasons for defining a function is to encapsulate our code, so that we can use it without having to worry about how the computation is performed.
-This means we're free to use any way we want, including deferring some part of the task to another function that already exists.
+This means we're free to do this way we want, including deferring some part of the task to another function that already exists.
+
+For example, if we need some data processing code to be able to accept temperatures in Fahrenheit, we may need a way to convert these into Kelvin.
+So we might have these two temperature conversion functions:
 
 ~~~
 def fahr_to_cels(fahr):
@@ -242,6 +295,11 @@ print(fahr_to_kelv(32))
 print(fahr_to_kelv(212))
 ~~~
 {: .language-python}
+
+But if we look at these two functions, we notice that the conversion from Fahrenheit to Celsius is actually duplicated in both functions.
+This makes sense, since this is a necessary step in both functions, but duplicated code is wasteful and increases the chance of us making an error - what if we made a typo in one of the equations?
+
+So, we can remove the duplicated code, by calling one function from inside the other:
 
 ~~~
 def fahr_to_cels(fahr):
@@ -260,6 +318,8 @@ print(fahr_to_kelv(212))
 ~~~
 {: .language-python}
 
+Now we've removed the duplicated code, but we might actually want to go one step further and remove some of the other unnecessary bits:
+
 ~~~
 def fahr_to_cels(fahr):
     # Convert temperature in Fahrenheit to Celsius
@@ -274,11 +334,15 @@ print(fahr_to_kelv(212))
 ~~~
 {: .language-python}
 
+Now we have each function down to one statement, which should be easier to read and have reduced the chance of us making a mistake.
+Whether you actually prefer the second or third version is up to you, but we should at least try to reduce duplication where posssible.
+
 ## Managing Academics
 
-As a common example to illustrate each of the paradigms, we'll write some code to help manage a group of academics.
+As a common example to illustrate each of the paradigms, we'll write some code to help manage a group of academics and their publications.
 
 First, let's create a data structure to keep track of the papers that a group of academics are publishing.
+Note that we could use an actual `date` type to store the publication date, but they're much more complicated to work with, so we'll just use the year.
 
 ~~~
 academics = [
@@ -287,11 +351,11 @@ academics = [
         'papers': [
             {
                 'title': 'My science paper',
-                'day': 0
+                'date': 2015
             },
             {
                 'title': 'My other science paper',
-                'day': 5
+                'date': 2017
             }
         ]
     },
@@ -300,7 +364,7 @@ academics = [
         'papers': [
             {
                 'title': 'Bob writes about science',
-                'day': 3
+                'date': 2018
         ]
     }
 ]
@@ -310,10 +374,10 @@ academics = [
 We want a convenient way to add new papers to the data structure.
 
 ~~~
-def write_paper(academics, name, title, day):
+def write_paper(academics, name, title, date):
     paper = {
         'title': title,
-        'day': day
+        'date': date
     }
 
     for academic in academics:
@@ -327,7 +391,7 @@ What happens if we call this function for an academic who doesn't exist?
 
 > ## Exceptions
 > In many programming languages, we use **exceptions** to indicate that exceptional behaviour has occured and the flow of execution should be diverted.
-> 
+>
 > Exceptions are often **raised** (**thrown** in some other programming languages) as the result of an error condition.
 > The flow of execution is then returned (the exception is **caught** or **handled**) to a point where the error may be corrected or logged.
 >
@@ -335,15 +399,15 @@ What happens if we call this function for an academic who doesn't exist?
 > For example, when iterating over a collection, a `StopIteration` exception is used to tell the loop construct to terminate.
 >
 > ~~~
-> def write_paper(academics, name, title, day):
+> def write_paper(academics, name, title, date):
 >     if name not in academics:
 >         raise KeyError('Named academic does not exist')
 >
 >     paper = {
 >         'title': title,
->         'day': day
+>         'date': date
 >     }
-> 
+>
 >     for academic in academics:
 >         if academic['name'] == name:
 >             academic['name']['papers'].append(paper)
@@ -354,20 +418,27 @@ What happens if we call this function for an academic who doesn't exist?
 > Or
 >
 > ~~~
-> def write_paper(academics, name, title, day):
+> def write_paper(academics, name, title, date):
 >     paper = {
 >         'title': title,
->         'day': day
+>         'date': date
 >     }
-> 
+>
 >     for academic in academics:
 >         if academic['name'] == name:
 >             academic['name']['papers'].append(paper)
 >             break
+>
 >     else:
 >         raise KeyError('Named academic does not exist')
 > ~~~
 > {: .language-python}
+>
+> The `for-else` structure used in the second example is relatively unusual, but can be useful when you're using a loop to search for a value.
+> The `else` block is executed if and only if the loop execution completes normally - i.e. when `break` is not used.
+> When you're using a loop to search for something, this means that it has not been found.
+>
+> For more information see [this section](https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops) of the Python documentation.
 >
 {: .callout}
 
@@ -401,45 +472,66 @@ What happens if we call this function for an academic who doesn't exist?
 > > ~~~
 > > {: .output}
 > >
-> > The reason for this behaviour is that lists are mutable so when we pass one in to a function any modifications are made to the actual list as it exist in memory.
-> > Using `=` to assign a new value creates a new list in memory and assigns it to the variable `l`.
+> > The reason for this behaviour is that lists are **mutable** so when we pass one in to a function any modifications are made to the actual list as it exist in memory.
+> > Using `=` to assign a new value creates a new list in memory and assigns it to the variable / name `l`.
 > > Any changes made to `l` after this are changes to the new list, so do not affect the previous list.
+> >
+> > For this reason it can be useful to think of the `=` sign as **binding a value to a name**.
 > {: .solution}
 {: .challenge}
 
 FIXME - add JSON as a callout - content in RSD course
 
-~~~
-def count_papers(academics):
-    count = 0
-
-    for academic in academics:
-        count = count + len(academic['papers'])
-
-    return count
-
-total = count_papers(academics)
-print(total)
-~~~
-{: .language-python}
-
-~~~
-3
-~~~
-{: .output}
-
-~~~
-def list_papers(academics):
-    papers = []
-
-    for academic in academics:
-        papers = papers + academic['papers']
-
-    return papers
-~~~
-{: .language-python}
+> ## Counting Publications
+>
+> Write a function called `count_papers`, that when called with `count_papers(academics)` returns the total number of publications.
+>
+> > ## Solution
+> >
+> > One possible solution is:
+> >
+> > ~~~
+> > def count_papers(academics):
+> >     count = 0
+> >
+> >     for academic in academics:
+> >         count = count + len(academic['papers'])
+> >
+> >     return count
+> >
+> > total = count_papers(academics)
+> > print(total)
+> > ~~~
+> > {: .language-python}
+> >
+> > ~~~
+> > 3
+> > ~~~
+> > {: .output}
+> {: .solution}
+~
+{
+> ## Listing Publications
+>
+> Write a function called `list_papers`, that when called with `list_papers(academics)` returns a list of all publication titles.
+>
+> > ## Solution
+> >
+> > One possible solution is:
+> >
+> > ~~~
+> > def list_papers(academics):
+> >     papers = []
+> >
+> >     for academic in academics:
+> >         papers = papers + academic['papers']
+> >
+> >     return papers
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
 
 <!-- Use inflammation data as exercises, functions to average data -->
 
 {% include links.md %}
-
