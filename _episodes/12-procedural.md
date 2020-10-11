@@ -1,7 +1,7 @@
 ---
 title: "Procedural Programming"
 teaching: 10
-exercises: 60
+exercises: 50
 questions:
 - "What is the Procedural paradigm?"
 - "How do I define functions in Python?"
