@@ -153,7 +153,7 @@ Which will show us the whole list.
 > {: .language-python}
 >
 > ~~~
-> '2013'
+> 'Observation date: 02-Feb-2013'
 > [['fluorine', 'F'], ['chlorine', 'Cl'], ['bromine', 'Br'], ['iodine', 'I'], ['astatine', 'At']]
 > ~~~
 > {: .output}
