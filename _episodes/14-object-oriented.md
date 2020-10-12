@@ -655,8 +655,14 @@ Try to avoid this temptation - the simpler you can keep your code, the better.
 > >
 > >
 > > class Library:
-> >     def __init__(self):
-> >         self.books = []
+> >     def __init__(self, books=None):
+> >         # This is a common pattern if we need to allow an empty collection
+> >         # We could use 'books=[]' but this doesn't behave how you might expect - why is this?
+> >         if books is None:
+> >             self.books = []
+> >
+> >         else:
+> >             self.books = books
 > >
 > >     def add_book(self, title, author):
 > >         self.books.append(Book(title, author))
