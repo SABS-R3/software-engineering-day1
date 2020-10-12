@@ -365,6 +365,7 @@ academics = [
             {
                 'title': 'Bob writes about science',
                 'date': 2018
+            }
         ]
     }
 ]
