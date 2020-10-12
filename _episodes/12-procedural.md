@@ -401,28 +401,10 @@ What happens if we call this function for an academic who doesn't exist?
 >
 > Exceptions are often **raised** (**thrown** in some other programming languages) as the result of an error condition.
 > The flow of execution is then returned (the exception is **caught** or **handled**) to a point where the error may be corrected or logged.
+> For the moment we'll just raise the exception, and assume that it will get handled properly by someone using our code.
 >
 > In Python, exceptions may also be used to alter the flow of execution even when an error has not occured.
-> For example, when iterating over a collection, a `StopIteration` exception is used to tell the loop construct to terminate.
->
-> ~~~
-> def write_paper(academics, name, title, date):
->     if name not in academics:
->         raise KeyError('Named academic does not exist')
->
->     paper = {
->         'title': title,
->         'date': date
->     }
->
->     for academic in academics:
->         if academic['name'] == name:
->             academic['papers'].append(paper)
->             break
-> ~~~
-> {: .language-python}
->
-> Or
+> For example, when iterating over a collection, a `StopIteration` exception is used to tell the loop construct to terminate, even though you never actually see this happen.
 >
 > ~~~
 > def write_paper(academics, name, title, date):
@@ -441,7 +423,7 @@ What happens if we call this function for an academic who doesn't exist?
 > ~~~
 > {: .language-python}
 >
-> The `for-else` structure used in the second example is relatively unusual, but can be useful when you're using a loop to search for a value.
+> The `for-else` structure used here is relatively unusual, but can be useful when you're using a loop to search for a value.
 > The `else` block is executed if and only if the loop execution completes normally - i.e. when `break` is not used.
 > When you're using a loop to search for something, this means that it has not been found.
 >
