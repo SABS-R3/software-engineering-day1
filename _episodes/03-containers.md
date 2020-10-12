@@ -158,6 +158,14 @@ Which will show us the whole list.
 > ~~~
 > {: .output}
 >
+> So what would you use to see the following?
+>
+> ~~~
+> '2013'
+> [['chlorine', 'Cl'], ['bromine', 'Br'], ['iodine', 'I'], ['astatine', 'At']]
+> ~~~
+> {: .output}
+>
 > Would your solution work regardless of whether you knew beforehand
 > the length of the string or list
 > (e.g. if you wanted to apply the solution to a set of lists of different lengths)?
