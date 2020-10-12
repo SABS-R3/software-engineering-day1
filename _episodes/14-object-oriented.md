@@ -101,13 +101,16 @@ Note that this is slightly different from the **constructor** if you've encounte
 > In this example we just define the data **attributes** and their types - the `__init__` method is then generated automatically.
 >
 > ~~~
-> @dataclass
+> import dataclasses
+> import typing
+>
+> @dataclasses.dataclass
 > class Academic:
 >     name: str
->     papers: List[Dict] = field(default_factory=list)
+>     papers: typing.List[typing.Dict] = dataclasses.field(default_factory=list)
 >
 > alice = Academic('Alice')
-> print(alice.name)
+> print(alice)
 > ~~~
 > {: .language-python}
 >
@@ -115,6 +118,8 @@ Note that this is slightly different from the **constructor** if you've encounte
 > Alice
 > ~~~
 > {: .output}
+>
+> While dataclasses reduce the overhead in some respects, they also introduct overhead in defining some of the data types inside the class.
 >
 > For more information see [this page](https://docs.python.org/3/library/dataclasses.html) of the Python documentation.
 {: .callout}
