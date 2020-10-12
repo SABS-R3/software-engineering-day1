@@ -480,14 +480,14 @@ What happens if we call this function for an academic who doesn't exist?
 > > {: .output}
 > >
 > > The reason for this behaviour is that lists are **mutable** so when we pass one in to a function any modifications are made to the actual list as it exist in memory.
-> > Using `=` to assign a new value creates a new list in memory and assigns it to the variable / name `l`.
+> > Using `=` to assign a new value creates a new list in memory (it does not modify the existing list) and assigns it to the variable / name `l`.
 > > Any changes made to `l` after this are changes to the new list, so do not affect the previous list.
+> > The original list still exists, but `l` no longer points to it.
+> > Only the variable name `a_list` still points to the original.
 > >
 > > For this reason it can be useful to think of the `=` sign as **binding a value to a name**.
 > {: .solution}
 {: .challenge}
-
-FIXME - add JSON as a callout - content in RSD course
 
 > ## Counting Publications
 >
@@ -516,8 +516,7 @@ FIXME - add JSON as a callout - content in RSD course
 > > ~~~
 > > {: .output}
 > {: .solution}
-~
-{
+
 > ## Listing Publications
 >
 > Write a function called `list_papers`, that when called with `list_papers(academics)` returns a list of all publication titles.
