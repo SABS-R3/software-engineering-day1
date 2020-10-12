@@ -388,6 +388,12 @@ def write_paper(academics, name, title, date):
 ~~~
 {: .language-python}
 
+We're introducing a new keyword here, `break`, which exits from inside a loop.
+When the `break` keyword is encountered, execution jumps to the next line outside of the loop.
+If there isn't a next line, as in our example here, then it's the end of the current block of code.
+
+This is useful when we have to search for something in a list - once we've found it we can stop searching and don't waste time looping over the remaining items.
+
 What happens if we call this function for an academic who doesn't exist?
 
 > ## Exceptions
