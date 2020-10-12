@@ -101,7 +101,7 @@ This instructs Python to construct a new Python virtual environment for us. With
 We can activate this virtual environment, and see what it contains, by doing:
 
 ~~~
-source venv/bin/activate.sh
+source venv/bin/activate
 pip3 list
 ~~~
 {: .language-bash}
