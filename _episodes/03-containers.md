@@ -5,7 +5,7 @@ exercises: 40
 questions:
 - "How can I store many values together?"
 objectives:
-- "Explain what lists, tuples, sets, and dictionaries are, and their key differences."
+- "Explain what lists, tuples, and dictionaries are, and their key differences."
 - "Create, populate, and retrieve values from lists and other containers."
 - "Reorder and slice list elements."
 - "Change the values of individual container elements where supported."
