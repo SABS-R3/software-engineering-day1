@@ -516,6 +516,7 @@ What happens if we call this function for an academic who doesn't exist?
 > > ~~~
 > > {: .output}
 > {: .solution}
+{: .challenge}
 
 > ## Listing Publications
 >
