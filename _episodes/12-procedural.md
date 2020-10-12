@@ -410,7 +410,7 @@ What happens if we call this function for an academic who doesn't exist?
 >
 >     for academic in academics:
 >         if academic['name'] == name:
->             academic['name']['papers'].append(paper)
+>             academic['papers'].append(paper)
 >             break
 > ~~~
 > {: .language-python}
@@ -426,7 +426,7 @@ What happens if we call this function for an academic who doesn't exist?
 >
 >     for academic in academics:
 >         if academic['name'] == name:
->             academic['name']['papers'].append(paper)
+>             academic['papers'].append(paper)
 >             break
 >
 >     else:
