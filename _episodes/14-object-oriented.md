@@ -353,7 +353,7 @@ class Academic:
         self.name = name
         self.papers = []
 
-    def write_paper(title, date):
+    def write_paper(self, title, date):
         new_paper = Paper(title, date)
 
         self.papers.append(new_paper)
@@ -393,7 +393,7 @@ class Academic(Person):
         super().__init__(name)
         self.papers = []
 
-    def write_paper(title, date):
+    def write_paper(self, title, date):
         new_paper = Paper(title, date)
 
         self.papers.append(new_paper)
