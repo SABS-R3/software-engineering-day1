@@ -119,7 +119,7 @@ Note that this is slightly different from the **constructor** if you've encounte
 > ~~~
 > {: .output}
 >
-> While dataclasses reduce the overhead in some respects, they also introduct overhead in defining some of the data types inside the class.
+> While dataclasses reduce the overhead in some respects, they also introduce overhead in defining some of the data types inside the class.
 >
 > For more information see [this page](https://docs.python.org/3/library/dataclasses.html) of the Python documentation.
 {: .callout}
@@ -325,7 +325,7 @@ In order to act as a function decorator, the decorator must be a function, which
 Since functions in Python are just objects of type `function` (try asking Python for the type of a function you've defined), it's perfectly natural to pass them around as arguments to and return values of other functions.
 
 Function decorators in Python are a modification of the [Decorator](https://en.wikipedia.org/wiki/Decorator_pattern) **Design Pattern**.
-Design Patterns are established templates that we can use to design the interactions beteen components in software using the Object Oriented paradigm.
+Design Patterns are established templates that we can use to design the interactions between components in software using the Object Oriented paradigm.
 Many of these come from a book titled '[Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns)' by Erich Gamma *et al*, published in 1994.
 
 ## Relationships
