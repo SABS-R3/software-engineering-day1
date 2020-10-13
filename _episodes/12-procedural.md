@@ -18,8 +18,6 @@ keypoints:
 
 See the [welcome video](https://youtu.be/YC4ohR5Pf5Q) and matching [slides](../slides/1.2-Programming-Paradigms.pptx) with per-slide notes.
 
-FIXME add link to video
-
 ## The Procedural Paradigm
 
 So far we've been writing our code as one continuous piece.
@@ -166,7 +164,7 @@ Hello, Named Argument!
 > Function definition is when the code is provided, and the function's behaviour is defined.
 >
 > This distinction can be useful as it allows us to call a function from code which appears above the function definition in the source file.
-> Python does not have this distinction - that is, a function is always declared and defined at the same time - so we much define the function before we can use it.
+> Python does not have this distinction - that is, a function is always declared and defined at the same time - so we must define the function before we can use it.
 >
 > One common language that does have this distinction is C++.
 > See [this page](https://docs.microsoft.com/en-us/cpp/cpp/declarations-and-definitions-cpp?view=vs-2019) for more information.
@@ -274,7 +272,7 @@ Hello, Named Argument!
 ## Function Composition
 
 One of the main reasons for defining a function is to encapsulate our code, so that we can use it without having to worry about how the computation is performed.
-This means we're free to do this way we want, including deferring some part of the task to another function that already exists.
+This means we're free to do this the way we want, including deferring some part of the task to another function that already exists.
 
 For example, if we need some data processing code to be able to accept temperatures in Fahrenheit, we may need a way to convert these into Kelvin.
 So we might have these two temperature conversion functions:
