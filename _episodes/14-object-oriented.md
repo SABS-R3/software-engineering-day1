@@ -650,7 +650,7 @@ Try to avoid this temptation - the simpler you can keep your code, the better.
 > >     def __str__(self):
 > >         return self.title + ' by ' + self.author
 > >
-> > def __eq__(self, other):
+> >     def __eq__(self, other):
 > >         return self.title == other.title and self.author == other.author
 > >
 > >
