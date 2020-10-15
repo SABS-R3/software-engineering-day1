@@ -36,12 +36,12 @@ We first need to download the training materials from the GitHub code repository
 Go to [https://github.com/SABS-R3/2020-software-engineering-day1/tree/gh-pages](https://github.com/SABS-R3/2020-software-engineering-day1/tree/gh-pages) in a browser (any will do, although Firefox is already installed on the provided laptops). Select the green `Code` button, and then select `Download ZIP`, and then in Firefox selecting `Save File` at the dialogue prompt. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Find where the file has been downloaded to (on the provided laptops this is `/home/sabsr3/Downloads`, then start a terminal. You can start a terminal by right-clicking on the desktop and selecting `Open in Terminal`. Assuming the file has downloaded to e.g. `/home/sabsr3/Downloads`, type the following within the Terminal shell:
 
 ~~~
-cd ~
+cd
 unzip /home/sabsr3/Downloads/2020-software-engineering-day1-gh-pages.zip
 ~~~
 {: .language-bash}
 
-The first `cd ~` command *changes our working directory* to our home directory (on the provisioned laptops, this is `/home/sabsr3`).
+The first `cd` command without any arguments *changes our working directory* to our home directory (on the provisioned laptops, this is `/home/sabsr3`).
 
 The second command uses the unzip program to unpack the archive in your home directory, within a subdirectory called `2020-software-engineering-day1-gh-pages`. If you do `ls` to list the files in your home directory, you should see this new subdirectory (amongst other directories and possibly files):
 
