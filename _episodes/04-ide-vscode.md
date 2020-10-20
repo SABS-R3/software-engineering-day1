@@ -62,13 +62,13 @@ print('Hello world!')
 {: .language-python}
 
 VSCode comes with Python support built-in. You'll notice that as you type, the editor is suggesting possible statements, functions (and also variables and other Python artifacts) that match what you've typed so far. When you write a function it fully recognises and understands, it will also pop-up some context-sensitive help about the function itself, including any documentation associated with it and a breakdown of the function's arguments. This is very helpful when dealing with libraries with many modules and functions. Also, for convenience, if you've only half-typed a function, variable, statement, etc. that it recognises as the only option, you can press `Tab` and it will autocomplete the rest of the typing for you.
- 
+
  You may find you see a `Python - Get Started` window tab pop up that gives you some things to do next in Python. But for now, we'll keep editing our file in the `hello_world.py` tab, so select that. Once you've finished, select `File` -> `Save`.
 
 Now let's try running our script from within VSCode. Select the `Run` icon on the far left navigation bar (it looks like an arrow pointing right with a bug in it), then select `Run and Debug`. It will ask you to `Select a debug configuration`, so select `Python File`. It will now run our script, and you should see a terminal window pop-up at the bottom, with something like the following text in it:
 
 ~~~
-sabsr3@sabsr3-2020:~/2020-se-day1/code$  /usr/bin/env /usr/bin/python3 /home/sabsr3/.vscode/extensions/ms-python.python-2020.9.112786/pythonFiles/lib/python/debugpy/launcher 39017 -- /home/sabsr3/2020-se-day1/code/hello_world.py 
+sabsr3@sabsr3-2020:~/2020-se-day1/code$  /usr/bin/env /usr/bin/python3 /home/sabsr3/.vscode/extensions/ms-python.python-2020.9.112786/pythonFiles/lib/python/debugpy/launcher 39017 -- /home/sabsr3/2020-se-day1/code/hello_world.py
 Hello world!
 ~~~
 {: .language-bash}
@@ -98,6 +98,9 @@ python3 -m venv venv
 
 This instructs Python to construct a new Python virtual environment for us. Within our `code` directory now, you should see a new `venv` directory. This will contain a localised copy of the Python3 interpreter, and any associated libraries we wish to install. But this local environment is particular to our current work; if we were to start a new project, we'd create another virtual environment for that one, and so on.
 
+The first `venv` is the name of the tool we need to use to create a virtual environment, while the second `venv` is the name of the directory that the virtual environment will be put in.
+Most people use either `venv` or `env` as the name for their virtual environment.
+
 We can activate this virtual environment, and see what it contains, by doing:
 
 ~~~
@@ -111,9 +114,9 @@ pip3 list
 ~~~
 Package       Version
 ------------- -------
-pip           20.0.2 
-pkg-resources 0.0.0  
-setuptools    44.0.0 
+pip           20.0.2
+pkg-resources 0.0.0
+setuptools    44.0.0
 ~~~
 {: .output}
 
