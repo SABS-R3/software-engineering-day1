@@ -33,17 +33,19 @@ It's a really quick and convenient way to get started with Python, particularly 
 
 We first need to download the training materials from the GitHub code repository online in a Zip file and unpack its contents to our home directory.
 
-Go to [https://github.com/SABS-R3/2020-software-engineering-day1/tree/gh-pages](https://github.com/SABS-R3/2020-software-engineering-day1/tree/gh-pages) in a browser (any will do, although Firefox is already installed on the provided laptops). Select the green `Code` button, and then select `Download ZIP`, and then in Firefox selecting `Save File` at the dialogue prompt. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Find where the file has been downloaded to (on the provided laptops this is `/home/sabsr3/Downloads`, then start a terminal. You can start a terminal by right-clicking on the desktop and selecting `Open in Terminal`. Assuming the file has downloaded to e.g. `/home/sabsr3/Downloads`, type the following within the Terminal shell:
+Go to [https://github.com/SABS-R3/software-engineering-day1/tree/gh-pages](https://github.com/SABS-R3/software-engineering-day1/tree/gh-pages) in a browser (any will do, although Firefox is already installed on the provided laptops). Select the green `Code` button, and then select `Download ZIP`, and then in Firefox selecting `Save File` at the dialogue prompt. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Find where the file has been downloaded to (on the provided laptops this is `/home/sabsr3/Downloads`, then start a terminal. You can start a terminal by right-clicking on the desktop and selecting `Open in Terminal`. Assuming the file has downloaded to e.g. `/home/sabsr3/Downloads`, type the following within the Terminal shell:
+
+FIXME: add a brief intro to Bash
 
 ~~~
 cd
-unzip /home/sabsr3/Downloads/2020-software-engineering-day1-gh-pages.zip
+unzip /home/sabsr3/Downloads/software-engineering-day1-gh-pages.zip
 ~~~
 {: .language-bash}
 
 The first `cd` command without any arguments *changes our working directory* to our home directory (on the provisioned laptops, this is `/home/sabsr3`).
 
-The second command uses the unzip program to unpack the archive in your home directory, within a subdirectory called `2020-software-engineering-day1-gh-pages`. If you do `ls` to list the files in your home directory, you should see this new subdirectory (amongst other directories and possibly files):
+The second command uses the unzip program to unpack the archive in your home directory, within a subdirectory called `software-engineering-day1-gh-pages`. If you do `ls` to list the files in your home directory, you should see this new subdirectory (amongst other directories and possibly files):
 
 ~~~
 ls
@@ -52,31 +54,31 @@ ls
 
 ~~~
 sabsr3@sabsr3-2020:~$ ls
-2020-software-engineering-day1-gh-pages  Documents  Music     Public  Templates
-Desktop                                  Downloads  Pictures  snap    Videos
+software-engineering-day1-gh-pages  Documents  Music     Public  Templates
+Desktop                             Downloads  Pictures  snap    Videos
 ~~~
 {: .output}
 
-Now the `2020-software-engineering-day1-gh-pages` subdirectory is a little long to easily work with, so we'll rename it to something shorter:
+Now the `software-engineering-day1-gh-pages` subdirectory is a little long to easily work with, so we'll rename it to something shorter:
 
 ~~~
-mv 2020-software-engineering-day1-gh-pages 2020-se-day1
+mv software-engineering-day1-gh-pages se-day1
 ls
 ~~~
 {: .language-bash}
 
-So using Bash's `mv` command, this directory is now known as `2020-se-day1`:
+So using Bash's `mv` command, this directory is now known as `se-day1`:
 
 ~~~
-2020-se-day1  Documents  Music     Public  Templates
-Desktop       Downloads  Pictures  snap    Videos
+se-day1  Documents  Music     Public  Templates
+Desktop  Downloads  Pictures  snap    Videos
 ~~~
 {: .output}
 
 Next, change to the `code` directory within that new directory:
 
 ~~~
-cd 2020-se-day1/code
+cd se-day1/code
 ~~~
 {: .language-bash}
 
@@ -111,8 +113,9 @@ You can exit the interpreter and get back to the shell by typing:
 ~~~
 {: .language-python}
 
-...or alternatively pressing the Control and D keys at the same time.
-Then you'll see:
+...or alternatively pressing the `Control` and `D` keys at the same time.
+
+Using either method, you'll see:
 
 ~~~
 $
@@ -247,55 +250,56 @@ dir(z)
 {: .language-python}
 
 ~~~
-['__abs__',
- '__add__',
- '__bool__',
- '__class__',
- '__delattr__',
- '__dir__',
- '__divmod__',
- '__doc__',
- '__eq__',
- '__float__',
- '__floordiv__',
- '__format__',
- '__ge__',
- '__getattribute__',
- '__getnewargs__',
- '__gt__',
- '__hash__',
- '__init__',
- '__int__',
- '__le__',
- '__lt__',
- '__mod__',
- '__mul__',
- '__ne__',
- '__neg__',
- '__new__',
- '__pos__',
- '__pow__',
- '__radd__',
- '__rdivmod__',
- '__reduce__',
- '__reduce_ex__',
- '__repr__',
- '__rfloordiv__',
- '__rmod__',
- '__rmul__',
- '__rpow__',
- '__rsub__',
- '__rtruediv__',
- '__setattr__',
- '__sizeof__',
- '__str__',
- '__sub__',
- '__subclasshook__',
- '__truediv__',
- 'conjugate',
- 'imag',
+['__abs__'
+ '__add__'
+ '__bool__'
+ '__class__'
+ '__delattr__'
+ '__dir__'
+ '__divmod__'
+ '__doc__'
+ '__eq__'
+ '__float__'
+ '__floordiv__'
+ '__format__'
+ '__ge__'
+ '__getattribute__'
+ '__getnewargs__'
+ '__gt__'
+ '__hash__'
+ '__init__'
+ '__init_subclass__'
+ '__int__'
+ '__le__'
+ '__lt__'
+ '__mod__'
+ '__mul__'
+ '__ne__'
+ '__neg__'
+ '__new__'
+ '__pos__'
+ '__pow__'
+ '__radd__'
+ '__rdivmod__'
+ '__reduce__'
+ '__reduce_ex__'
+ '__repr__'
+ '__rfloordiv__'
+ '__rmod__'
+ '__rmul__'
+ '__rpow__'
+ '__rsub__'
+ '__rtruediv__'
+ '__setattr__'
+ '__sizeof__'
+ '__str__'
+ '__sub__'
+ '__subclasshook__'
+ '__truediv__'
+ 'conjugate'
+ 'imag'
  'real']
-~~~
+ ~~~
 {: .output}
 
 You can see that there are several methods whose name starts and ends with `__` (e.g. `__init__`): these are special methods that Python uses internally, and most of the time, we don't need to concern ourselves with them. We will discuss some of them later on in this course as they become useful. The others (in this case, `conjugate`, `img` and `real`) are the methods and fields through which we can interact with this object.
@@ -357,7 +361,7 @@ Weight in kg 121.00000000000001
 ~~~
 {: .output}
 
-So the thing with floats is that they are *representation* of a real number. Representing a third or the root of 2 would be impossible for a computer, so these are really approximations of real numbers using an ubiquitous standard (IEEE-754).
+So the thing with floats is that they are *representation* of a real number. Representing a third or the root of 2 would be impossible for a computer, so these are really approximations of real numbers using an ubiquitous standard ([IEEE-754](https://docs.python.org/3/tutorial/floatingpoint.html#representation-error)).
 
 As the example above shows, we can print several things at once by separating them with commas.
 
