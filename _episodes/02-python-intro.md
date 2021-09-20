@@ -53,7 +53,6 @@ ls
 {: .language-bash}
 
 ~~~
-sabsr3@sabsr3-2020:~$ ls
 software-engineering-day1-gh-pages  Documents  Music     Public  Templates
 Desktop                             Downloads  Pictures  snap    Videos
 ~~~
