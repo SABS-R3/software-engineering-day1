@@ -23,11 +23,11 @@ keypoints:
 - "Doing `x = y`, where `y` is a container, doesn't copy its elements, it just creates a new reference to it."
 ---
 
-*Container* types are those that can hold other objects, and Python supports a number of different containers we can use to hold data of differing types in a multitude of ways. If you still have your Python interpreter running from the last lesson, continue below. Otherwise, change directory to the `2020-se-day1/code` directory and re-run the Python interpreter before you continue, by:
+*Container* types are those that can hold other objects, and Python supports a number of different containers we can use to hold data of differing types in a multitude of ways. If you still have your Python interpreter running from the last lesson, continue below. Otherwise, change directory to the `se-day1/code` directory and re-run the Python interpreter before you continue, by:
 
 ~~~
 cd
-cd 2020-se-day1/code
+cd se-day1/code
 python3
 ~~~
 {: .language-bash}
@@ -421,7 +421,7 @@ dict_values(['Joe', 39, ['Programmer', 'Teacher']])
 ~~~
 {: .output}
 
-When we test for containment on a dict we test on the keys:
+When we test for containment on the dict itself we essentially test on its keys:
 
 ~~~
 'Jobs' in me
@@ -442,6 +442,8 @@ True
 False
 ~~~
 {: .output}
+
+But we can also test on the values of a dict:
 
 ~~~
 'Joe' in me.values()
@@ -530,6 +532,6 @@ The copies that we make through slicing are called shallow copies: we don't copy
 
 ## General Rule
 
-Your programs will be faster and more readable if you use the appropriate container type for your data's meaning. Always use a set for lists which can't in principle contain the same data twice, always use a dictionary for anything which feels like a mapping from keys to values.
+Your programs will be faster and more readable if you use the appropriate container type for your data's meaning. For example, always use a set for lists which can't in principle contain the same data twice, always use a dictionary for anything which feels like a mapping from keys to values.
 
 {% include links.md %}
