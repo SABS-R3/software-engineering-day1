@@ -20,7 +20,7 @@ See the [welcome video](https://youtu.be/YC4ohR5Pf5Q) and matching [slides](../s
 
 ## The Procedural Paradigm
 
-So far we've been writing our code as one continuous piece.
+So far we've been writing our code as one continuous flow.
 If we want to reuse some of our code, we can use loops to repeat some task, but sometimes we need more flexibility than this.
 
 It would also be useful to be able to hide some of the complexity of our code once it's grown to the point where it no longer fits on a single screen.
@@ -33,8 +33,7 @@ You may wish to think of the Procedural Paradigm as focussing on the **verbs** o
 
 ## Using Functions
 In most modern programming languages these procedures are called **functions**.
-Python has many pre-defined functions built in.
-We've already met some of them.
+Python has many pre-defined functions built in and we've already met some of them.
 
 To use, or **call**, a function we use the name of the function, followed by brackets containing any **arguments** that we wish to **pass** to the function.
 All functions in Python **return** a single value as their result.
@@ -45,8 +44,9 @@ All functions in Python **return** a single value as their result.
 > - `None` - a special value that is interpreted as though nothing has been returned
 {: .callout}
 
-~~~
-print(len('Python'))
+~~~ python
+char_count = len('Python')
+print(char_count)
 ~~~
 {: .language-python}
 
@@ -59,7 +59,7 @@ Some functions are a little different in that they belong to an object, so must 
 These are called **methods** or **member functions**.
 We've already seen some of these as well, but we'll see more when we get to the Object Oriented Paradigm later.
 
-~~~
+~~~ python
 nums = [1, 2, 3]
 nums.append(4)
 
@@ -75,7 +75,7 @@ print(nums)
 The append function is actually also one of these functions that return `None`.
 We can test this again by printing its output.
 
-~~~
+~~~ python
 nums = [1, 2, 3]
 result = nums.append(4)
 
@@ -99,11 +99,12 @@ That's the case here - the purpose of the `append` function is to append a value
 Although Python has many built in functions, it wouldn't be much use if we couldn't also define our own.
 Most languages use a keyword to signify a **function definition**, in Python that keyword is `def`.
 
-~~~
+~~~ python
 def add_one(value):
     return value + 1
 
-print(add_one(1))
+two = add_one(1)
+print(two)
 ~~~
 {: .language-python}
 
@@ -112,7 +113,7 @@ print(add_one(1))
 ~~~
 {: .output}
 
-~~~
+~~~ python
 def say_hello(name):
     return 'Hello, ' + name + '!'
 
@@ -140,7 +141,7 @@ When we call a function, parameters with default values can be used in one of th
 2. We can provide our own value in the normal way
 3. We can provide a value in the form of a **named argument** - arguments which are not named are called **positional arguments**
 
-~~~
+~~~ python
 def say_hello(name='World'):
     return 'Hello, ' + name + '!'
 
@@ -159,7 +160,7 @@ Hello, Named Argument!
 
 > ## Declarations and Definitions
 >
-> Some languages have a distinction between **declaration** and **definition** of a function.
+> Some languages have a distinction between **declaration** and **definition** (or **implementation**) of a function.
 > In these languages function declaration provides a name and information about its return type and parameters, but does not provide the actual code inside the function.
 > Function definition is when the code is provided, and the function's behaviour is defined.
 >
@@ -177,7 +178,7 @@ Hello, Named Argument!
 > Write a short function called `fence` that takes two parameters called original and wrapper and returns a new string that has the wrapper character at the beginning and end of the original.
 > A call to your function should look like this:
 >
-> ~~~
+> ~~~ python
 > print(fence('name', '*'))
 > ~~~
 > {: .language-python}
@@ -189,7 +190,7 @@ Hello, Named Argument!
 >
 > > ## Solution
 > >
-> > ~~~
+> > ~~~ python
 > > def fence(original, wrapper):
 > >     return wrapper + original + wrapper
 > > ~~~
@@ -200,11 +201,11 @@ Hello, Named Argument!
 > ## Custom Greetings
 >
 > Create a new version of the `say_hello` function which has two parameters, `greeting` and `name`, both with default values.
-> How many different ways can you call this function?
+> How many different ways can you call this function using combinations of named and positional arguments?
 >
 > > ## Solution
 > >
-> > ~~~
+> > ~~~ python
 > > def say_hello(greeting='Hello', name='World'):
 > >     return greeting + ', ' + name + '!'
 > >
@@ -242,7 +243,7 @@ Hello, Named Argument!
 >
 > For example, what would be the output from the following:
 >
-> ~~~
+> ~~~ python
 > f = 0
 > k = 0
 >
@@ -271,13 +272,13 @@ Hello, Named Argument!
 
 ## Function Composition
 
-One of the main reasons for defining a function is to encapsulate our code, so that we can use it without having to worry about how the computation is performed.
-This means we're free to do this the way we want, including deferring some part of the task to another function that already exists.
+One of the main reasons for defining a function is to encapsulate our code, so that it can be used without having to worry about exactly how the computation is performed.
+This means we're free to implement the funciton however we want, including deferring some part of the task to another function that already exists.
 
-For example, if we need some data processing code to be able to accept temperatures in Fahrenheit, we may need a way to convert these into Kelvin.
-So we might have these two temperature conversion functions:
+For example, if some data processing code we're working on needs to be able to accept temperatures in Fahrenheit, we might need a way to convert these into Kelvin.
+So we could write these two temperature conversion functions:
 
-~~~
+~~~ python
 def fahr_to_cels(fahr):
     # Convert temperature in Fahrenheit to Celsius
     cels = (fahr + 32) * (5 / 9)
@@ -299,7 +300,7 @@ This makes sense, since this is a necessary step in both functions, but duplicat
 
 So, we can remove the duplicated code, by calling one function from inside the other:
 
-~~~
+~~~ python
 def fahr_to_cels(fahr):
     # Convert temperature in Fahrenheit to Celsius
     cels = (fahr + 32) * (5 / 9)
@@ -318,7 +319,7 @@ print(fahr_to_kelv(212))
 
 Now we've removed the duplicated code, but we might actually want to go one step further and remove some of the other unnecessary bits:
 
-~~~
+~~~ python
 def fahr_to_cels(fahr):
     # Convert temperature in Fahrenheit to Celsius
     return (fahr + 32) * (5 / 9)
@@ -332,7 +333,7 @@ print(fahr_to_kelv(212))
 ~~~
 {: .language-python}
 
-Now we have each function down to one statement, which should be easier to read and have reduced the chance of us making a mistake.
+Now we have each function down to one statement, which should be easier to read and hopefully has reduced the chance of us making a mistake.
 Whether you actually prefer the second or third version is up to you, but we should at least try to reduce duplication where posssible.
 
 ## Managing Academics
@@ -342,7 +343,7 @@ As a common example to illustrate each of the paradigms, we'll write some code t
 First, let's create a data structure to keep track of the papers that a group of academics are publishing.
 Note that we could use an actual `date` type to store the publication date, but they're much more complicated to work with, so we'll just use the year.
 
-~~~
+~~~ python
 academics = [
     {
         'name': 'Alice',
@@ -372,7 +373,7 @@ academics = [
 
 We want a convenient way to add new papers to the data structure.
 
-~~~
+~~~ python
 def write_paper(academics, name, title, date):
     paper = {
         'title': title,
@@ -390,21 +391,21 @@ We're introducing a new keyword here, `break`, which exits from inside a loop.
 When the `break` keyword is encountered, execution jumps to the next line outside of the loop.
 If there isn't a next line, as in our example here, then it's the end of the current block of code.
 
-This is useful when we have to search for something in a list - once we've found it we can stop searching and don't waste time looping over the remaining items.
+This is useful when we have to search for something in a list - once we've found it we can stop searching and don't need to waste time looping over the remaining items.
 
 What happens if we call this function for an academic who doesn't exist?
 
 > ## Exceptions
 > In many programming languages, we use **exceptions** to indicate that exceptional behaviour has occured and the flow of execution should be diverted.
 >
-> Exceptions are often **raised** (**thrown** in some other programming languages) as the result of an error condition.
+> Exceptions are often **raised** (or **thrown** in some other programming languages) as the result of an error condition.
 > The flow of execution is then returned (the exception is **caught** or **handled**) to a point where the error may be corrected or logged.
 > For the moment we'll just raise the exception, and assume that it will get handled properly by someone using our code.
 >
 > In Python, exceptions may also be used to alter the flow of execution even when an error has not occured.
-> For example, when iterating over a collection, a `StopIteration` exception is used to tell the loop construct to terminate, even though you never actually see this happen.
+> For example, when iterating over a collection, a `StopIteration` exception is the way in which Python tells a loop construct to terminate, though this is hidden from you.
 >
-> ~~~
+> ~~~ python
 > def write_paper(academics, name, title, date):
 >     paper = {
 >         'title': title,
@@ -434,7 +435,7 @@ What happens if we call this function for an academic who doesn't exist?
 >
 > We have seen previously that functions are not able to change the value of a variable which is used as their argument.
 >
-> ~~~
+> ~~~ python
 > def append_to_list(l):
 >     l.append('appended')
 >     l = [1, 2, 3]
@@ -477,7 +478,7 @@ What happens if we call this function for an academic who doesn't exist?
 > >
 > > One possible solution is:
 > >
-> > ~~~
+> > ~~~ python
 > > def count_papers(academics):
 > >     count = 0
 > >
@@ -506,7 +507,7 @@ What happens if we call this function for an academic who doesn't exist?
 > >
 > > One possible solution is:
 > >
-> > ~~~
+> > ~~~ python
 > > def list_papers(academics):
 > >     papers = []
 > >

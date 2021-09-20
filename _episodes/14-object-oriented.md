@@ -39,7 +39,7 @@ Classes are one of the fundamental concepts of Object Oriented programming - act
 
 Just like functions, we've already been using some of the classes built into Python.
 
-~~~
+~~~ python
 my_list = [1, 2, 3]
 my_dict = {1: '1', 2: '2', 3: '3'}
 my_set = {1, 2, 3}
@@ -62,6 +62,7 @@ They each contain data, as we have seen before.
 They also provide a set of functions, or **methods** which describe the **behaviours** of the data.
 
 The behaviours we have seen previously include:
+
 - Lists can be appended to
 - Lists can be indexed (we'll make our own class with this later)
 - Lists can be sliced
@@ -72,7 +73,7 @@ The behaviours we have seen previously include:
 
 So how do we create and use our own class in Python?
 
-~~~
+~~~ python
 class Academic:
     def __init__(self, name):
         self.name = name
@@ -91,7 +92,7 @@ Alice
 Similar to functions, we begin by using a special keyword, in this case `class`, followed by a name, then a colon to begin a new block.
 Inside this block, we define the data and behaviour that we want the class to provide.
 
-Almost every class you define will have a `__init__` (pronounced "init" or "dunder-init" for double-underscore) **method** which is responsible for initialising any data that the class contains.
+Almost every class you define will have a `__init__` (pronounced "init" or "dunder-init" for double-underscore) **method** which is responsible for initialising any data that an instance of the class needs in order to be valid.
 Note that this is slightly different from the **constructor** if you've encountered classes in other OO languages (it doesn't allocate memory for the class itself), but it's usually safe to treat it as the same.
 
 > ## Data Classes
@@ -100,7 +101,7 @@ Note that this is slightly different from the **constructor** if you've encounte
 >
 > In this example we just define the data **attributes** and their types - the `__init__` method is then generated automatically.
 >
-> ~~~
+> ~~~ python
 > import dataclasses
 > import typing
 >
@@ -132,7 +133,7 @@ We call these functions **member functions** or **methods**.
 These functions are the same as normal functions (alternatively known as **free functions**), but we have an extra first parameter `self`.
 The `self` parameter is a normal variable, but when we use a method of an object, the value of `self` is automatically set to the object.
 
-~~~
+~~~ python
 class Academic:
     def __init__(self, name):
         self.name = name
@@ -154,11 +155,6 @@ print(alice)
 paper = alice.write_paper('A new paper', 2018)
 print(paper)
 print(alice.papers)
-
-# Can also use directly from the class - this is unusual
-paper = Academic.write_paper(alice, 'Another new paper', 2020)
-print(paper)
-print(alice.papers)
 ~~~
 {: .language-python}
 
@@ -166,13 +162,8 @@ print(alice.papers)
 <__main__.Academic object at 0x7f4826fdff10>
 {'title': 'A new paper', 'date': 2018}
 [{'title': 'A new paper', 'date': 2018}]
-[{'title': 'A new paper', 'date': 2018}, {'title': 'Another new paper', 'date': 2020}]
 ~~~
 {: .output}
-
-The second use of `write_paper` in the example above shows that we can use a method by accessing it through the class, rather than through the object.
-This makes it behave more like a free function, meaning that the `self` parameter isn't automatically set and we need to pass it the value ourselves.
-This isn't useful very often, but helps us to see that member functions are not substantially different from free functions.
 
 ### Dunder Methods
 
@@ -181,7 +172,7 @@ Why is the `__init__` method not called `init`?
 There are a few special method names that we can use which Python will use to provide a few common behaviours, each of which begins and ends with two underscores, hence the name **dunder method**.
 The most commonly used dunder method is `__init__`, but there are a few other common ones:
 
-~~~
+~~~ python
 class Academic:
     def __init__(self, name):
         self.name = name
@@ -269,7 +260,7 @@ There are many more described in the Python documentation, but it's also worth e
 > - Have an author
 > - When printed, show text in the format "title by author"
 >
-> ~~~
+> ~~~ python
 > book = Book('A Book', 'Me')
 >
 > print(book)
@@ -282,7 +273,7 @@ There are many more described in the Python documentation, but it's also worth e
 > {: .output}
 >
 > > ## Solution
-> > ~~~
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
@@ -301,7 +292,7 @@ The final special type of method we'll introduce is **properties**.
 Properties are methods which behave like data - when we want to access them, we don't need to use brackets to call the method manually.
 They're often used a bit like **getters** from other Object Oriented languages (see [this page](https://www.w3schools.com/cpp/cpp_encapsulation.asp) for more information).
 
-~~~
+~~~ python
 class Academic:
     ...
 
@@ -334,6 +325,7 @@ We now have a language construct for grouping data and behaviour related to a si
 The next step is talking about the relationships between objects.
 
 There are two fundamental types of relationship between objects which we need to be able to describe:
+
 1. Ownership - x **has a** y - **composition**
 2. Identity - x **is a** y - **inheritance**
 
@@ -344,7 +336,7 @@ Composition is about ownership of an object or resource - x **has a** y.
 In the case of our academics example, we can say that academics have papers.
 Note that after the previous time we used this example, we clarified that academics should not *contain* papers.
 
-~~~
+~~~ python
 class Paper:
     def __init__(self, title, pub_date):
         self.title = title
@@ -385,7 +377,7 @@ But `Person` will share some behaviour with `Academic` - in this case both have 
 
 Since we expect all academics to be people (hopefully!), it makes sense to implement the behaviour in `Person` and then reuse it in `Academic`.
 
-~~~
+~~~ python
 class Person:
     def __init__(self, name):
         self.name = name
@@ -450,7 +442,7 @@ The line `super().__init__(name)` gets the parent class, then calls the `__init_
 When deciding how to implement a model of a particular system, you often have a choice of either composition or inheritance, where there is no obviously correct choice.
 For example, if we need to produce a model of a photocopier:
 
-~~~
+~~~ python
 class Machine:
     pass
 
@@ -466,7 +458,7 @@ class Copier(Printer, Scanner):
 ~~~
 {: .language-python}
 
-~~~
+~~~ python
 class Machine:
     pass
 
@@ -489,14 +481,14 @@ Well, both of them seem like reasonable approximations of the thing we're trying
 It seems fair to say that a photocopier *is a* printer and *is a* scanner, but it also seems fair to say that a photocopier *has a* printer and *has a* scanner.
 
 It depends on the context, but generally, we should favour **composition over inheritance** (*has a* over *is a*), as it leads to relationships between objects being slightly simpler to manage.
-It's quite common for software developers, when introduced to classes, to produce code which has long, complicated inheritance heirarchies in places where composition would work better.
+It's quite common for software developers, when introduced to classes, to produce code which has long, complicated inheritance heirarchies in places where composition would work equally well.
 Try to avoid this temptation - the simpler you can keep your code, the better.
 
 > ## Building a Library
 >
 > Using what we've seen so far, implement two classes: `Book` (you can use the one from the earlier exercise) and `Library` which have the following behaviour:
 >
-> ~~~
+> ~~~ python
 > library = Library()
 >
 > library.add_book('My First Book', 'Alice')
@@ -526,7 +518,7 @@ Try to avoid this temptation - the simpler you can keep your code, the better.
 > {: .output}
 >
 > > ## Solution
-> > ~~~
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
@@ -566,7 +558,7 @@ Try to avoid this temptation - the simpler you can keep your code, the better.
 > Extend the class so that we can get the list of all authors and titles.
 > If an author appears multiple times, they should only appear once in the list of authors:
 >
-> ~~~
+> ~~~ python
 > print(library.titles)
 > print(library.authors)
 > ~~~
@@ -579,7 +571,7 @@ Try to avoid this temptation - the simpler you can keep your code, the better.
 > {: .output}
 >
 > > ## Solution
-> > ~~~
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
@@ -641,7 +633,7 @@ Try to avoid this temptation - the simpler you can keep your code, the better.
 > The `__eq__` dunder method should take two objects (one of which is `self`) and return `True` if the two objects should be considered equal - otherwise return `False`.
 >
 > > ## Solution
-> > ~~~
+> > ~~~ python
 > > class Book:
 > >     def __init__(self, title, author):
 > >         self.title = title
