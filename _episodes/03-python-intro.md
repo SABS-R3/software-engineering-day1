@@ -25,7 +25,8 @@ keypoints:
 
 See topic [video lecture](https://youtu.be/rzpCZrVDSpo), and [PowerPoint slides](../slides/1.1-Intro-Python.pptx) used with per-slide notes.
 
-## Getting Started
+
+## Getting Started with Python
 
 Normally, you write Python programs in a Python script, which is basically a file of Python commands you can run (or within a Jupyter notebook, which is an interactive script of Python commands that gives you results of your commands as you enter them). We'll come on to writing Python scripts later. But to start with, we'll take a look at the Python interpreter. It's similar to the shell in how it works, in that you type in commands and it gives you results back, but instead you use the Python language.
 
@@ -34,8 +35,6 @@ It's a really quick and convenient way to get started with Python, particularly 
 We first need to download the training materials from the GitHub code repository online in a Zip file and unpack its contents to our home directory.
 
 Go to [https://github.com/SABS-R3/software-engineering-day1/tree/gh-pages](https://github.com/SABS-R3/software-engineering-day1/tree/gh-pages) in a browser (any will do, although Firefox is already installed on the provided laptops). Select the green `Code` button, and then select `Download ZIP`, and then in Firefox selecting `Save File` at the dialogue prompt. This will download all the files within a single archive file. After it's finished downloading, we need to extract all files from the archive. Find where the file has been downloaded to (on the provided laptops this is `/home/sabsr3/Downloads`, then start a terminal. You can start a terminal by right-clicking on the desktop and selecting `Open in Terminal`. Assuming the file has downloaded to e.g. `/home/sabsr3/Downloads`, type the following within the Terminal shell:
-
-FIXME: add a brief intro to Bash
 
 ~~~
 cd
