@@ -12,7 +12,7 @@ keypoints:
 - "FIXME"
 ---
 
-Before we venture into Python, we need to take a look at the *Bash shell*, which is one way of running programs on a computer. Throughout this course we'll be using the Bash shell a great deal, and it's arguably an invaluable tool for anyone looking to write software: it gives you greater control over your computer's functions, many operations are more efficient using a shell-type interface, and performing a sequence of instructions many time over is often far more efficient than using a graphical interface.
+Before we venture into Python, we need to take a look at the *Bash shell*, which is one way of running programs on a computer. Throughout this course we'll be using the Bash shell a great deal, and it's arguably an invaluable tool for anyone looking to write software: it can give you greater control over your computer's functions and in many circumstances operations are more efficient using a shell-type interface - particularly for repeating sequences of actions multiple times.
 
 ## What is the Bash Shell?
 
@@ -31,7 +31,7 @@ sabsr3@sabsr3-VirtualBox:~/Desktop$
 ~~~
 {: .language-bash}
 
-This is the *command prompt*, which awaits your commands:
+This is the *command prompt*, which awaits your typed-in commands:
 
 - `sabsr3` represents your username you logged in as
 - `sabsr3-VirtualBox` represents the name of this virtual machine
@@ -51,11 +51,11 @@ sabsr3
 ~~~
 {: .language-bash}
 
-So here, we are seeing the fundamentals of the command line in action: type a command, have it executed, and show us some output from that command.
+So here, we are seeing the fundamentals of the command line in action: type a command, have it executed, and then show us some output from that command.
 
 ## Navigating the File System
 
-One aspect of using the shell that is often confusing is where and how you access files, and how this is represented within the shell. One key thing to remember is that the shell is always *somewhere* in your filesystem. This location is known as the *working directory*, and commands you run in the shell take this into account - it is the directory that the computer assumes we want to run commands in unless we explicitly specify something else.
+One aspect of using the shell that is often confusing is where and how you access files, and how this is all represented within the shell. One key thing to remember is that the shell is always *somewhere* in your filesystem. This location is known as the *working directory*, and commands you run in the shell take this into account - it is the directory that the computer assumes we want to run commands in unless we explicitly specify something else.
 
 One thing that tells us where we are is the prompt, which tells us we are at `~/Desktop` - the `~` is a shell shorthand that refers to our account's home directory, and `Desktop` is a directory within our home directory. Now within the SABS Ubuntu VM or provisioned laptops, our home directory is located at `/home/sabsr3`. So, in fact, we are currently located at `/home/sabsr3/Desktop` (if we replace the `~` shorthand).
 
@@ -78,7 +78,7 @@ ls
 ~~~
 {: .language-bash}
 
-And we should see that nothing is printed, and the shell unceremoniously returns us to the prompt! This is because there is nothing in the `Desktop` directory, so nothing is printed. This is fairly typical of shell commands: when nothing needs to be reported, nothing is printed.
+And we should see that nothing is printed, and the shell unceremoniously returns us to the prompt! This is because there is nothing in the `Desktop` directory, so nothing is printed. This is fairly typical of shell commands: when nothing needs to be reported - or if the command is successful - nothing is printed.
 
 So let's take a look at a slightly more interesting directory. We can *move* our working directory by using the `cd` (change directory) command, and then take a look. Let's say we wanted to see what is in our home directory, i.e. `/home/sabsr3`, which is the directory *above* this one. We could type the following, which brings us up one directory:
 
@@ -87,7 +87,7 @@ cd ..
 ~~~
 {: .language-bash}
 
-Here, we're passing an *argument* to the `cd` command. The `..` argument here means "the directory above".
+Here, we're passing an *argument* to the `cd` command. The `..` argument here means "the directory above". Again, note there is no output - the command was successful and had nothing to report.
 
 We can check our working directory using `pwd` as before:
 
@@ -208,6 +208,8 @@ rm Documents/file.txt
 ~~~
 
 Which puts our file system back into the state we first found it!
+
+FIXME: add in links to other resources: SWC Bash, linux docs, cheat sheet
 
 
 {% include links.md %}
