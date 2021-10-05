@@ -1,7 +1,7 @@
 ---
 title: "Brief Introduction to the Bash Shell"
-teaching: 10
-exercises: 0
+teaching: 0
+exercises: 15
 questions:
 - "What is the Bash shell?"
 - "How do I use the shell to run programs?"

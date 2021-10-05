@@ -1,7 +1,7 @@
 ---
 title: "Containers"
 teaching: 0
-exercises: 40
+exercises: 25
 questions:
 - "How can I store many values together?"
 objectives:
