@@ -42,9 +42,9 @@ unzip /home/sabsr3/Downloads/software-engineering-day1-gh-pages.zip
 ~~~
 {: .language-bash}
 
-The first `cd` command without any arguments *changes our working directory* to our home directory (on the provisioned laptops, this is `/home/sabsr3`).
+As a reminder, the first `cd` command without any arguments *changes our working directory* to our home directory (on the provisioned laptops, this is `/home/sabsr3`).
 
-The second command uses the unzip program to unpack the archive in your home directory, within a subdirectory called `software-engineering-day1-gh-pages`. If you do `ls` to list the files in your home directory, you should see this new subdirectory (amongst other directories and possibly files):
+The second command uses the `unzip` program to unpack the archive in your home directory, within a subdirectory called `software-engineering-day1-gh-pages`. If you do `ls` to list the files in your home directory, you should see this new subdirectory (amongst other directories and possibly files):
 
 ~~~
 ls

@@ -7,9 +7,24 @@ questions:
 - "How do I use the shell to run programs?"
 - "How do I navigate the file system using the shell?"
 objectives:
-- "FIXME"
+- "Explain the purposes of the shell and a terminal, and the differences between them."
+- "List some key benefits of using the shell as opposed to a graphical user interface."
+- "Use a terminal to access the shell to run commands and programs."
+- ""
 keypoints:
-- "FIXME"
+- "The shell is a program that provides access to the operating system's functions."
+- "A command line interface, like the shell, allows users to type in commands, execute them, and have any output displayed to the user - a cycle that is constantly repeated."
+- "A terminal is an interface or application that lets you interact with the shell."
+- "Navigating a file system using the shell is very similar to using a graphical file viewer."
+- "The working directory is the default location where the shell executes commands."
+- "Use the `ls` command to list files in the working directory."
+- "Use the `cd` command to change the working directory."
+- "The behaviour of commands can be altered by passing special arguments - called flags - to them."
+- "Reference to files or directories can be relative to the current working directory (without a leading `/`), or absolute (with a leading `/`)."
+- "Use the `cp` command to copy a file."
+- "Use the `mv` command to move a file or directory's location, and also to rename files."
+- "Use the `rm` command to delete a file. Note that this is a permanent action and cannot be reversed."
+- "Use the `man` command to get help on a command and its arguments and flags."
 ---
 
 Before we venture into Python, we need to take a look at the *Bash shell*, which is one way of running programs on a computer. Throughout this course we'll be using the Bash shell a great deal, and it's arguably an invaluable tool for anyone looking to write software: it can give you greater control over your computer's functions and in many circumstances operations are more efficient using a shell-type interface - particularly for repeating sequences of actions multiple times.
@@ -114,7 +129,7 @@ Another way to think about this is that it's very similar to how a file explorer
 
 Which in this case, indicates the files present in the `/home/sabsr3` directory. Now, we can use the interface in a graphical way to move around and view the file system, which in a nutshell, is equivalent to using the `cd` and `ls` commands.
 
-We can also pass special arguments to commands which change its behaviour. These typically are prefixes with a `-`. For example, if we use `-F` with `ls`, it will show us the type of each entry shown (e.g. which are files and which are directories):
+We can also pass special arguments to commands which change its behaviour, called *flags*. These flags are typically prefixed with a `-`. For example, if we use the `-F` flag with `ls`, it will show us the type of each entry shown (e.g. which are files and which are directories):
 
 ~~~
 ls -F
@@ -127,7 +142,7 @@ Documents/  Music/      Public/    Templates/
 ~~~
 {: .language-bash}
 
-A following `/` indicates a directory - so, in this case, all directories!
+A following `/` indicates a directory - so, in this case, these are all directories! Note that whilst some flags are present and have the same behaviour between commands, by and large this is not a rule. Different commands have different behaviours and purposes, so have different flags to control their behaviour.
 
 Now if we want to go back into the `Desktop` directory (a subdirectory of our home directory), we can pass it as an argument:
 
@@ -136,14 +151,14 @@ cd Desktop
 ~~~
 {: .language-bash}
 
-So far, we've been moving around using *relative* directory designations, either moving from our current directory to a directory above, or moving down into a subdirectory. But we can also move to other directories with an *absolute* directory reference. To get to our home directory, for example:
+So far, we've been moving around using *relative* directory designations, either moving from our current directory to a directory above, or moving down into a subdirectory. But we can also move to other directories with an *absolute* directory reference. To get to our home directory regardless of our current working directory, for example:
 
 ~~~
 cd /home/sabsr3
 ~~~
 {: .language-bash}
 
-Other commands that reference directories - and files - operate the same way, as we'll see later. `ls /home/sabsr3` for example would show us the contents in that specified directory.
+Other commands that reference directories - and files - operate the same way, as we'll see later. `ls /home/sabsr3` for example would show us the contents in that specified directory, again regardless of our current working directory.
 
 ## Manipulating Files
 
@@ -206,10 +221,55 @@ We can also delete files using `rm`. **Warning:** many versions of Linux, includ
 rm test.txt
 rm Documents/file.txt
 ~~~
+{: .language-bash}
 
 Which puts our file system back into the state we first found it!
 
-FIXME: add in links to other resources: SWC Bash, linux docs, cheat sheet
+## Getting Help
+
+You can get help on commands in the shell by using the manual pages, or *man pages* for short, e.g.
+
+~~~
+man ls
+~~~
+{: .language-bash}
+
+Which in this case, will give you help on the `ls` command:
+
+~~~
+LS(1)                            User Commands                           LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List  information  about  the FILEs (the current directory by default).
+       Sort entries alphabetically if none of -cftuvSUX nor --sort  is  speci‐
+       fied.
+
+       Mandatory  arguments  to  long  options are mandatory for short options
+       too.
+
+       -a, --all
+              do not ignore entries starting with .
+
+       -A, --almost-all
+              do not list implied . and ..
+...
+~~~
+{: .language-bash}
+
+As a reference it's a very useful and commonly used feature, since as well as a synopsis of a given command it gives you descriptions of the command's arguments and flags and what they do - the core of the shell!
+
+## Other Shell Resources
+
+Here are some resources you may find useful:
+
+- For a far more in-depth tutorial on Bash, after the course you may want to check out the Software Carpentry online training materials on the [Bash shell](https://swcarpentry.github.io/shell-novice/). They cover other topics such as *pipes* and *filters* (used for chaining multiple commands together and using this powerful technique to manipulate output from previous commands), redirecting input and output from commands from/to files (useful for capturing output), loops for iterating sections of Bash code, and writing Bash scripts to hold multiple commands.
+- A [handy reference](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html) for the most useful Bash shell commands, including others we haven't seen yet.
 
 
 {% include links.md %}
