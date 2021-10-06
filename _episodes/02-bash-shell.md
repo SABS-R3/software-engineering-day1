@@ -10,7 +10,7 @@ objectives:
 - "Explain the purposes of the shell and a terminal, and the differences between them."
 - "List some key benefits of using the shell as opposed to a graphical user interface."
 - "Use a terminal to access the shell to run commands and programs."
-- ""
+- "Use the shell to navigate around the file system and manipulate files."
 keypoints:
 - "The shell is a program that provides access to the operating system's functions."
 - "A command line interface, like the shell, allows users to type in commands, execute them, and have any output displayed to the user - a cycle that is constantly repeated."
