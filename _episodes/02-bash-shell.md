@@ -31,7 +31,7 @@ Before we venture into Python, we need to take a look at the *Bash shell*, which
 
 ## What is the Bash Shell?
 
-The most common way users interact with their computers today is via graphical user interfaces, such as those present in Microsoft Windows or Mac OS. However, before these came along it was typical to feed instructions to computers purely via the keyboard, into a *command line* interface, or CLI for short: commands are typed in, executed by the computer, and output from those commands displayed to the user, with this cycle constantly repeating.
+The most common way users interact with their computers today is via Graphical User Interfaces, or GUIs for short, such as those present in Microsoft Windows or Mac OS. However, before these came along it was typical to feed instructions to computers purely via the keyboard, into a *command line* interface, or CLI for short: commands are typed in, executed by the computer, and output from those commands displayed to the user, with this cycle constantly repeating.
 
 This description makes it sound as though the user sends commands directly to the computer, and the computer sends output directly to the user. In fact, there is usually a program in between called a command shell. What the user types goes into the shell, which then figures out what commands to run and orders the computer to execute them. Note, the shell is called the shell because it encloses the operating system in order to hide some of its complexity and make it simpler to interact with.
 
@@ -39,7 +39,7 @@ One of the most prevalent ones, the Bash shell, has been around longer than most
 
 ## Running the Shell
 
-Let's start by running the shell. Programs that give you access to a shell are often called a *terminal*. If you're using the provided SABS virtual machine (VM) or a provisioned laptop which use Ubuntu, open a new terminal by right-clicking on the desktop and selecting `Open in Terminal`. You'll be presented with a new window and something like the following:
+Let's start by running the shell. Programs that give you access to a shell are often called a *terminal*. If you're using the provided SABS virtual machine (VM) or a provisioned laptop which uses Ubuntu, open a new terminal by right-clicking on the desktop and selecting `Open in Terminal`. You'll be presented with a new window and something like the following:
 
 ~~~
 sabsr3@sabsr3-VirtualBox:~/Desktop$
@@ -50,7 +50,7 @@ This is the *command prompt*, which awaits your typed-in commands (which will li
 
 - `sabsr3` represents your username you logged in as
 - `sabsr3-VirtualBox` represents the name of this virtual machine
-- `~/Desktop` is the folder - or directory in Linux speak - you are currently in, showing where you currently are on the filesystem. We'll look into this a bit later
+- `~/Desktop` is the folder - or directory in Linux speak - you are currently in, showing where you currently are on the file system. We'll look into this a bit later
 
 From here, you can type in and execute commands and see their output. For example, if you type the following and press `Enter`, it should show you your username:
 
@@ -70,7 +70,9 @@ So here, we are seeing the fundamentals of the command line in action: type a co
 
 ## Navigating the File System
 
-One aspect of using the shell that is often confusing is where and how you access files, and how this is all represented within the shell. One key thing to remember is that the shell is always *somewhere* in your filesystem. This location is known as the *working directory*, and commands you run in the shell take this into account - it is the directory that the computer assumes we want to run commands in unless we explicitly specify something else.
+A key aspect of any operating system is how it organises, stores, and retrieves its data. This is typically within a hierarchical arrangement of containers (folders/directories) which contain files - this arrangement is referred to as a *file system*.
+
+Something that is often confusing about the shell is where and how you access files, and how this is all represented within the shell. One key thing to remember is that in the shell, you are always looking at *somewhere* in your hierarchical file system. This location is known as the *working directory*, and commands you run in the shell take this into account - it is the directory that the computer assumes we want to run commands in unless we explicitly specify something else.
 
 One thing that tells us where we are is the prompt, which tells us we are at `~/Desktop` - the `~` is a shell shorthand that refers to our account's home directory, and `Desktop` is a directory within our home directory. Now within the SABS Ubuntu VM or provisioned laptops, our home directory is located at `/home/sabsr3`. So, in fact, we are currently located at `/home/sabsr3/Desktop` (if we replace the `~` shorthand).
 
@@ -95,7 +97,7 @@ ls
 
 And we should see that nothing is printed, and the shell unceremoniously returns us to the prompt! This is because there is nothing in the `Desktop` directory, so nothing is printed. This is fairly typical of shell commands: when nothing needs to be reported - or if the command is successful - nothing is printed.
 
-So let's take a look at a slightly more interesting directory. We can *move* our working directory by using the `cd` (change directory) command, and then take a look. Let's say we wanted to see what is in our home directory, i.e. `/home/sabsr3`, which is the directory *above* this one. We could type the following, which brings us up one directory:
+So let's take a look at a slightly more interesting directory. We can change which directory we're looking at - our working directory - by using the `cd` (change directory) command, and then take a look at what's there. Let's say we wanted to see what is in our home directory, i.e. `/home/sabsr3`, which is the directory *above* this one. We could type the following, which brings us up one directory:
 
 ~~~
 cd ..
@@ -162,7 +164,7 @@ Other commands that reference directories - and files - operate the same way, as
 
 ## Manipulating Files
 
-We can also change things on the filesystem using various commands. To illustrate, let's create a file to play with first in your home directory. We can use the `touch` command to create an empty file for us:
+We can also change things on the file system using various commands. To illustrate, let's create a file to play with first in your home directory. We can use the `touch` command to create an empty file for us:
 
 ~~~
 cd
@@ -179,7 +181,7 @@ Documents/  Music/      Public/    Templates/  Videos/
 ~~~
 {: .language-bash}
 
-We can copy files using `cp`:
+We can copy files using `cp` (short for copy):
 
 ~~~
 cp test.txt test2.txt
@@ -193,7 +195,7 @@ Documents/  Music/      Public/    Templates/  test.txt
 ~~~
 {: .language-bash}
 
-And we can move files using `mv` (e.g. into the `Documents` directory):
+And we can move files using `mv` (short for "move"), e.g. into the `Documents` directory (or another of your choosing):
 
 ~~~
 mv test2.txt Documents
@@ -215,7 +217,7 @@ mv Documents/test2.txt Documents/file.txt
 
 So here, we reference the `test2.txt` file we want to rename in the `Documents` directory by specifying the directory first.
 
-We can also delete files using `rm`. **Warning:** many versions of Linux, including this one, will not prompt for confirmation of the deletion first: the file will be immediately deleted. Plus, once you delete a file using this method, note the file will not be retrievable. This is unlike other graphical methods of deleting files with a file explorer, where they often end up in a "trash" folder where they can be "undeleted".
+We can also delete files using `rm` (short for "remove"). **Warning:** many versions of Linux, including this one, will not prompt for confirmation of the deletion first: the file will be immediately deleted. Plus, once you delete a file using this method, note the file will not be retrievable. This is unlike other graphical methods of deleting files with a file explorer, where they often end up in a "trash" folder where they can be "undeleted".
 
 ~~~
 rm test.txt
