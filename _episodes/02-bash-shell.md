@@ -39,14 +39,14 @@ One of the most prevalent ones, the Bash shell, has been around longer than most
 
 ## Running the Shell
 
-Let's start by running the shell. Programs that give you access to a shell are often called a *terminal*. So let's open a new terminal by right-clicking on the desktop and selecting `Open in Terminal`. You'll be presented with a new window and something like the following:
+Let's start by running the shell. Programs that give you access to a shell are often called a *terminal*. If you're using the provided SABS virtual machine (VM) or a provisioned laptop which use Ubuntu, open a new terminal by right-clicking on the desktop and selecting `Open in Terminal`. You'll be presented with a new window and something like the following:
 
 ~~~
 sabsr3@sabsr3-VirtualBox:~/Desktop$
 ~~~
 {: .language-bash}
 
-This is the *command prompt*, which awaits your typed-in commands:
+This is the *command prompt*, which awaits your typed-in commands (which will likely vary if you're not using a SABS VM or laptop, but may contain some of these elements):
 
 - `sabsr3` represents your username you logged in as
 - `sabsr3-VirtualBox` represents the name of this virtual machine
@@ -116,7 +116,7 @@ pwd
 ~~~
 {: .language-bash}
 
-And typing `ls` now, we should see:
+And typing `ls` now, we should see something like (which may look different on other systems):
 
 ~~~
 Desktop  Documents  Downloads  Music  Pictures  Public  snap  Templates  Videos
