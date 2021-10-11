@@ -382,7 +382,7 @@ def write_paper(academics, name, title, date):
 
     for academic in academics:
         if academic['name'] == name:
-            academic['name']['papers'].append(paper)
+            academic['papers'].append(paper)
             break
 ~~~
 {: .language-python}
