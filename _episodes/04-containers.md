@@ -494,6 +494,21 @@ Here, note that `y` is not equal to the contents of `x`, it is a second label on
 
 ~~~
 x = [1, 2, 3]
+y = x
+y[1] = 20
+print(x, y)
+~~~
+{: .language-python}
+
+~~~
+[1, 20, 3] [1, 20, 3]
+~~~
+{: .output}
+
+Instead, if we wanted to ensure our changes occurred separately on an actual copy of the contents, we could do:
+
+~~~
+x = [1, 2, 3]
 y = x[:]
 y[1] = 20
 print(x, y)
