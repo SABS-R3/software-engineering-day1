@@ -312,8 +312,7 @@ print(paper)
 
 The `@` syntax means that a function called `property` is being used to modify the behavior of the method - this is called a **decorator**.
 In this case the `@property` decorator converts `last_paper` from a normal method into a property.
-In order to act as a function decorator, the decorator must be a function, which accepts a function as its first parameter and returns a function.
-Since functions in Python are just objects of type `function` (try asking Python for the type of a function you've defined), it's perfectly natural to pass them around as arguments to and return values of other functions.
+We'll see tomorrow how we decorators work in more detail and how we can make our own.
 
 Function decorators in Python are a modification of the [Decorator](https://en.wikipedia.org/wiki/Decorator_pattern) **Design Pattern**.
 Design Patterns are established templates that we can use to design the interactions beteen components in software using the Object Oriented paradigm.
