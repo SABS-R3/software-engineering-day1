@@ -68,8 +68,8 @@ ls
 So using Bash's `mv` command, this directory is now known as `se-day1`:
 
 ~~~
-se-day1  Documents  Music     Public  Templates
-Desktop  Downloads  Pictures  snap    Videos
+Desktop    Downloads  Pictures  se-day1  Templates
+Documents  Music      Public    snap     Videos
 ~~~
 {: .output}
 
@@ -93,15 +93,14 @@ python3
 And then you are presented with something like:
 
 ~~~
-Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
-[GCC 9.3.0] on linux
+Python 3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ~~~
 {: .output}
 
 And lo and behold! You are presented with yet another prompt.
-So, we're actually running a Python interpreter from the shell - it's only yet another program we can run from the shell after all.
+So now, we're actually running a Python interpreter from the shell - it's only yet another program we can run from the shell after all.
 But note that shell commands won't work again until we exit the interpreter. Whilst we're in the Python interpreter, we can only use Python commands.
 
 You can exit the interpreter and get back to the shell by typing:
@@ -116,7 +115,7 @@ You can exit the interpreter and get back to the shell by typing:
 Using either method, you'll see:
 
 ~~~
-$
+dtcse@dtcse-VirtualBox:~/se-day1/code$
 ~~~
 {: .output}
 
@@ -195,7 +194,7 @@ When the number of labels on a box ("variables referencing an address") gets dow
 
 After a while, the language's "garbage collector" will wander by, notice a box with no labels, and throw the data away, making that box available for more data.
 
-Older languages like C and Fortran don't have Garbage collectors. So a memory address with no references to it still takes up memory, and the computer can more easily run out.
+Older languages like C and Fortran don't have garbage collectors. So a memory address with no references to it still takes up memory, and the computer can more easily run out.
 
 So in Python, when I write:
 
@@ -394,7 +393,7 @@ print(full)
 Here we use the `+` operator to concatenate strings together.
 
 ~~~
-"Joe Frederick 'Bloggs'"
+Joe Frederick 'Bloggs'
 ~~~
 {: .output}
 

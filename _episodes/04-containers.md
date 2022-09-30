@@ -33,8 +33,7 @@ python3
 {: .language-bash}
 
 ~~~
-Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
-[GCC 9.3.0] on linux
+Python 3.10.4 (main, Jun 29 2022, 12:14:53) [GCC 11.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ~~~
@@ -405,7 +404,7 @@ me.keys()
 {: .language-python}
 
 ~~~
-dict_keys(['age', 'Jobs', 'name'])
+dict_keys(['name', age', 'Jobs'])
 ~~~
 {: .output}
 

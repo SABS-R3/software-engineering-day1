@@ -43,7 +43,13 @@ Microsoft's VSCode is a lightweight IDE which is great when starting out develop
 
 If you haven't run VSCode yet, do this now. Select `Show Applications` from the grid-type icon in the lower left hand corner of the desktop, and type `vscode` into the text box at the top, and select the VSCode application that appears. You'll be presented with the VSCode interface.
 
-The first thing we need to do is open our `se-day1/code` folder in VSCode. Select `Open Folder` from the bar on the left (or from the `File` drop down menu at the top of VSCode), and a dialogue window will appear. Select `Home` from the navigation bar on the left and then double click on `se-day1`, then double click on `code`. Finally, select `OK` in the top right of the window. You may be asked whether you trust the authors of the files in this folder. Select the checkbox, and click 'Yes, I trust the authors' (although in general use some caution is recommended!)
+The first thing we need to do is open our `se-day1/code` folder in VSCode. Select `Open Folder` from the bar on the left (or from the `File` drop down menu at the top of VSCode), and a dialogue window will appear. Select `Home` from the navigation bar on the left and then double click on `se-day1`, then double click on `code`. Finally, select `Open` in the top right of the window.
+
+
+> ## Trusting Code
+> 
+> You may be asked whether you trust the authors of the files in this folder. Select the checkbox, and click 'Yes, I trust the authors' (although in general use some caution is recommended!)
+{: .callout}
 
 This directory is now the current working directory for VSCode, so when we run scripts from VSCode, this will be the working directory they'll run from.
 
@@ -52,9 +58,11 @@ If you'd like to explore VSCode in more depth than this course offers, see the [
 
 ## Our First Python Standalone Script
 
-In main `Welcome` window, click on `New file`. You can also create a new file at any time by selecting `File` -> `New File` from the menu at any time. A new empty file will be brought up in the editor.
+Let's create our first Python script in VSCode and save it:
 
-Before we enter anything into this file, we're going to save it first. Select `File` > `Save As...`. You'll find yourself in the `se-day1/code` directory. Enter the filename `hello_world.py` at the top and select `Save`. Since we've saved the file with `.py` suffix, VSCode assumes we'll be writing Python in this file.
+- Select `File` -> `New File` from the menu. A new file will appear.
+- On line 1, you'll see a message about selecting a language. Click on `Select a language`, and type in `python`, and select `Python (python) Built-In`
+. Select `File` > `Save As...`. You'll find yourself in the `se-day1/code` directory. Enter the filename `hello_world.py` at the top and select `Save`.
 
 Let's start with a classic 'Hello world' script. Enter this into the editor:
 
@@ -70,12 +78,12 @@ VSCode comes with Python support built-in. You'll notice that as you type, the e
 Now let's try running our script from within VSCode. Select the `Run` icon on the far left navigation bar (it looks like an arrow pointing right with a bug in it), then select `Run and Debug`. It will ask you to `Select a debug configuration`, so select `Python File`. It will now run our script, and you should see a terminal window pop-up at the bottom, with something like the following text in it:
 
 ~~~
-dtcse@dtcse-2020:~/se-day1/code$  /usr/bin/env /usr/bin/python3 /home/dtcse/.vscode/extensions/ms-python.python-2020.9.112786/pythonFiles/lib/python/debugpy/launcher 39017 -- /home/dtcse/se-day1/code/hello_world.py
+dtcse@dtcse-VirtualBox:~/se-day1/code$  /usr/bin/env /usr/bin/python3 /home/dtcse/.vscode/extensions/ms-python.python-2022.14.0/pythonFiles/lib/python/debugpy/launcher 38613 -- /home/dtcse/se-day1/code/hello_world.py
 Hello world!
 ~~~
 {: .language-bash}
 
-Here, we can see that the interpreter `/usr/bin/python3` has been used to run the VSCode debugger on our `hello_world.py` script, along with the output.
+Here, we can see that the interpreter `/usr/bin/python3` has been used to run the VSCode debugger on our `hello_world.py` script, which produces the shown 'Hello world!' output.
 
 
 ## Setting up a Virtual Environment
@@ -116,19 +124,18 @@ pip3 list
 ~~~
 Package       Version
 ------------- -------
-pip           20.0.2
-pkg-resources 0.0.0
-setuptools    44.0.0
+pip        22.0.2
+setuptools 59.6.0
 ~~~
 {: .output}
 
-In addition to Python which is also installed, as we can see, we don't have any other packages installed yet, aside from `pip` itself, `pkg-resources` (used to find and manage Python package and version dependencies), and `setuptools` (which contains functionality for building and distributing Python packages).
+In addition to Python which is also installed, as we can see, we don't have any other packages installed yet, aside from `pip` itself, and `setuptools` (which contains functionality for building and distributing Python packages).
 
 Note that this virtual environment is only active within our current terminal. If we start another terminal and want to use this virtual environment, we'd  have to activate it there as well. Also, if we were to close the terminal, the activation of this environment (not the environment itself) will be forgotten. When we want to use this virtual environment we have to remember to start it using the `source venv/bin/activate` command above from within `se-day1/code` directory each time we open a new terminal. Otherwise, by default, we will the using the global Python interpreter and not the specific environment we have created.
 
 If we wanted to deactivate our virtual environment, and return to the globally available set of Python packages, we'd use `deactivate` on the command line (although don't do this now!).
 
-Other languages make use of virtual environments, such as Ruby, JavaScript, and Go - it's a great way to keep your environments separate and avoid confusion over dependencies.
+Other languages make use of virtual environments, such as Ruby, JavaScript, and Go - it's a great way to keep your environments separate and avoid confusion over which dependencie belong with which project.
 
 
 ### Running the Script from the Command Line
@@ -157,7 +164,7 @@ python3 hello_world.py
 {: .language-bash}
 
 ~~~
-Hello World!
+Hello world!
 ~~~
 {: .output}
 
@@ -203,7 +210,7 @@ u
 ~~~
 {: .output}
 
-If we want to duplicate how other traditional languages implement`for` loops, Python has a built-in function called `range()` which can generate a sequence of numbers. Create a new Python file called `range.py` e.g.:
+If we want to duplicate how other traditional languages implement`for` loops, Python has a built-in function called `range()` which can generate a sequence of numbers. Create a new Python file called `range.py` and put in it, for example:
 
 ~~~
 for x in range(1, 10, 2):
