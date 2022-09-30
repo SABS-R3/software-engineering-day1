@@ -70,7 +70,7 @@ VSCode comes with Python support built-in. You'll notice that as you type, the e
 Now let's try running our script from within VSCode. Select the `Run` icon on the far left navigation bar (it looks like an arrow pointing right with a bug in it), then select `Run and Debug`. It will ask you to `Select a debug configuration`, so select `Python File`. It will now run our script, and you should see a terminal window pop-up at the bottom, with something like the following text in it:
 
 ~~~
-sabsr3@sabsr3-2020:~/se-day1/code$  /usr/bin/env /usr/bin/python3 /home/sabsr3/.vscode/extensions/ms-python.python-2020.9.112786/pythonFiles/lib/python/debugpy/launcher 39017 -- /home/sabsr3/se-day1/code/hello_world.py
+dtcse@dtcse-2020:~/se-day1/code$  /usr/bin/env /usr/bin/python3 /home/dtcse/.vscode/extensions/ms-python.python-2020.9.112786/pythonFiles/lib/python/debugpy/launcher 39017 -- /home/dtcse/se-day1/code/hello_world.py
 Hello world!
 ~~~
 {: .language-bash}
@@ -143,11 +143,11 @@ which python3
 And you should see something like:
 
 ~~~
-/home/sabsr3/se-day1/code/venv/bin/python3
+/home/dtcse/se-day1/code/venv/bin/python3
 ~~~
 {: .output}
 
-Which confirms that we are using the Python 3 interpreter from within our virtual environment at `/home/sabsr3/se-day1/code/venv`.
+Which confirms that we are using the Python 3 interpreter from within our virtual environment at `/home/dtcse/se-day1/code/venv`.
 
 Now let's run our new script using our virtual environment from the command line:
 

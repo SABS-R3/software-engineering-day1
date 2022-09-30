@@ -42,14 +42,14 @@ One of the most prevalent ones, the Bash shell, has been around longer than most
 Let's start by running the shell. Programs that give you access to a shell are often called a *terminal*. If you're using the provided SABS virtual machine (VM) or a provisioned laptop which uses Ubuntu, open a new terminal by right-clicking on the desktop and selecting `Open in Terminal`. You'll be presented with a new window and something like the following:
 
 ~~~
-sabsr3@sabsr3-VirtualBox:~/Desktop$
+dtcse@dtcse-VirtualBox:~/Desktop$ 
 ~~~
 {: .language-bash}
 
 This is the *command prompt*, which awaits your typed-in commands (which will likely vary if you're not using a SABS VM or laptop, but may contain some of these elements):
 
-- `sabsr3` represents your username you logged in as
-- `sabsr3-VirtualBox` represents the name of this virtual machine
+- `dtcse` represents your username you logged in as
+- `dtcse-VirtualBox` represents the name of this virtual machine
 - `~/Desktop` is the folder - or directory in Linux speak - you are currently in, showing where you currently are on the file system. We'll look into this a bit later
 
 From here, you can type in and execute commands and see their output. For example, if you type the following and press `Enter`, it should show you your username:
@@ -62,7 +62,7 @@ whoami
 And you should see:
 
 ~~~
-sabsr3
+dtcse
 ~~~
 {: .language-bash}
 
@@ -74,7 +74,7 @@ A key aspect of any operating system is how it organises, stores, and retrieves 
 
 Something that is often confusing about the shell is where and how you access files, and how this is all represented within the shell. One key thing to remember is that in the shell, you are always looking at *somewhere* in your hierarchical file system. This location is known as the *working directory*, and commands you run in the shell take this into account - it is the directory that the computer assumes we want to run commands in unless we explicitly specify something else.
 
-One thing that tells us where we are is the prompt, which tells us we are at `~/Desktop` - the `~` is a shell shorthand that refers to our account's home directory, and `Desktop` is a directory within our home directory. Now within the SABS Ubuntu VM or provisioned laptops, our home directory is located at `/home/sabsr3`. So, in fact, we are currently located at `/home/sabsr3/Desktop` (if we replace the `~` shorthand).
+One thing that tells us where we are is the prompt, which tells us we are at `~/Desktop` - the `~` is a shell shorthand that refers to our account's home directory, and `Desktop` is a directory within our home directory. Now within the SABS Ubuntu VM or provisioned laptops, our home directory is located at `/home/dtcse`. So, in fact, we are currently located at `/home/dtcse/Desktop` (if we replace the `~` shorthand).
 
 Another way to find out where we are is the following - which stands for "print working directory" - and will output the current working directory in your shell:
 
@@ -84,11 +84,11 @@ pwd
 {: .language-bash}
 
 ~~~
-/home/sabsr3/Desktop
+/home/dtcse/Desktop
 ~~~
 {: .language-bash}
 
-So similarly, this tells us we are in the `Desktop` directory, which is within our home directory at `/home/sabsr3`. We can also see what's in this directory by using `ls`, which is short for "list":
+So similarly, this tells us we are in the `Desktop` directory, which is within our home directory at `/home/dtcse`. We can also see what's in this directory by using `ls`, which is short for "list":
 
 ~~~
 ls
@@ -97,7 +97,7 @@ ls
 
 And we should see that nothing is printed, and the shell unceremoniously returns us to the prompt! This is because there is nothing in the `Desktop` directory, so nothing is printed. This is fairly typical of shell commands: when nothing needs to be reported - or if the command is successful - nothing is printed.
 
-So let's take a look at a slightly more interesting directory. We can change which directory we're looking at - our working directory - by using the `cd` (change directory) command, and then take a look at what's there. Let's say we wanted to see what is in our home directory, i.e. `/home/sabsr3`, which is the directory *above* this one. We could type the following, which brings us up one directory:
+So let's take a look at a slightly more interesting directory. We can change which directory we're looking at - our working directory - by using the `cd` (change directory) command, and then take a look at what's there. Let's say we wanted to see what is in our home directory, i.e. `/home/dtcse`, which is the directory *above* this one. We could type the following, which brings us up one directory:
 
 ~~~
 cd ..
@@ -114,7 +114,7 @@ pwd
 {: .language-bash}
 
 ~~~
-/home/sabsr3
+/home/dtcse
 ~~~
 {: .language-bash}
 
@@ -125,11 +125,11 @@ Desktop  Documents  Downloads  Music  Pictures  Public  snap  Templates  Videos
 ~~~
 {: .language-bash}
 
-Another way to think about this is that it's very similar to how a file explorer or viewer application shows you files. If you click on the folder-type icon in the sidebar for example, you should see:
+Another way to think about this is that it's very similar to how a file explorer or viewer application shows you files. If you click on the folder-type icon in the sidebar on the left for example, you should see the following (although the colours may be slightly different):
 
 ![gui-directory](../fig/02-gui-directory-view.png)
 
-Which in this case, indicates the files present in the `/home/sabsr3` directory. Now, we can use the interface in a graphical way to move around and view the file system, which in a nutshell, is equivalent to using the `cd` and `ls` commands.
+Which in this case, indicates the files present in the `/home/dtcse` directory. Now, we can use the interface in a graphical way to move around and view the file system, which in a nutshell, is equivalent to using the `cd` and `ls` commands.
 
 We can also pass special arguments to commands which change its behaviour, called *flags*. These flags are typically prefixed with a `-`. For example, if we use the `-F` flag with `ls`, it will show us the type of each entry shown (e.g. which are files and which are directories):
 
@@ -156,11 +156,11 @@ cd Desktop
 So far, we've been moving around using *relative* directory designations, either moving from our current directory to a directory above, or moving down into a subdirectory. But we can also move to other directories with an *absolute* directory reference. To get to our home directory regardless of our current working directory, for example:
 
 ~~~
-cd /home/sabsr3
+cd /home/dtcse
 ~~~
 {: .language-bash}
 
-Other commands that reference directories - and files - operate the same way, as we'll see later. `ls /home/sabsr3` for example would show us the contents in that specified directory, again regardless of our current working directory.
+Other commands that reference directories - and files - operate the same way, as we'll see later. `ls /home/dtcse` for example would show us the contents in that specified directory, again regardless of our current working directory.
 
 ## Manipulating Files
 
@@ -264,6 +264,8 @@ DESCRIPTION
 ~~~
 {: .language-bash}
 
+Here, you can use the up or down arrow keys to scroll the text a line at a time, or the space bar and `b` key to move forward or backwards a page at a time. To exit this view, press the `q` key to quit back to the command prompt.
+
 As a reference it's a very useful and commonly used feature, since as well as a synopsis of a given command it gives you descriptions of the command's arguments and flags and what they do - the core of the shell!
 
 ## Other Shell Resources
@@ -271,7 +273,7 @@ As a reference it's a very useful and commonly used feature, since as well as a 
 Here are some resources you may find useful:
 
 - For a far more in-depth tutorial on Bash, after the course you may want to check out the Software Carpentry online training materials on the [Bash shell](https://swcarpentry.github.io/shell-novice/). They cover other topics such as *pipes* and *filters* (used for chaining multiple commands together and using this powerful technique to manipulate output from previous commands), redirecting input and output from commands from/to files (useful for capturing output), loops for iterating sections of Bash code, and writing Bash scripts to hold multiple commands.
-- A [handy reference](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html) for the most useful Bash shell commands, including others we haven't seen yet.
+- A [handy reference](https://sites.tufts.edu/cbi/files/2013/01/linux_cheat_sheet.pdf) for the most useful Bash shell commands, including others we haven't seen yet. There are many Bash command ["cheat sheets"](https://www.google.com/search?q=bash+command+cheat+sheet&oq=bash+command+cheat+sheet&aqs=chrome..69i57j0i512j0i22i30l5j69i60.2833j0j4&sourceid=chrome&ie=UTF-8) out there too, which are great as reminders - find one that works for you!
 
 
 {% include links.md %}
