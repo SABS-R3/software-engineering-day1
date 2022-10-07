@@ -354,7 +354,7 @@ Note we can add as many things that we want to `print` by separating them with a
 For a float, a number after a point is optional. But the *dot* makes it a float.
 
 ~~~
-Weight in kg 121.00000000000001
+Weight in lb 121.00000000000001
 ~~~
 {: .output}
 
