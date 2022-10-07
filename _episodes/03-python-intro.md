@@ -345,7 +345,7 @@ Python is an interpreted language that is *dynamically typed*, which means the t
 ~~~
 weight_kg = 55
 weight_lb = 2.2 * weight_kg
-print('Weight in kg', weight_lb)
+print('Weight in lb', weight_lb)
 ~~~
 {: .language-python}
 

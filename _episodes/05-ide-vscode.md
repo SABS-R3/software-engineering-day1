@@ -60,7 +60,7 @@ If you'd like to explore VSCode in more depth than this course offers, see the [
 
 Let's create our first Python script in VSCode and save it:
 
-- Select `File` -> `New File` from the menu. A new file will appear.
+- Select `File` -> `New Text File` from the menu. A new file will appear.
 - On line 1, you'll see a message about selecting a language. Click on `Select a language`, and type in `python`, and select `Python (python) Built-In`
 . Select `File` > `Save As...`. You'll find yourself in the `se-day1/code` directory. Enter the filename `hello_world.py` at the top and select `Save`.
 
@@ -174,7 +174,7 @@ So here, we're doing a very similar thing to what VSCode was doing when running 
 
 Let's look at how we can influence control flow within a Python script using loops and conditionals. We'll use VSCode to write a new script.
 
-In VSCode, create a new script by selecting `File` and selecting `New File`, and save the script as`vowels.py` using `File` -> `Save As...`.
+In VSCode, create a new script by selecting `File` and selecting `New Text File`, and save the script as`vowels.py` using `File` -> `Save As...`.
 
 ### Loops
 

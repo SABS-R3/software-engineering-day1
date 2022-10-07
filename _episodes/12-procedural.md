@@ -273,7 +273,7 @@ Hello, Named Argument!
 ## Function Composition
 
 One of the main reasons for defining a function is to encapsulate our code, so that it can be used without having to worry about exactly how the computation is performed.
-This means we're free to implement the funciton however we want, including deferring some part of the task to another function that already exists.
+This means we're free to implement the function however we want, including deferring some part of the task to another function that already exists.
 
 For example, if some data processing code we're working on needs to be able to accept temperatures in Fahrenheit, we might need a way to convert these into Kelvin.
 So we could write these two temperature conversion functions:
